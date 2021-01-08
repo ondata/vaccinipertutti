@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/vaccinipertutti/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/vaccinipertutti/static/js/main.2d769f7f.chunk.js",
+    "main.js.map": "/vaccinipertutti/static/js/main.2d769f7f.chunk.js.map",
+    "runtime-main.js": "/vaccinipertutti/static/js/runtime-main.06760e74.js",
+    "runtime-main.js.map": "/vaccinipertutti/static/js/runtime-main.06760e74.js.map",
+    "static/js/2.3f7b93f5.chunk.js": "/vaccinipertutti/static/js/2.3f7b93f5.chunk.js",
+    "static/js/2.3f7b93f5.chunk.js.map": "/vaccinipertutti/static/js/2.3f7b93f5.chunk.js.map",
+    "static/js/3.e40bcd18.chunk.js": "/vaccinipertutti/static/js/3.e40bcd18.chunk.js",
+    "static/js/3.e40bcd18.chunk.js.map": "/vaccinipertutti/static/js/3.e40bcd18.chunk.js.map",
+    "index.html": "/vaccinipertutti/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/vaccinipertutti/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.3f7b93f5.chunk.js.LICENSE.txt": "/vaccinipertutti/static/js/2.3f7b93f5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06760e74.js",
+    "static/js/2.3f7b93f5.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.2d769f7f.chunk.js"
+  ]
+}
