@@ -93,10 +93,10 @@
             "data_somministrazione":"2020-12-27T00:00:00.000Z",
             "area":"EMR",
             "totale":963,
-            "sesso_maschile":367,
-            "sesso_femminile":596,
-            "categoria_operatori_sanitari_sociosanitari":578,
-            "categoria_personale_non_sanitario":359,
+            "sesso_maschile":368,
+            "sesso_femminile":595,
+            "categoria_operatori_sanitari_sociosanitari":579,
+            "categoria_personale_non_sanitario":358,
             "categoria_ospiti_rsa":26
         },
         {
@@ -114,11 +114,11 @@
             "index":6,
             "data_somministrazione":"2020-12-27T00:00:00.000Z",
             "area":"ITA",
-            "totale":7414,
-            "sesso_maschile":3532,
-            "sesso_femminile":3882,
-            "categoria_operatori_sanitari_sociosanitari":6555,
-            "categoria_personale_non_sanitario":538,
+            "totale":7463,
+            "sesso_maschile":3571,
+            "sesso_femminile":3892,
+            "categoria_operatori_sanitari_sociosanitari":6605,
+            "categoria_personale_non_sanitario":537,
             "categoria_ospiti_rsa":321
         },
         {
@@ -147,10 +147,10 @@
             "index":9,
             "data_somministrazione":"2020-12-27T00:00:00.000Z",
             "area":"LOM",
-            "totale":716,
-            "sesso_maschile":419,
-            "sesso_femminile":297,
-            "categoria_operatori_sanitari_sociosanitari":681,
+            "totale":766,
+            "sesso_maschile":457,
+            "sesso_femminile":309,
+            "categoria_operatori_sanitari_sociosanitari":731,
             "categoria_personale_non_sanitario":23,
             "categoria_ospiti_rsa":12
         },
@@ -202,10 +202,10 @@
             "index":14,
             "data_somministrazione":"2020-12-27T00:00:00.000Z",
             "area":"PIE",
-            "totale":909,
+            "totale":908,
             "sesso_maschile":366,
-            "sesso_femminile":543,
-            "categoria_operatori_sanitari_sociosanitari":758,
+            "sesso_femminile":542,
+            "categoria_operatori_sanitari_sociosanitari":757,
             "categoria_personale_non_sanitario":75,
             "categoria_ospiti_rsa":76
         },
@@ -443,17 +443,6 @@
         {
             "index":36,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
-            "area":"EMR",
-            "totale":1,
-            "sesso_maschile":0,
-            "sesso_femminile":1,
-            "categoria_operatori_sanitari_sociosanitari":1,
-            "categoria_personale_non_sanitario":0,
-            "categoria_ospiti_rsa":0
-        },
-        {
-            "index":37,
-            "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"FVG",
             "totale":629,
             "sesso_maschile":250,
@@ -463,18 +452,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":38,
+            "index":37,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"ITA",
-            "totale":4736,
+            "totale":4735,
             "sesso_maschile":1926,
-            "sesso_femminile":2810,
-            "categoria_operatori_sanitari_sociosanitari":4152,
+            "sesso_femminile":2809,
+            "categoria_operatori_sanitari_sociosanitari":4151,
             "categoria_personale_non_sanitario":223,
             "categoria_ospiti_rsa":361
         },
         {
-            "index":39,
+            "index":38,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"LAZ",
             "totale":1604,
@@ -485,7 +474,7 @@
             "categoria_ospiti_rsa":60
         },
         {
-            "index":40,
+            "index":39,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"LIG",
             "totale":12,
@@ -496,7 +485,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":41,
+            "index":40,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"LOM",
             "totale":128,
@@ -507,7 +496,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":42,
+            "index":41,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"MAR",
             "totale":17,
@@ -518,7 +507,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":43,
+            "index":42,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"PAB",
             "totale":383,
@@ -529,7 +518,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":44,
+            "index":43,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"PIE",
             "totale":723,
@@ -540,7 +529,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":45,
+            "index":44,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"SIC",
             "totale":239,
@@ -551,7 +540,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":46,
+            "index":45,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"TOS",
             "totale":302,
@@ -562,7 +551,7 @@
             "categoria_ospiti_rsa":262
         },
         {
-            "index":47,
+            "index":46,
             "data_somministrazione":"2020-12-30T00:00:00.000Z",
             "area":"VEN",
             "totale":698,
@@ -573,7 +562,7 @@
             "categoria_ospiti_rsa":39
         },
         {
-            "index":48,
+            "index":47,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"CAM",
             "totale":1484,
@@ -584,18 +573,18 @@
             "categoria_ospiti_rsa":1
         },
         {
-            "index":49,
+            "index":48,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"EMR",
             "totale":2102,
             "sesso_maschile":741,
             "sesso_femminile":1361,
-            "categoria_operatori_sanitari_sociosanitari":1369,
+            "categoria_operatori_sanitari_sociosanitari":1370,
             "categoria_personale_non_sanitario":411,
-            "categoria_ospiti_rsa":322
+            "categoria_ospiti_rsa":321
         },
         {
-            "index":50,
+            "index":49,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"FVG",
             "totale":1054,
@@ -606,18 +595,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":51,
+            "index":50,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"ITA",
-            "totale":23563,
-            "sesso_maschile":9041,
-            "sesso_femminile":14522,
-            "categoria_operatori_sanitari_sociosanitari":19624,
-            "categoria_personale_non_sanitario":1578,
-            "categoria_ospiti_rsa":2361
+            "totale":23591,
+            "sesso_maschile":9046,
+            "sesso_femminile":14545,
+            "categoria_operatori_sanitari_sociosanitari":19633,
+            "categoria_personale_non_sanitario":1577,
+            "categoria_ospiti_rsa":2381
         },
         {
-            "index":52,
+            "index":51,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"LAZ",
             "totale":4907,
@@ -628,7 +617,7 @@
             "categoria_ospiti_rsa":283
         },
         {
-            "index":53,
+            "index":52,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"LIG",
             "totale":935,
@@ -639,7 +628,7 @@
             "categoria_ospiti_rsa":183
         },
         {
-            "index":54,
+            "index":53,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"LOM",
             "totale":665,
@@ -650,7 +639,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":55,
+            "index":54,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"MAR",
             "totale":384,
@@ -661,7 +650,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":56,
+            "index":55,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"PAB",
             "totale":444,
@@ -672,7 +661,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":57,
+            "index":56,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"PAT",
             "totale":1494,
@@ -683,18 +672,18 @@
             "categoria_ospiti_rsa":581
         },
         {
-            "index":58,
+            "index":57,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"PIE",
-            "totale":3769,
-            "sesso_maschile":1296,
-            "sesso_femminile":2473,
-            "categoria_operatori_sanitari_sociosanitari":3284,
-            "categoria_personale_non_sanitario":352,
+            "totale":3776,
+            "sesso_maschile":1301,
+            "sesso_femminile":2475,
+            "categoria_operatori_sanitari_sociosanitari":3292,
+            "categoria_personale_non_sanitario":351,
             "categoria_ospiti_rsa":133
         },
         {
-            "index":59,
+            "index":58,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"PUG",
             "totale":1274,
@@ -705,7 +694,7 @@
             "categoria_ospiti_rsa":16
         },
         {
-            "index":60,
+            "index":59,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"SAR",
             "totale":32,
@@ -716,7 +705,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":61,
+            "index":60,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"SIC",
             "totale":866,
@@ -727,7 +716,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":62,
+            "index":61,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"TOS",
             "totale":759,
@@ -738,7 +727,7 @@
             "categoria_ospiti_rsa":658
         },
         {
-            "index":63,
+            "index":62,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"UMB",
             "totale":251,
@@ -749,7 +738,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":64,
+            "index":63,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"VDA",
             "totale":18,
@@ -760,18 +749,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":65,
+            "index":64,
             "data_somministrazione":"2020-12-31T00:00:00.000Z",
             "area":"VEN",
-            "totale":3125,
+            "totale":3146,
             "sesso_maschile":1025,
-            "sesso_femminile":2100,
+            "sesso_femminile":2121,
             "categoria_operatori_sanitari_sociosanitari":2840,
             "categoria_personale_non_sanitario":101,
-            "categoria_ospiti_rsa":184
+            "categoria_ospiti_rsa":205
         },
         {
-            "index":66,
+            "index":65,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"CAM",
             "totale":907,
@@ -782,18 +771,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":67,
+            "index":66,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"ITA",
-            "totale":11007,
-            "sesso_maschile":4268,
-            "sesso_femminile":6739,
-            "categoria_operatori_sanitari_sociosanitari":9808,
-            "categoria_personale_non_sanitario":395,
-            "categoria_ospiti_rsa":804
+            "totale":11047,
+            "sesso_maschile":4285,
+            "sesso_femminile":6762,
+            "categoria_operatori_sanitari_sociosanitari":9845,
+            "categoria_personale_non_sanitario":396,
+            "categoria_ospiti_rsa":806
         },
         {
-            "index":68,
+            "index":67,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"LAZ",
             "totale":3545,
@@ -804,7 +793,7 @@
             "categoria_ospiti_rsa":69
         },
         {
-            "index":69,
+            "index":68,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"LIG",
             "totale":144,
@@ -815,7 +804,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":70,
+            "index":69,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"LOM",
             "totale":24,
@@ -826,7 +815,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":71,
+            "index":70,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"PAT",
             "totale":209,
@@ -837,18 +826,18 @@
             "categoria_ospiti_rsa":87
         },
         {
-            "index":72,
+            "index":71,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"PIE",
-            "totale":997,
-            "sesso_maschile":375,
-            "sesso_femminile":622,
-            "categoria_operatori_sanitari_sociosanitari":884,
-            "categoria_personale_non_sanitario":113,
+            "totale":1033,
+            "sesso_maschile":391,
+            "sesso_femminile":642,
+            "categoria_operatori_sanitari_sociosanitari":919,
+            "categoria_personale_non_sanitario":114,
             "categoria_ospiti_rsa":0
         },
         {
-            "index":73,
+            "index":72,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"PUG",
             "totale":179,
@@ -859,7 +848,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":74,
+            "index":73,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"SAR",
             "totale":30,
@@ -870,7 +859,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":75,
+            "index":74,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"SIC",
             "totale":809,
@@ -881,18 +870,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":76,
+            "index":75,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"TOS",
-            "totale":2364,
+            "totale":2365,
             "sesso_maschile":785,
-            "sesso_femminile":1579,
+            "sesso_femminile":1580,
             "categoria_operatori_sanitari_sociosanitari":1714,
             "categoria_personale_non_sanitario":2,
-            "categoria_ospiti_rsa":648
+            "categoria_ospiti_rsa":649
         },
         {
-            "index":77,
+            "index":76,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"UMB",
             "totale":281,
@@ -903,18 +892,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":78,
+            "index":77,
             "data_somministrazione":"2021-01-01T00:00:00.000Z",
             "area":"VEN",
-            "totale":1518,
-            "sesso_maschile":469,
-            "sesso_femminile":1049,
-            "categoria_operatori_sanitari_sociosanitari":1508,
+            "totale":1521,
+            "sesso_maschile":470,
+            "sesso_femminile":1051,
+            "categoria_operatori_sanitari_sociosanitari":1510,
             "categoria_personale_non_sanitario":10,
-            "categoria_ospiti_rsa":0
+            "categoria_ospiti_rsa":1
         },
         {
-            "index":79,
+            "index":78,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"ABR",
             "totale":550,
@@ -925,7 +914,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":80,
+            "index":79,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"BAS",
             "totale":885,
@@ -936,7 +925,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":81,
+            "index":80,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"CAL",
             "totale":169,
@@ -947,7 +936,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":82,
+            "index":81,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"CAM",
             "totale":3560,
@@ -958,18 +947,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":83,
+            "index":82,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"EMR",
             "totale":2269,
-            "sesso_maschile":889,
-            "sesso_femminile":1380,
+            "sesso_maschile":888,
+            "sesso_femminile":1381,
             "categoria_operatori_sanitari_sociosanitari":1874,
             "categoria_personale_non_sanitario":245,
             "categoria_ospiti_rsa":150
         },
         {
-            "index":84,
+            "index":83,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"FVG",
             "totale":1212,
@@ -980,18 +969,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":85,
+            "index":84,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"ITA",
-            "totale":38024,
-            "sesso_maschile":15086,
-            "sesso_femminile":22938,
-            "categoria_operatori_sanitari_sociosanitari":33602,
-            "categoria_personale_non_sanitario":2288,
+            "totale":38312,
+            "sesso_maschile":15218,
+            "sesso_femminile":23094,
+            "categoria_operatori_sanitari_sociosanitari":33866,
+            "categoria_personale_non_sanitario":2312,
             "categoria_ospiti_rsa":2134
         },
         {
-            "index":86,
+            "index":85,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"LAZ",
             "totale":6728,
@@ -1002,7 +991,7 @@
             "categoria_ospiti_rsa":435
         },
         {
-            "index":87,
+            "index":86,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"LIG",
             "totale":692,
@@ -1013,7 +1002,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":88,
+            "index":87,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"LOM",
             "totale":200,
@@ -1024,7 +1013,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":89,
+            "index":88,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"MAR",
             "totale":515,
@@ -1035,7 +1024,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":90,
+            "index":89,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"PAB",
             "totale":66,
@@ -1046,7 +1035,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":91,
+            "index":90,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"PAT",
             "totale":501,
@@ -1057,18 +1046,18 @@
             "categoria_ospiti_rsa":140
         },
         {
-            "index":92,
+            "index":91,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"PIE",
-            "totale":3487,
-            "sesso_maschile":1109,
-            "sesso_femminile":2378,
-            "categoria_operatori_sanitari_sociosanitari":3029,
-            "categoria_personale_non_sanitario":406,
+            "totale":3528,
+            "sesso_maschile":1129,
+            "sesso_femminile":2399,
+            "categoria_operatori_sanitari_sociosanitari":3068,
+            "categoria_personale_non_sanitario":408,
             "categoria_ospiti_rsa":52
         },
         {
-            "index":93,
+            "index":92,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"PUG",
             "totale":2903,
@@ -1079,7 +1068,7 @@
             "categoria_ospiti_rsa":8
         },
         {
-            "index":94,
+            "index":93,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"SAR",
             "totale":60,
@@ -1090,29 +1079,29 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":95,
+            "index":94,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"SIC",
-            "totale":4720,
-            "sesso_maschile":2480,
-            "sesso_femminile":2240,
-            "categoria_operatori_sanitari_sociosanitari":4441,
-            "categoria_personale_non_sanitario":279,
+            "totale":4962,
+            "sesso_maschile":2593,
+            "sesso_femminile":2369,
+            "categoria_operatori_sanitari_sociosanitari":4662,
+            "categoria_personale_non_sanitario":300,
             "categoria_ospiti_rsa":0
         },
         {
-            "index":96,
+            "index":95,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"TOS",
-            "totale":3488,
-            "sesso_maschile":1094,
-            "sesso_femminile":2394,
-            "categoria_operatori_sanitari_sociosanitari":2673,
+            "totale":3493,
+            "sesso_maschile":1095,
+            "sesso_femminile":2398,
+            "categoria_operatori_sanitari_sociosanitari":2678,
             "categoria_personale_non_sanitario":15,
             "categoria_ospiti_rsa":800
         },
         {
-            "index":97,
+            "index":96,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"UMB",
             "totale":304,
@@ -1123,7 +1112,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":98,
+            "index":97,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"VDA",
             "totale":6,
@@ -1134,18 +1123,18 @@
             "categoria_ospiti_rsa":6
         },
         {
-            "index":99,
+            "index":98,
             "data_somministrazione":"2021-01-02T00:00:00.000Z",
             "area":"VEN",
             "totale":5709,
-            "sesso_maschile":1759,
-            "sesso_femminile":3950,
-            "categoria_operatori_sanitari_sociosanitari":4904,
-            "categoria_personale_non_sanitario":262,
+            "sesso_maschile":1758,
+            "sesso_femminile":3951,
+            "categoria_operatori_sanitari_sociosanitari":4903,
+            "categoria_personale_non_sanitario":263,
             "categoria_ospiti_rsa":543
         },
         {
-            "index":100,
+            "index":99,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"ABR",
             "totale":564,
@@ -1156,7 +1145,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":101,
+            "index":100,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"BAS",
             "totale":723,
@@ -1167,7 +1156,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":102,
+            "index":101,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"CAL",
             "totale":5,
@@ -1178,7 +1167,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":103,
+            "index":102,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"CAM",
             "totale":4074,
@@ -1189,18 +1178,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":104,
+            "index":103,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"EMR",
-            "totale":2729,
-            "sesso_maschile":935,
+            "totale":2728,
+            "sesso_maschile":934,
             "sesso_femminile":1794,
             "categoria_operatori_sanitari_sociosanitari":2233,
-            "categoria_personale_non_sanitario":326,
+            "categoria_personale_non_sanitario":325,
             "categoria_ospiti_rsa":170
         },
         {
-            "index":105,
+            "index":104,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"FVG",
             "totale":311,
@@ -1211,18 +1200,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":106,
+            "index":105,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"ITA",
-            "totale":34815,
-            "sesso_maschile":13685,
-            "sesso_femminile":21130,
-            "categoria_operatori_sanitari_sociosanitari":30837,
-            "categoria_personale_non_sanitario":2416,
-            "categoria_ospiti_rsa":1562
+            "totale":34886,
+            "sesso_maschile":13723,
+            "sesso_femminile":21163,
+            "categoria_operatori_sanitari_sociosanitari":30894,
+            "categoria_personale_non_sanitario":2422,
+            "categoria_ospiti_rsa":1570
         },
         {
-            "index":107,
+            "index":106,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"LAZ",
             "totale":5187,
@@ -1233,7 +1222,7 @@
             "categoria_ospiti_rsa":200
         },
         {
-            "index":108,
+            "index":107,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"LIG",
             "totale":693,
@@ -1244,7 +1233,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":109,
+            "index":108,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"LOM",
             "totale":835,
@@ -1255,7 +1244,7 @@
             "categoria_ospiti_rsa":4
         },
         {
-            "index":110,
+            "index":109,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"MAR",
             "totale":897,
@@ -1266,7 +1255,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":111,
+            "index":110,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"PAT",
             "totale":493,
@@ -1277,18 +1266,18 @@
             "categoria_ospiti_rsa":65
         },
         {
-            "index":112,
+            "index":111,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"PIE",
-            "totale":3036,
-            "sesso_maschile":952,
-            "sesso_femminile":2084,
-            "categoria_operatori_sanitari_sociosanitari":2691,
-            "categoria_personale_non_sanitario":293,
+            "totale":3053,
+            "sesso_maschile":964,
+            "sesso_femminile":2089,
+            "categoria_operatori_sanitari_sociosanitari":2706,
+            "categoria_personale_non_sanitario":295,
             "categoria_ospiti_rsa":52
         },
         {
-            "index":113,
+            "index":112,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"PUG",
             "totale":1921,
@@ -1299,7 +1288,7 @@
             "categoria_ospiti_rsa":67
         },
         {
-            "index":114,
+            "index":113,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"SAR",
             "totale":90,
@@ -1310,29 +1299,29 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":115,
+            "index":114,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"SIC",
-            "totale":4615,
-            "sesso_maschile":2410,
-            "sesso_femminile":2205,
-            "categoria_operatori_sanitari_sociosanitari":4284,
-            "categoria_personale_non_sanitario":331,
+            "totale":4645,
+            "sesso_maschile":2428,
+            "sesso_femminile":2217,
+            "categoria_operatori_sanitari_sociosanitari":4309,
+            "categoria_personale_non_sanitario":336,
             "categoria_ospiti_rsa":0
         },
         {
-            "index":116,
+            "index":115,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"TOS",
-            "totale":3315,
-            "sesso_maschile":1043,
-            "sesso_femminile":2272,
-            "categoria_operatori_sanitari_sociosanitari":2553,
+            "totale":3333,
+            "sesso_maschile":1051,
+            "sesso_femminile":2282,
+            "categoria_operatori_sanitari_sociosanitari":2563,
             "categoria_personale_non_sanitario":8,
-            "categoria_ospiti_rsa":754
+            "categoria_ospiti_rsa":762
         },
         {
-            "index":117,
+            "index":116,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"UMB",
             "totale":270,
@@ -1343,18 +1332,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":118,
+            "index":117,
             "data_somministrazione":"2021-01-03T00:00:00.000Z",
             "area":"VEN",
-            "totale":5057,
-            "sesso_maschile":1529,
-            "sesso_femminile":3528,
-            "categoria_operatori_sanitari_sociosanitari":4503,
+            "totale":5064,
+            "sesso_maschile":1530,
+            "sesso_femminile":3534,
+            "categoria_operatori_sanitari_sociosanitari":4510,
             "categoria_personale_non_sanitario":304,
             "categoria_ospiti_rsa":250
         },
         {
-            "index":119,
+            "index":118,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"ABR",
             "totale":1411,
@@ -1365,7 +1354,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":120,
+            "index":119,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"BAS",
             "totale":407,
@@ -1376,7 +1365,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":121,
+            "index":120,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"CAL",
             "totale":1088,
@@ -1387,7 +1376,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":122,
+            "index":121,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"CAM",
             "totale":5857,
@@ -1398,18 +1387,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":123,
+            "index":122,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"EMR",
             "totale":7198,
-            "sesso_maschile":2497,
-            "sesso_femminile":4701,
+            "sesso_maschile":2496,
+            "sesso_femminile":4702,
             "categoria_operatori_sanitari_sociosanitari":5170,
-            "categoria_personale_non_sanitario":1606,
-            "categoria_ospiti_rsa":422
+            "categoria_personale_non_sanitario":1605,
+            "categoria_ospiti_rsa":423
         },
         {
-            "index":124,
+            "index":123,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"FVG",
             "totale":1492,
@@ -1420,18 +1409,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":125,
+            "index":124,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"ITA",
-            "totale":66950,
-            "sesso_maschile":26019,
-            "sesso_femminile":40931,
-            "categoria_operatori_sanitari_sociosanitari":57208,
-            "categoria_personale_non_sanitario":6319,
-            "categoria_ospiti_rsa":3423
+            "totale":67648,
+            "sesso_maschile":26237,
+            "sesso_femminile":41411,
+            "categoria_operatori_sanitari_sociosanitari":57733,
+            "categoria_personale_non_sanitario":6374,
+            "categoria_ospiti_rsa":3541
         },
         {
-            "index":126,
+            "index":125,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"LAZ",
             "totale":7352,
@@ -1442,7 +1431,7 @@
             "categoria_ospiti_rsa":359
         },
         {
-            "index":127,
+            "index":126,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"LIG",
             "totale":2633,
@@ -1453,18 +1442,18 @@
             "categoria_ospiti_rsa":231
         },
         {
-            "index":128,
+            "index":127,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"LOM",
-            "totale":6558,
-            "sesso_maschile":2315,
-            "sesso_femminile":4243,
-            "categoria_operatori_sanitari_sociosanitari":5897,
-            "categoria_personale_non_sanitario":487,
+            "totale":6834,
+            "sesso_maschile":2406,
+            "sesso_femminile":4428,
+            "categoria_operatori_sanitari_sociosanitari":6161,
+            "categoria_personale_non_sanitario":499,
             "categoria_ospiti_rsa":174
         },
         {
-            "index":129,
+            "index":128,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"MAR",
             "totale":1385,
@@ -1475,7 +1464,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":130,
+            "index":129,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"MOL",
             "totale":308,
@@ -1486,7 +1475,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":131,
+            "index":130,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"PAB",
             "totale":453,
@@ -1497,7 +1486,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":132,
+            "index":131,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"PAT",
             "totale":824,
@@ -1508,18 +1497,18 @@
             "categoria_ospiti_rsa":286
         },
         {
-            "index":133,
+            "index":132,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"PIE",
-            "totale":5167,
-            "sesso_maschile":1563,
-            "sesso_femminile":3604,
-            "categoria_operatori_sanitari_sociosanitari":4349,
-            "categoria_personale_non_sanitario":702,
-            "categoria_ospiti_rsa":116
+            "totale":5530,
+            "sesso_maschile":1665,
+            "sesso_femminile":3865,
+            "categoria_operatori_sanitari_sociosanitari":4562,
+            "categoria_personale_non_sanitario":735,
+            "categoria_ospiti_rsa":233
         },
         {
-            "index":134,
+            "index":133,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"PUG",
             "totale":4091,
@@ -1530,7 +1519,7 @@
             "categoria_ospiti_rsa":45
         },
         {
-            "index":135,
+            "index":134,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"SAR",
             "totale":573,
@@ -1541,29 +1530,29 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":136,
+            "index":135,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"SIC",
-            "totale":7600,
-            "sesso_maschile":3769,
-            "sesso_femminile":3831,
-            "categoria_operatori_sanitari_sociosanitari":6839,
-            "categoria_personale_non_sanitario":755,
+            "totale":7613,
+            "sesso_maschile":3779,
+            "sesso_femminile":3834,
+            "categoria_operatori_sanitari_sociosanitari":6844,
+            "categoria_personale_non_sanitario":763,
             "categoria_ospiti_rsa":6
         },
         {
-            "index":137,
+            "index":136,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"TOS",
-            "totale":5046,
+            "totale":5048,
             "sesso_maschile":1887,
-            "sesso_femminile":3159,
-            "categoria_operatori_sanitari_sociosanitari":4087,
+            "sesso_femminile":3161,
+            "categoria_operatori_sanitari_sociosanitari":4089,
             "categoria_personale_non_sanitario":32,
             "categoria_ospiti_rsa":927
         },
         {
-            "index":138,
+            "index":137,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"UMB",
             "totale":807,
@@ -1574,7 +1563,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":139,
+            "index":138,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"VDA",
             "totale":142,
@@ -1585,18 +1574,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":140,
+            "index":139,
             "data_somministrazione":"2021-01-04T00:00:00.000Z",
             "area":"VEN",
-            "totale":6558,
-            "sesso_maschile":1984,
-            "sesso_femminile":4574,
-            "categoria_operatori_sanitari_sociosanitari":5239,
-            "categoria_personale_non_sanitario":462,
+            "totale":6602,
+            "sesso_maschile":2000,
+            "sesso_femminile":4602,
+            "categoria_operatori_sanitari_sociosanitari":5280,
+            "categoria_personale_non_sanitario":465,
             "categoria_ospiti_rsa":857
         },
         {
-            "index":141,
+            "index":140,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"ABR",
             "totale":1617,
@@ -1607,7 +1596,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":142,
+            "index":141,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"BAS",
             "totale":648,
@@ -1618,18 +1607,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":143,
+            "index":142,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"CAL",
-            "totale":1415,
-            "sesso_maschile":651,
-            "sesso_femminile":764,
-            "categoria_operatori_sanitari_sociosanitari":1269,
+            "totale":1575,
+            "sesso_maschile":745,
+            "sesso_femminile":830,
+            "categoria_operatori_sanitari_sociosanitari":1429,
             "categoria_personale_non_sanitario":146,
             "categoria_ospiti_rsa":0
         },
         {
-            "index":144,
+            "index":143,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"CAM",
             "totale":7046,
@@ -1640,18 +1629,18 @@
             "categoria_ospiti_rsa":41
         },
         {
-            "index":145,
+            "index":144,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"EMR",
-            "totale":9063,
-            "sesso_maschile":3078,
+            "totale":9061,
+            "sesso_maschile":3076,
             "sesso_femminile":5985,
-            "categoria_operatori_sanitari_sociosanitari":5668,
-            "categoria_personale_non_sanitario":2830,
+            "categoria_operatori_sanitari_sociosanitari":5667,
+            "categoria_personale_non_sanitario":2829,
             "categoria_ospiti_rsa":565
         },
         {
-            "index":146,
+            "index":145,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"FVG",
             "totale":1622,
@@ -1662,29 +1651,29 @@
             "categoria_ospiti_rsa":186
         },
         {
-            "index":147,
+            "index":146,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"ITA",
-            "totale":76755,
-            "sesso_maschile":29335,
-            "sesso_femminile":47420,
-            "categoria_operatori_sanitari_sociosanitari":63338,
-            "categoria_personale_non_sanitario":9066,
-            "categoria_ospiti_rsa":4351
+            "totale":78015,
+            "sesso_maschile":29805,
+            "sesso_femminile":48210,
+            "categoria_operatori_sanitari_sociosanitari":64370,
+            "categoria_personale_non_sanitario":9129,
+            "categoria_ospiti_rsa":4516
+        },
+        {
+            "index":147,
+            "data_somministrazione":"2021-01-05T00:00:00.000Z",
+            "area":"LAZ",
+            "totale":6763,
+            "sesso_maschile":2576,
+            "sesso_femminile":4187,
+            "categoria_operatori_sanitari_sociosanitari":5645,
+            "categoria_personale_non_sanitario":562,
+            "categoria_ospiti_rsa":556
         },
         {
             "index":148,
-            "data_somministrazione":"2021-01-05T00:00:00.000Z",
-            "area":"LAZ",
-            "totale":6734,
-            "sesso_maschile":2572,
-            "sesso_femminile":4162,
-            "categoria_operatori_sanitari_sociosanitari":5637,
-            "categoria_personale_non_sanitario":561,
-            "categoria_ospiti_rsa":536
-        },
-        {
-            "index":149,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"LIG",
             "totale":2878,
@@ -1695,18 +1684,18 @@
             "categoria_ospiti_rsa":256
         },
         {
-            "index":150,
+            "index":149,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"LOM",
-            "totale":7399,
-            "sesso_maschile":2408,
-            "sesso_femminile":4991,
-            "categoria_operatori_sanitari_sociosanitari":6449,
-            "categoria_personale_non_sanitario":750,
+            "totale":7636,
+            "sesso_maschile":2495,
+            "sesso_femminile":5141,
+            "categoria_operatori_sanitari_sociosanitari":6663,
+            "categoria_personale_non_sanitario":773,
             "categoria_ospiti_rsa":200
         },
         {
-            "index":151,
+            "index":150,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"MAR",
             "totale":1502,
@@ -1717,7 +1706,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":152,
+            "index":151,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"MOL",
             "totale":448,
@@ -1728,7 +1717,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":153,
+            "index":152,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"PAB",
             "totale":817,
@@ -1739,7 +1728,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":154,
+            "index":153,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"PAT",
             "totale":694,
@@ -1750,18 +1739,18 @@
             "categoria_ospiti_rsa":157
         },
         {
-            "index":155,
+            "index":154,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"PIE",
-            "totale":4934,
-            "sesso_maschile":1473,
-            "sesso_femminile":3461,
-            "categoria_operatori_sanitari_sociosanitari":4080,
-            "categoria_personale_non_sanitario":678,
-            "categoria_ospiti_rsa":176
+            "totale":5312,
+            "sesso_maschile":1583,
+            "sesso_femminile":3729,
+            "categoria_operatori_sanitari_sociosanitari":4337,
+            "categoria_personale_non_sanitario":713,
+            "categoria_ospiti_rsa":262
         },
         {
-            "index":156,
+            "index":155,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"PUG",
             "totale":5380,
@@ -1772,7 +1761,7 @@
             "categoria_ospiti_rsa":108
         },
         {
-            "index":157,
+            "index":156,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"SAR",
             "totale":1247,
@@ -1783,29 +1772,29 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":158,
+            "index":157,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"SIC",
-            "totale":10054,
-            "sesso_maschile":4914,
-            "sesso_femminile":5140,
-            "categoria_operatori_sanitari_sociosanitari":8555,
-            "categoria_personale_non_sanitario":1320,
+            "totale":10228,
+            "sesso_maschile":4997,
+            "sesso_femminile":5231,
+            "categoria_operatori_sanitari_sociosanitari":8759,
+            "categoria_personale_non_sanitario":1290,
             "categoria_ospiti_rsa":179
         },
         {
-            "index":159,
+            "index":158,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"TOS",
-            "totale":5181,
-            "sesso_maschile":1732,
-            "sesso_femminile":3449,
-            "categoria_operatori_sanitari_sociosanitari":4337,
+            "totale":5236,
+            "sesso_maschile":1752,
+            "sesso_femminile":3484,
+            "categoria_operatori_sanitari_sociosanitari":4346,
             "categoria_personale_non_sanitario":11,
-            "categoria_ospiti_rsa":833
+            "categoria_ospiti_rsa":879
         },
         {
-            "index":160,
+            "index":159,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"UMB",
             "totale":856,
@@ -1816,7 +1805,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":161,
+            "index":160,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"VDA",
             "totale":150,
@@ -1827,18 +1816,18 @@
             "categoria_ospiti_rsa":11
         },
         {
-            "index":162,
+            "index":161,
             "data_somministrazione":"2021-01-05T00:00:00.000Z",
             "area":"VEN",
-            "totale":7070,
-            "sesso_maschile":2097,
-            "sesso_femminile":4973,
-            "categoria_operatori_sanitari_sociosanitari":5333,
-            "categoria_personale_non_sanitario":634,
-            "categoria_ospiti_rsa":1103
+            "totale":7299,
+            "sesso_maschile":2171,
+            "sesso_femminile":5128,
+            "categoria_operatori_sanitari_sociosanitari":5514,
+            "categoria_personale_non_sanitario":669,
+            "categoria_ospiti_rsa":1116
         },
         {
-            "index":163,
+            "index":162,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"ABR",
             "totale":1720,
@@ -1849,7 +1838,7 @@
             "categoria_ospiti_rsa":133
         },
         {
-            "index":164,
+            "index":163,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"BAS",
             "totale":220,
@@ -1860,7 +1849,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":165,
+            "index":164,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"CAL",
             "totale":1074,
@@ -1871,7 +1860,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":166,
+            "index":165,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"CAM",
             "totale":7625,
@@ -1882,18 +1871,18 @@
             "categoria_ospiti_rsa":301
         },
         {
-            "index":167,
+            "index":166,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"EMR",
-            "totale":7989,
-            "sesso_maschile":2862,
-            "sesso_femminile":5127,
+            "totale":8039,
+            "sesso_maschile":2877,
+            "sesso_femminile":5162,
             "categoria_operatori_sanitari_sociosanitari":5142,
-            "categoria_personale_non_sanitario":2364,
-            "categoria_ospiti_rsa":483
+            "categoria_personale_non_sanitario":2413,
+            "categoria_ospiti_rsa":484
         },
         {
-            "index":168,
+            "index":167,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"FVG",
             "totale":708,
@@ -1904,18 +1893,18 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":169,
+            "index":168,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"ITA",
-            "totale":63075,
-            "sesso_maschile":24431,
-            "sesso_femminile":38644,
-            "categoria_operatori_sanitari_sociosanitari":51230,
-            "categoria_personale_non_sanitario":8196,
-            "categoria_ospiti_rsa":3649
+            "totale":63843,
+            "sesso_maschile":24688,
+            "sesso_femminile":39155,
+            "categoria_operatori_sanitari_sociosanitari":51820,
+            "categoria_personale_non_sanitario":8304,
+            "categoria_ospiti_rsa":3719
         },
         {
-            "index":170,
+            "index":169,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"LAZ",
             "totale":4854,
@@ -1926,7 +1915,7 @@
             "categoria_ospiti_rsa":302
         },
         {
-            "index":171,
+            "index":170,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"LIG",
             "totale":1655,
@@ -1937,18 +1926,18 @@
             "categoria_ospiti_rsa":186
         },
         {
-            "index":172,
+            "index":171,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"LOM",
-            "totale":6782,
-            "sesso_maschile":2383,
-            "sesso_femminile":4399,
-            "categoria_operatori_sanitari_sociosanitari":5642,
-            "categoria_personale_non_sanitario":1082,
+            "totale":7165,
+            "sesso_maschile":2510,
+            "sesso_femminile":4655,
+            "categoria_operatori_sanitari_sociosanitari":5981,
+            "categoria_personale_non_sanitario":1126,
             "categoria_ospiti_rsa":58
         },
         {
-            "index":173,
+            "index":172,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"MAR",
             "totale":2138,
@@ -1959,7 +1948,7 @@
             "categoria_ospiti_rsa":107
         },
         {
-            "index":174,
+            "index":173,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"MOL",
             "totale":680,
@@ -1970,7 +1959,7 @@
             "categoria_ospiti_rsa":181
         },
         {
-            "index":175,
+            "index":174,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"PAB",
             "totale":60,
@@ -1981,7 +1970,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":176,
+            "index":175,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"PAT",
             "totale":42,
@@ -1992,62 +1981,62 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":177,
+            "index":176,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"PIE",
-            "totale":2940,
-            "sesso_maschile":1060,
-            "sesso_femminile":1880,
-            "categoria_operatori_sanitari_sociosanitari":2294,
-            "categoria_personale_non_sanitario":403,
-            "categoria_ospiti_rsa":243
+            "totale":3068,
+            "sesso_maschile":1096,
+            "sesso_femminile":1972,
+            "categoria_operatori_sanitari_sociosanitari":2351,
+            "categoria_personale_non_sanitario":409,
+            "categoria_ospiti_rsa":308
         },
         {
-            "index":178,
+            "index":177,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"PUG",
-            "totale":3524,
-            "sesso_maschile":1450,
-            "sesso_femminile":2074,
-            "categoria_operatori_sanitari_sociosanitari":3075,
+            "totale":3548,
+            "sesso_maschile":1467,
+            "sesso_femminile":2081,
+            "categoria_operatori_sanitari_sociosanitari":3099,
             "categoria_personale_non_sanitario":94,
             "categoria_ospiti_rsa":355
         },
         {
-            "index":179,
+            "index":178,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"SAR",
-            "totale":1423,
-            "sesso_maschile":488,
-            "sesso_femminile":935,
-            "categoria_operatori_sanitari_sociosanitari":1310,
+            "totale":1587,
+            "sesso_maschile":539,
+            "sesso_femminile":1048,
+            "categoria_operatori_sanitari_sociosanitari":1474,
             "categoria_personale_non_sanitario":113,
             "categoria_ospiti_rsa":0
         },
         {
-            "index":180,
+            "index":179,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"SIC",
-            "totale":6225,
+            "totale":6226,
             "sesso_maschile":3211,
-            "sesso_femminile":3014,
-            "categoria_operatori_sanitari_sociosanitari":5419,
+            "sesso_femminile":3015,
+            "categoria_operatori_sanitari_sociosanitari":5420,
             "categoria_personale_non_sanitario":800,
             "categoria_ospiti_rsa":6
         },
         {
-            "index":181,
+            "index":180,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"TOS",
-            "totale":4447,
-            "sesso_maschile":1443,
-            "sesso_femminile":3004,
+            "totale":4452,
+            "sesso_maschile":1446,
+            "sesso_femminile":3006,
             "categoria_operatori_sanitari_sociosanitari":3962,
-            "categoria_personale_non_sanitario":9,
-            "categoria_ospiti_rsa":476
+            "categoria_personale_non_sanitario":10,
+            "categoria_ospiti_rsa":480
         },
         {
-            "index":182,
+            "index":181,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"UMB",
             "totale":846,
@@ -2058,7 +2047,7 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":183,
+            "index":182,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"VDA",
             "totale":66,
@@ -2069,18 +2058,18 @@
             "categoria_ospiti_rsa":18
         },
         {
-            "index":184,
+            "index":183,
             "data_somministrazione":"2021-01-06T00:00:00.000Z",
             "area":"VEN",
-            "totale":8057,
-            "sesso_maschile":2356,
-            "sesso_femminile":5701,
-            "categoria_operatori_sanitari_sociosanitari":6507,
-            "categoria_personale_non_sanitario":750,
+            "totale":8070,
+            "sesso_maschile":2364,
+            "sesso_femminile":5706,
+            "categoria_operatori_sanitari_sociosanitari":6512,
+            "categoria_personale_non_sanitario":758,
             "categoria_ospiti_rsa":800
         },
         {
-            "index":185,
+            "index":184,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"ABR",
             "totale":1716,
@@ -2091,29 +2080,29 @@
             "categoria_ospiti_rsa":0
         },
         {
-            "index":186,
+            "index":185,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"BAS",
-            "totale":587,
-            "sesso_maschile":297,
-            "sesso_femminile":290,
-            "categoria_operatori_sanitari_sociosanitari":554,
-            "categoria_personale_non_sanitario":6,
+            "totale":647,
+            "sesso_maschile":325,
+            "sesso_femminile":322,
+            "categoria_operatori_sanitari_sociosanitari":612,
+            "categoria_personale_non_sanitario":8,
             "categoria_ospiti_rsa":27
         },
         {
-            "index":187,
+            "index":186,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"CAL",
-            "totale":1573,
-            "sesso_maschile":789,
-            "sesso_femminile":784,
-            "categoria_operatori_sanitari_sociosanitari":1305,
-            "categoria_personale_non_sanitario":268,
+            "totale":2880,
+            "sesso_maschile":1426,
+            "sesso_femminile":1454,
+            "categoria_operatori_sanitari_sociosanitari":2579,
+            "categoria_personale_non_sanitario":301,
             "categoria_ospiti_rsa":0
         },
         {
-            "index":188,
+            "index":187,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"CAM",
             "totale":8848,
@@ -2124,18 +2113,18 @@
             "categoria_ospiti_rsa":328
         },
         {
-            "index":189,
+            "index":188,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"EMR",
-            "totale":9476,
-            "sesso_maschile":3135,
-            "sesso_femminile":6341,
-            "categoria_operatori_sanitari_sociosanitari":5844,
-            "categoria_personale_non_sanitario":2912,
-            "categoria_ospiti_rsa":720
+            "totale":9881,
+            "sesso_maschile":3291,
+            "sesso_femminile":6590,
+            "categoria_operatori_sanitari_sociosanitari":6046,
+            "categoria_personale_non_sanitario":3110,
+            "categoria_ospiti_rsa":725
         },
         {
-            "index":190,
+            "index":189,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"FVG",
             "totale":2088,
@@ -2146,18 +2135,18 @@
             "categoria_ospiti_rsa":105
         },
         {
-            "index":191,
+            "index":190,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"ITA",
-            "totale":84283,
-            "sesso_maschile":30769,
-            "sesso_femminile":53514,
-            "categoria_operatori_sanitari_sociosanitari":67414,
-            "categoria_personale_non_sanitario":11518,
-            "categoria_ospiti_rsa":5351
+            "totale":90014,
+            "sesso_maschile":32711,
+            "sesso_femminile":57303,
+            "categoria_operatori_sanitari_sociosanitari":70800,
+            "categoria_personale_non_sanitario":12086,
+            "categoria_ospiti_rsa":7128
         },
         {
-            "index":192,
+            "index":191,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"LAZ",
             "totale":7442,
@@ -2168,139 +2157,139 @@
             "categoria_ospiti_rsa":496
         },
         {
-            "index":193,
+            "index":192,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"LIG",
-            "totale":3101,
-            "sesso_maschile":1056,
-            "sesso_femminile":2045,
-            "categoria_operatori_sanitari_sociosanitari":2199,
-            "categoria_personale_non_sanitario":494,
-            "categoria_ospiti_rsa":408
+            "totale":3178,
+            "sesso_maschile":1079,
+            "sesso_femminile":2099,
+            "categoria_operatori_sanitari_sociosanitari":2229,
+            "categoria_personale_non_sanitario":502,
+            "categoria_ospiti_rsa":447
+        },
+        {
+            "index":193,
+            "data_somministrazione":"2021-01-07T00:00:00.000Z",
+            "area":"LOM",
+            "totale":10687,
+            "sesso_maschile":3406,
+            "sesso_femminile":7281,
+            "categoria_operatori_sanitari_sociosanitari":8831,
+            "categoria_personale_non_sanitario":1272,
+            "categoria_ospiti_rsa":584
         },
         {
             "index":194,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
-            "area":"LOM",
-            "totale":10351,
-            "sesso_maschile":3279,
-            "sesso_femminile":7072,
-            "categoria_operatori_sanitari_sociosanitari":8569,
-            "categoria_personale_non_sanitario":1227,
-            "categoria_ospiti_rsa":555
+            "area":"MAR",
+            "totale":2049,
+            "sesso_maschile":741,
+            "sesso_femminile":1308,
+            "categoria_operatori_sanitari_sociosanitari":1829,
+            "categoria_personale_non_sanitario":220,
+            "categoria_ospiti_rsa":0
         },
         {
             "index":195,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
-            "area":"MAR",
-            "totale":1974,
-            "sesso_maschile":724,
-            "sesso_femminile":1250,
-            "categoria_operatori_sanitari_sociosanitari":1779,
-            "categoria_personale_non_sanitario":195,
-            "categoria_ospiti_rsa":0
-        },
-        {
-            "index":196,
-            "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"MOL",
-            "totale":589,
-            "sesso_maschile":205,
-            "sesso_femminile":384,
-            "categoria_operatori_sanitari_sociosanitari":381,
+            "totale":594,
+            "sesso_maschile":208,
+            "sesso_femminile":386,
+            "categoria_operatori_sanitari_sociosanitari":386,
             "categoria_personale_non_sanitario":62,
             "categoria_ospiti_rsa":146
         },
         {
-            "index":197,
+            "index":196,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"PAB",
-            "totale":694,
-            "sesso_maschile":239,
-            "sesso_femminile":455,
-            "categoria_operatori_sanitari_sociosanitari":493,
-            "categoria_personale_non_sanitario":173,
+            "totale":814,
+            "sesso_maschile":285,
+            "sesso_femminile":529,
+            "categoria_operatori_sanitari_sociosanitari":573,
+            "categoria_personale_non_sanitario":213,
             "categoria_ospiti_rsa":28
+        },
+        {
+            "index":197,
+            "data_somministrazione":"2021-01-07T00:00:00.000Z",
+            "area":"PAT",
+            "totale":1271,
+            "sesso_maschile":310,
+            "sesso_femminile":961,
+            "categoria_operatori_sanitari_sociosanitari":648,
+            "categoria_personale_non_sanitario":70,
+            "categoria_ospiti_rsa":553
         },
         {
             "index":198,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
-            "area":"PAT",
-            "totale":352,
-            "sesso_maschile":115,
-            "sesso_femminile":237,
-            "categoria_operatori_sanitari_sociosanitari":318,
-            "categoria_personale_non_sanitario":23,
-            "categoria_ospiti_rsa":11
+            "area":"PIE",
+            "totale":5305,
+            "sesso_maschile":1711,
+            "sesso_femminile":3594,
+            "categoria_operatori_sanitari_sociosanitari":4119,
+            "categoria_personale_non_sanitario":877,
+            "categoria_ospiti_rsa":309
         },
         {
             "index":199,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
-            "area":"PIE",
-            "totale":4640,
-            "sesso_maschile":1510,
-            "sesso_femminile":3130,
-            "categoria_operatori_sanitari_sociosanitari":3737,
-            "categoria_personale_non_sanitario":811,
-            "categoria_ospiti_rsa":92
+            "area":"PUG",
+            "totale":5139,
+            "sesso_maschile":2192,
+            "sesso_femminile":2947,
+            "categoria_operatori_sanitari_sociosanitari":4609,
+            "categoria_personale_non_sanitario":315,
+            "categoria_ospiti_rsa":215
         },
         {
             "index":200,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
-            "area":"PUG",
-            "totale":5009,
-            "sesso_maschile":2156,
-            "sesso_femminile":2853,
-            "categoria_operatori_sanitari_sociosanitari":4550,
-            "categoria_personale_non_sanitario":315,
-            "categoria_ospiti_rsa":144
-        },
-        {
-            "index":201,
-            "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"SAR",
-            "totale":2828,
-            "sesso_maschile":966,
-            "sesso_femminile":1862,
-            "categoria_operatori_sanitari_sociosanitari":2449,
+            "totale":3066,
+            "sesso_maschile":1060,
+            "sesso_femminile":2006,
+            "categoria_operatori_sanitari_sociosanitari":2687,
             "categoria_personale_non_sanitario":379,
             "categoria_ospiti_rsa":0
         },
         {
-            "index":202,
+            "index":201,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"SIC",
-            "totale":8502,
-            "sesso_maschile":3915,
-            "sesso_femminile":4587,
-            "categoria_operatori_sanitari_sociosanitari":7088,
-            "categoria_personale_non_sanitario":1202,
+            "totale":8653,
+            "sesso_maschile":3989,
+            "sesso_femminile":4664,
+            "categoria_operatori_sanitari_sociosanitari":7236,
+            "categoria_personale_non_sanitario":1205,
             "categoria_ospiti_rsa":212
+        },
+        {
+            "index":202,
+            "data_somministrazione":"2021-01-07T00:00:00.000Z",
+            "area":"TOS",
+            "totale":5983,
+            "sesso_maschile":1741,
+            "sesso_femminile":4242,
+            "categoria_operatori_sanitari_sociosanitari":5298,
+            "categoria_personale_non_sanitario":30,
+            "categoria_ospiti_rsa":655
         },
         {
             "index":203,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
-            "area":"TOS",
-            "totale":5827,
-            "sesso_maschile":1693,
-            "sesso_femminile":4134,
-            "categoria_operatori_sanitari_sociosanitari":5227,
-            "categoria_personale_non_sanitario":29,
-            "categoria_ospiti_rsa":571
+            "area":"UMB",
+            "totale":1406,
+            "sesso_maschile":405,
+            "sesso_femminile":1001,
+            "categoria_operatori_sanitari_sociosanitari":906,
+            "categoria_personale_non_sanitario":6,
+            "categoria_ospiti_rsa":494
         },
         {
             "index":204,
-            "data_somministrazione":"2021-01-07T00:00:00.000Z",
-            "area":"UMB",
-            "totale":1160,
-            "sesso_maschile":348,
-            "sesso_femminile":812,
-            "categoria_operatori_sanitari_sociosanitari":892,
-            "categoria_personale_non_sanitario":2,
-            "categoria_ospiti_rsa":266
-        },
-        {
-            "index":205,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"VDA",
             "totale":279,
@@ -2311,15 +2300,1049 @@
             "categoria_ospiti_rsa":6
         },
         {
-            "index":206,
+            "index":205,
             "data_somministrazione":"2021-01-07T00:00:00.000Z",
             "area":"VEN",
-            "totale":7247,
-            "sesso_maschile":2055,
-            "sesso_femminile":5192,
-            "categoria_operatori_sanitari_sociosanitari":5188,
-            "categoria_personale_non_sanitario":823,
-            "categoria_ospiti_rsa":1236
+            "totale":8088,
+            "sesso_maschile":2255,
+            "sesso_femminile":5833,
+            "categoria_operatori_sanitari_sociosanitari":5371,
+            "categoria_personale_non_sanitario":919,
+            "categoria_ospiti_rsa":1798
+        },
+        {
+            "index":206,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"ABR",
+            "totale":1638,
+            "sesso_maschile":539,
+            "sesso_femminile":1099,
+            "categoria_operatori_sanitari_sociosanitari":1596,
+            "categoria_personale_non_sanitario":42,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":207,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"BAS",
+            "totale":337,
+            "sesso_maschile":143,
+            "sesso_femminile":194,
+            "categoria_operatori_sanitari_sociosanitari":275,
+            "categoria_personale_non_sanitario":23,
+            "categoria_ospiti_rsa":39
+        },
+        {
+            "index":208,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"CAL",
+            "totale":1290,
+            "sesso_maschile":632,
+            "sesso_femminile":658,
+            "categoria_operatori_sanitari_sociosanitari":1171,
+            "categoria_personale_non_sanitario":119,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":209,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"CAM",
+            "totale":10306,
+            "sesso_maschile":4902,
+            "sesso_femminile":5404,
+            "categoria_operatori_sanitari_sociosanitari":7792,
+            "categoria_personale_non_sanitario":2303,
+            "categoria_ospiti_rsa":211
+        },
+        {
+            "index":210,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"EMR",
+            "totale":10332,
+            "sesso_maschile":3440,
+            "sesso_femminile":6892,
+            "categoria_operatori_sanitari_sociosanitari":6222,
+            "categoria_personale_non_sanitario":3358,
+            "categoria_ospiti_rsa":752
+        },
+        {
+            "index":211,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"FVG",
+            "totale":2146,
+            "sesso_maschile":702,
+            "sesso_femminile":1444,
+            "categoria_operatori_sanitari_sociosanitari":1541,
+            "categoria_personale_non_sanitario":365,
+            "categoria_ospiti_rsa":240
+        },
+        {
+            "index":212,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"ITA",
+            "totale":89907,
+            "sesso_maschile":32386,
+            "sesso_femminile":57521,
+            "categoria_operatori_sanitari_sociosanitari":68821,
+            "categoria_personale_non_sanitario":14185,
+            "categoria_ospiti_rsa":6901
+        },
+        {
+            "index":213,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"LAZ",
+            "totale":7205,
+            "sesso_maschile":2685,
+            "sesso_femminile":4520,
+            "categoria_operatori_sanitari_sociosanitari":5637,
+            "categoria_personale_non_sanitario":842,
+            "categoria_ospiti_rsa":726
+        },
+        {
+            "index":214,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"LIG",
+            "totale":2737,
+            "sesso_maschile":967,
+            "sesso_femminile":1770,
+            "categoria_operatori_sanitari_sociosanitari":1986,
+            "categoria_personale_non_sanitario":425,
+            "categoria_ospiti_rsa":326
+        },
+        {
+            "index":215,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"LOM",
+            "totale":11370,
+            "sesso_maschile":3526,
+            "sesso_femminile":7844,
+            "categoria_operatori_sanitari_sociosanitari":9539,
+            "categoria_personale_non_sanitario":1480,
+            "categoria_ospiti_rsa":351
+        },
+        {
+            "index":216,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"MAR",
+            "totale":1572,
+            "sesso_maschile":591,
+            "sesso_femminile":981,
+            "categoria_operatori_sanitari_sociosanitari":1323,
+            "categoria_personale_non_sanitario":224,
+            "categoria_ospiti_rsa":25
+        },
+        {
+            "index":217,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"MOL",
+            "totale":429,
+            "sesso_maschile":140,
+            "sesso_femminile":289,
+            "categoria_operatori_sanitari_sociosanitari":234,
+            "categoria_personale_non_sanitario":75,
+            "categoria_ospiti_rsa":120
+        },
+        {
+            "index":218,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"PAB",
+            "totale":1426,
+            "sesso_maschile":470,
+            "sesso_femminile":956,
+            "categoria_operatori_sanitari_sociosanitari":828,
+            "categoria_personale_non_sanitario":300,
+            "categoria_ospiti_rsa":298
+        },
+        {
+            "index":219,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"PAT",
+            "totale":1489,
+            "sesso_maschile":332,
+            "sesso_femminile":1157,
+            "categoria_operatori_sanitari_sociosanitari":813,
+            "categoria_personale_non_sanitario":150,
+            "categoria_ospiti_rsa":526
+        },
+        {
+            "index":220,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"PIE",
+            "totale":5445,
+            "sesso_maschile":1740,
+            "sesso_femminile":3705,
+            "categoria_operatori_sanitari_sociosanitari":4047,
+            "categoria_personale_non_sanitario":1020,
+            "categoria_ospiti_rsa":378
+        },
+        {
+            "index":221,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"PUG",
+            "totale":4780,
+            "sesso_maschile":1984,
+            "sesso_femminile":2796,
+            "categoria_operatori_sanitari_sociosanitari":4208,
+            "categoria_personale_non_sanitario":353,
+            "categoria_ospiti_rsa":219
+        },
+        {
+            "index":222,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"SAR",
+            "totale":3242,
+            "sesso_maschile":1206,
+            "sesso_femminile":2036,
+            "categoria_operatori_sanitari_sociosanitari":2910,
+            "categoria_personale_non_sanitario":332,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":223,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"SIC",
+            "totale":7504,
+            "sesso_maschile":3466,
+            "sesso_femminile":4038,
+            "categoria_operatori_sanitari_sociosanitari":5982,
+            "categoria_personale_non_sanitario":1336,
+            "categoria_ospiti_rsa":186
+        },
+        {
+            "index":224,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"TOS",
+            "totale":5914,
+            "sesso_maschile":1637,
+            "sesso_femminile":4277,
+            "categoria_operatori_sanitari_sociosanitari":5355,
+            "categoria_personale_non_sanitario":39,
+            "categoria_ospiti_rsa":520
+        },
+        {
+            "index":225,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"UMB",
+            "totale":1180,
+            "sesso_maschile":365,
+            "sesso_femminile":815,
+            "categoria_operatori_sanitari_sociosanitari":953,
+            "categoria_personale_non_sanitario":12,
+            "categoria_ospiti_rsa":215
+        },
+        {
+            "index":226,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"VDA",
+            "totale":299,
+            "sesso_maschile":130,
+            "sesso_femminile":169,
+            "categoria_operatori_sanitari_sociosanitari":275,
+            "categoria_personale_non_sanitario":0,
+            "categoria_ospiti_rsa":24
+        },
+        {
+            "index":227,
+            "data_somministrazione":"2021-01-08T00:00:00.000Z",
+            "area":"VEN",
+            "totale":9266,
+            "sesso_maschile":2789,
+            "sesso_femminile":6477,
+            "categoria_operatori_sanitari_sociosanitari":6134,
+            "categoria_personale_non_sanitario":1387,
+            "categoria_ospiti_rsa":1745
+        },
+        {
+            "index":228,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"ABR",
+            "totale":1483,
+            "sesso_maschile":565,
+            "sesso_femminile":918,
+            "categoria_operatori_sanitari_sociosanitari":1428,
+            "categoria_personale_non_sanitario":55,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":229,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"BAS",
+            "totale":462,
+            "sesso_maschile":164,
+            "sesso_femminile":298,
+            "categoria_operatori_sanitari_sociosanitari":367,
+            "categoria_personale_non_sanitario":26,
+            "categoria_ospiti_rsa":69
+        },
+        {
+            "index":230,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"CAL",
+            "totale":1781,
+            "sesso_maschile":896,
+            "sesso_femminile":885,
+            "categoria_operatori_sanitari_sociosanitari":1540,
+            "categoria_personale_non_sanitario":241,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":231,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"CAM",
+            "totale":9574,
+            "sesso_maschile":4609,
+            "sesso_femminile":4965,
+            "categoria_operatori_sanitari_sociosanitari":7547,
+            "categoria_personale_non_sanitario":1758,
+            "categoria_ospiti_rsa":269
+        },
+        {
+            "index":232,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"EMR",
+            "totale":9000,
+            "sesso_maschile":3121,
+            "sesso_femminile":5879,
+            "categoria_operatori_sanitari_sociosanitari":5537,
+            "categoria_personale_non_sanitario":2887,
+            "categoria_ospiti_rsa":576
+        },
+        {
+            "index":233,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"FVG",
+            "totale":2407,
+            "sesso_maschile":810,
+            "sesso_femminile":1597,
+            "categoria_operatori_sanitari_sociosanitari":1225,
+            "categoria_personale_non_sanitario":638,
+            "categoria_ospiti_rsa":544
+        },
+        {
+            "index":234,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"ITA",
+            "totale":82877,
+            "sesso_maschile":32231,
+            "sesso_femminile":50646,
+            "categoria_operatori_sanitari_sociosanitari":60882,
+            "categoria_personale_non_sanitario":15096,
+            "categoria_ospiti_rsa":6899
+        },
+        {
+            "index":235,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"LAZ",
+            "totale":5993,
+            "sesso_maschile":2419,
+            "sesso_femminile":3574,
+            "categoria_operatori_sanitari_sociosanitari":4364,
+            "categoria_personale_non_sanitario":969,
+            "categoria_ospiti_rsa":660
+        },
+        {
+            "index":236,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"LIG",
+            "totale":1332,
+            "sesso_maschile":480,
+            "sesso_femminile":852,
+            "categoria_operatori_sanitari_sociosanitari":858,
+            "categoria_personale_non_sanitario":287,
+            "categoria_ospiti_rsa":187
+        },
+        {
+            "index":237,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"LOM",
+            "totale":11956,
+            "sesso_maschile":4418,
+            "sesso_femminile":7538,
+            "categoria_operatori_sanitari_sociosanitari":9230,
+            "categoria_personale_non_sanitario":2511,
+            "categoria_ospiti_rsa":215
+        },
+        {
+            "index":238,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"MAR",
+            "totale":1711,
+            "sesso_maschile":607,
+            "sesso_femminile":1104,
+            "categoria_operatori_sanitari_sociosanitari":1452,
+            "categoria_personale_non_sanitario":259,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":239,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"MOL",
+            "totale":449,
+            "sesso_maschile":152,
+            "sesso_femminile":297,
+            "categoria_operatori_sanitari_sociosanitari":214,
+            "categoria_personale_non_sanitario":57,
+            "categoria_ospiti_rsa":178
+        },
+        {
+            "index":240,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"PAB",
+            "totale":310,
+            "sesso_maschile":139,
+            "sesso_femminile":171,
+            "categoria_operatori_sanitari_sociosanitari":55,
+            "categoria_personale_non_sanitario":147,
+            "categoria_ospiti_rsa":108
+        },
+        {
+            "index":241,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"PAT",
+            "totale":186,
+            "sesso_maschile":40,
+            "sesso_femminile":146,
+            "categoria_operatori_sanitari_sociosanitari":143,
+            "categoria_personale_non_sanitario":13,
+            "categoria_ospiti_rsa":30
+        },
+        {
+            "index":242,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"PIE",
+            "totale":6140,
+            "sesso_maschile":2168,
+            "sesso_femminile":3972,
+            "categoria_operatori_sanitari_sociosanitari":4474,
+            "categoria_personale_non_sanitario":1123,
+            "categoria_ospiti_rsa":543
+        },
+        {
+            "index":243,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"PUG",
+            "totale":5061,
+            "sesso_maschile":2337,
+            "sesso_femminile":2724,
+            "categoria_operatori_sanitari_sociosanitari":4529,
+            "categoria_personale_non_sanitario":185,
+            "categoria_ospiti_rsa":347
+        },
+        {
+            "index":244,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"SAR",
+            "totale":4001,
+            "sesso_maschile":1406,
+            "sesso_femminile":2595,
+            "categoria_operatori_sanitari_sociosanitari":3192,
+            "categoria_personale_non_sanitario":809,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":245,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"SIC",
+            "totale":6708,
+            "sesso_maschile":3144,
+            "sesso_femminile":3564,
+            "categoria_operatori_sanitari_sociosanitari":4675,
+            "categoria_personale_non_sanitario":1709,
+            "categoria_ospiti_rsa":324
+        },
+        {
+            "index":246,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"TOS",
+            "totale":4440,
+            "sesso_maschile":1585,
+            "sesso_femminile":2855,
+            "categoria_operatori_sanitari_sociosanitari":3775,
+            "categoria_personale_non_sanitario":144,
+            "categoria_ospiti_rsa":521
+        },
+        {
+            "index":247,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"UMB",
+            "totale":1673,
+            "sesso_maschile":479,
+            "sesso_femminile":1194,
+            "categoria_operatori_sanitari_sociosanitari":894,
+            "categoria_personale_non_sanitario":14,
+            "categoria_ospiti_rsa":765
+        },
+        {
+            "index":248,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"VDA",
+            "totale":443,
+            "sesso_maschile":199,
+            "sesso_femminile":244,
+            "categoria_operatori_sanitari_sociosanitari":414,
+            "categoria_personale_non_sanitario":0,
+            "categoria_ospiti_rsa":29
+        },
+        {
+            "index":249,
+            "data_somministrazione":"2021-01-09T00:00:00.000Z",
+            "area":"VEN",
+            "totale":7767,
+            "sesso_maschile":2493,
+            "sesso_femminile":5274,
+            "categoria_operatori_sanitari_sociosanitari":4969,
+            "categoria_personale_non_sanitario":1264,
+            "categoria_ospiti_rsa":1534
+        },
+        {
+            "index":250,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"ABR",
+            "totale":1123,
+            "sesso_maschile":403,
+            "sesso_femminile":720,
+            "categoria_operatori_sanitari_sociosanitari":1083,
+            "categoria_personale_non_sanitario":40,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":251,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"CAL",
+            "totale":1096,
+            "sesso_maschile":566,
+            "sesso_femminile":530,
+            "categoria_operatori_sanitari_sociosanitari":826,
+            "categoria_personale_non_sanitario":270,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":252,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"CAM",
+            "totale":8137,
+            "sesso_maschile":3726,
+            "sesso_femminile":4411,
+            "categoria_operatori_sanitari_sociosanitari":6614,
+            "categoria_personale_non_sanitario":1412,
+            "categoria_ospiti_rsa":111
+        },
+        {
+            "index":253,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"EMR",
+            "totale":6516,
+            "sesso_maschile":2447,
+            "sesso_femminile":4069,
+            "categoria_operatori_sanitari_sociosanitari":3762,
+            "categoria_personale_non_sanitario":2411,
+            "categoria_ospiti_rsa":343
+        },
+        {
+            "index":254,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"FVG",
+            "totale":2885,
+            "sesso_maschile":899,
+            "sesso_femminile":1986,
+            "categoria_operatori_sanitari_sociosanitari":1480,
+            "categoria_personale_non_sanitario":1162,
+            "categoria_ospiti_rsa":243
+        },
+        {
+            "index":255,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"ITA",
+            "totale":58883,
+            "sesso_maschile":23279,
+            "sesso_femminile":35604,
+            "categoria_operatori_sanitari_sociosanitari":42573,
+            "categoria_personale_non_sanitario":12992,
+            "categoria_ospiti_rsa":3318
+        },
+        {
+            "index":256,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"LAZ",
+            "totale":3844,
+            "sesso_maschile":1599,
+            "sesso_femminile":2245,
+            "categoria_operatori_sanitari_sociosanitari":2830,
+            "categoria_personale_non_sanitario":769,
+            "categoria_ospiti_rsa":245
+        },
+        {
+            "index":257,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"LIG",
+            "totale":855,
+            "sesso_maschile":398,
+            "sesso_femminile":457,
+            "categoria_operatori_sanitari_sociosanitari":343,
+            "categoria_personale_non_sanitario":371,
+            "categoria_ospiti_rsa":141
+        },
+        {
+            "index":258,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"LOM",
+            "totale":10637,
+            "sesso_maschile":4044,
+            "sesso_femminile":6593,
+            "categoria_operatori_sanitari_sociosanitari":8127,
+            "categoria_personale_non_sanitario":2504,
+            "categoria_ospiti_rsa":6
+        },
+        {
+            "index":259,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"MAR",
+            "totale":1760,
+            "sesso_maschile":705,
+            "sesso_femminile":1055,
+            "categoria_operatori_sanitari_sociosanitari":1498,
+            "categoria_personale_non_sanitario":253,
+            "categoria_ospiti_rsa":9
+        },
+        {
+            "index":260,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"MOL",
+            "totale":269,
+            "sesso_maschile":72,
+            "sesso_femminile":197,
+            "categoria_operatori_sanitari_sociosanitari":82,
+            "categoria_personale_non_sanitario":19,
+            "categoria_ospiti_rsa":168
+        },
+        {
+            "index":261,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"PAT",
+            "totale":78,
+            "sesso_maschile":18,
+            "sesso_femminile":60,
+            "categoria_operatori_sanitari_sociosanitari":52,
+            "categoria_personale_non_sanitario":18,
+            "categoria_ospiti_rsa":8
+        },
+        {
+            "index":262,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"PIE",
+            "totale":5170,
+            "sesso_maschile":2265,
+            "sesso_femminile":2905,
+            "categoria_operatori_sanitari_sociosanitari":3879,
+            "categoria_personale_non_sanitario":781,
+            "categoria_ospiti_rsa":510
+        },
+        {
+            "index":263,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"PUG",
+            "totale":2143,
+            "sesso_maschile":973,
+            "sesso_femminile":1170,
+            "categoria_operatori_sanitari_sociosanitari":1874,
+            "categoria_personale_non_sanitario":129,
+            "categoria_ospiti_rsa":140
+        },
+        {
+            "index":264,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"SAR",
+            "totale":2173,
+            "sesso_maschile":746,
+            "sesso_femminile":1427,
+            "categoria_operatori_sanitari_sociosanitari":1678,
+            "categoria_personale_non_sanitario":495,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":265,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"SIC",
+            "totale":3073,
+            "sesso_maschile":1350,
+            "sesso_femminile":1723,
+            "categoria_operatori_sanitari_sociosanitari":1642,
+            "categoria_personale_non_sanitario":994,
+            "categoria_ospiti_rsa":437
+        },
+        {
+            "index":266,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"TOS",
+            "totale":2928,
+            "sesso_maschile":1073,
+            "sesso_femminile":1855,
+            "categoria_operatori_sanitari_sociosanitari":2428,
+            "categoria_personale_non_sanitario":137,
+            "categoria_ospiti_rsa":363
+        },
+        {
+            "index":267,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"UMB",
+            "totale":983,
+            "sesso_maschile":271,
+            "sesso_femminile":712,
+            "categoria_operatori_sanitari_sociosanitari":739,
+            "categoria_personale_non_sanitario":1,
+            "categoria_ospiti_rsa":243
+        },
+        {
+            "index":268,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"VDA",
+            "totale":220,
+            "sesso_maschile":71,
+            "sesso_femminile":149,
+            "categoria_operatori_sanitari_sociosanitari":200,
+            "categoria_personale_non_sanitario":0,
+            "categoria_ospiti_rsa":20
+        },
+        {
+            "index":269,
+            "data_somministrazione":"2021-01-10T00:00:00.000Z",
+            "area":"VEN",
+            "totale":4993,
+            "sesso_maschile":1653,
+            "sesso_femminile":3340,
+            "categoria_operatori_sanitari_sociosanitari":3436,
+            "categoria_personale_non_sanitario":1226,
+            "categoria_ospiti_rsa":331
+        },
+        {
+            "index":270,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"ABR",
+            "totale":1447,
+            "sesso_maschile":528,
+            "sesso_femminile":919,
+            "categoria_operatori_sanitari_sociosanitari":1323,
+            "categoria_personale_non_sanitario":124,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":271,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"BAS",
+            "totale":160,
+            "sesso_maschile":49,
+            "sesso_femminile":111,
+            "categoria_operatori_sanitari_sociosanitari":94,
+            "categoria_personale_non_sanitario":6,
+            "categoria_ospiti_rsa":60
+        },
+        {
+            "index":272,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"CAL",
+            "totale":1544,
+            "sesso_maschile":791,
+            "sesso_femminile":753,
+            "categoria_operatori_sanitari_sociosanitari":1230,
+            "categoria_personale_non_sanitario":270,
+            "categoria_ospiti_rsa":44
+        },
+        {
+            "index":273,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"CAM",
+            "totale":3965,
+            "sesso_maschile":1806,
+            "sesso_femminile":2159,
+            "categoria_operatori_sanitari_sociosanitari":2663,
+            "categoria_personale_non_sanitario":1147,
+            "categoria_ospiti_rsa":155
+        },
+        {
+            "index":274,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"EMR",
+            "totale":8563,
+            "sesso_maschile":3048,
+            "sesso_femminile":5515,
+            "categoria_operatori_sanitari_sociosanitari":4680,
+            "categoria_personale_non_sanitario":3045,
+            "categoria_ospiti_rsa":838
+        },
+        {
+            "index":275,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"FVG",
+            "totale":1809,
+            "sesso_maschile":588,
+            "sesso_femminile":1221,
+            "categoria_operatori_sanitari_sociosanitari":1295,
+            "categoria_personale_non_sanitario":513,
+            "categoria_ospiti_rsa":1
+        },
+        {
+            "index":276,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"ITA",
+            "totale":71812,
+            "sesso_maschile":25843,
+            "sesso_femminile":45969,
+            "categoria_operatori_sanitari_sociosanitari":50489,
+            "categoria_personale_non_sanitario":15001,
+            "categoria_ospiti_rsa":6322
+        },
+        {
+            "index":277,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"LAZ",
+            "totale":5442,
+            "sesso_maschile":2050,
+            "sesso_femminile":3392,
+            "categoria_operatori_sanitari_sociosanitari":4096,
+            "categoria_personale_non_sanitario":827,
+            "categoria_ospiti_rsa":519
+        },
+        {
+            "index":278,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"LIG",
+            "totale":2141,
+            "sesso_maschile":772,
+            "sesso_femminile":1369,
+            "categoria_operatori_sanitari_sociosanitari":1547,
+            "categoria_personale_non_sanitario":402,
+            "categoria_ospiti_rsa":192
+        },
+        {
+            "index":279,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"LOM",
+            "totale":14748,
+            "sesso_maschile":4944,
+            "sesso_femminile":9804,
+            "categoria_operatori_sanitari_sociosanitari":10964,
+            "categoria_personale_non_sanitario":3127,
+            "categoria_ospiti_rsa":657
+        },
+        {
+            "index":280,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"MAR",
+            "totale":359,
+            "sesso_maschile":136,
+            "sesso_femminile":223,
+            "categoria_operatori_sanitari_sociosanitari":305,
+            "categoria_personale_non_sanitario":54,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":281,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"MOL",
+            "totale":557,
+            "sesso_maschile":194,
+            "sesso_femminile":363,
+            "categoria_operatori_sanitari_sociosanitari":190,
+            "categoria_personale_non_sanitario":256,
+            "categoria_ospiti_rsa":111
+        },
+        {
+            "index":282,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"PAB",
+            "totale":1336,
+            "sesso_maschile":366,
+            "sesso_femminile":970,
+            "categoria_operatori_sanitari_sociosanitari":675,
+            "categoria_personale_non_sanitario":342,
+            "categoria_ospiti_rsa":319
+        },
+        {
+            "index":283,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"PIE",
+            "totale":8301,
+            "sesso_maschile":2858,
+            "sesso_femminile":5443,
+            "categoria_operatori_sanitari_sociosanitari":5862,
+            "categoria_personale_non_sanitario":1539,
+            "categoria_ospiti_rsa":900
+        },
+        {
+            "index":284,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"PUG",
+            "totale":3035,
+            "sesso_maschile":1316,
+            "sesso_femminile":1719,
+            "categoria_operatori_sanitari_sociosanitari":2765,
+            "categoria_personale_non_sanitario":207,
+            "categoria_ospiti_rsa":63
+        },
+        {
+            "index":285,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"SAR",
+            "totale":1179,
+            "sesso_maschile":504,
+            "sesso_femminile":675,
+            "categoria_operatori_sanitari_sociosanitari":687,
+            "categoria_personale_non_sanitario":492,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":286,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"SIC",
+            "totale":4740,
+            "sesso_maschile":2051,
+            "sesso_femminile":2689,
+            "categoria_operatori_sanitari_sociosanitari":3200,
+            "categoria_personale_non_sanitario":1220,
+            "categoria_ospiti_rsa":320
+        },
+        {
+            "index":287,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"TOS",
+            "totale":4843,
+            "sesso_maschile":1621,
+            "sesso_femminile":3222,
+            "categoria_operatori_sanitari_sociosanitari":4324,
+            "categoria_personale_non_sanitario":201,
+            "categoria_ospiti_rsa":318
+        },
+        {
+            "index":288,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"UMB",
+            "totale":1206,
+            "sesso_maschile":341,
+            "sesso_femminile":865,
+            "categoria_operatori_sanitari_sociosanitari":877,
+            "categoria_personale_non_sanitario":33,
+            "categoria_ospiti_rsa":296
+        },
+        {
+            "index":289,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"VDA",
+            "totale":326,
+            "sesso_maschile":112,
+            "sesso_femminile":214,
+            "categoria_operatori_sanitari_sociosanitari":295,
+            "categoria_personale_non_sanitario":0,
+            "categoria_ospiti_rsa":31
+        },
+        {
+            "index":290,
+            "data_somministrazione":"2021-01-11T00:00:00.000Z",
+            "area":"VEN",
+            "totale":6111,
+            "sesso_maschile":1768,
+            "sesso_femminile":4343,
+            "categoria_operatori_sanitari_sociosanitari":3417,
+            "categoria_personale_non_sanitario":1196,
+            "categoria_ospiti_rsa":1498
+        },
+        {
+            "index":291,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"ABR",
+            "totale":937,
+            "sesso_maschile":320,
+            "sesso_femminile":617,
+            "categoria_operatori_sanitari_sociosanitari":805,
+            "categoria_personale_non_sanitario":132,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":292,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"EMR",
+            "totale":3374,
+            "sesso_maschile":1190,
+            "sesso_femminile":2184,
+            "categoria_operatori_sanitari_sociosanitari":1942,
+            "categoria_personale_non_sanitario":1047,
+            "categoria_ospiti_rsa":385
+        },
+        {
+            "index":293,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"ITA",
+            "totale":6007,
+            "sesso_maschile":2053,
+            "sesso_femminile":3954,
+            "categoria_operatori_sanitari_sociosanitari":3819,
+            "categoria_personale_non_sanitario":1422,
+            "categoria_ospiti_rsa":766
+        },
+        {
+            "index":294,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"LAZ",
+            "totale":281,
+            "sesso_maschile":147,
+            "sesso_femminile":134,
+            "categoria_operatori_sanitari_sociosanitari":229,
+            "categoria_personale_non_sanitario":51,
+            "categoria_ospiti_rsa":1
+        },
+        {
+            "index":295,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"LOM",
+            "totale":925,
+            "sesso_maschile":243,
+            "sesso_femminile":682,
+            "categoria_operatori_sanitari_sociosanitari":613,
+            "categoria_personale_non_sanitario":96,
+            "categoria_ospiti_rsa":216
+        },
+        {
+            "index":296,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"PAB",
+            "totale":304,
+            "sesso_maschile":69,
+            "sesso_femminile":235,
+            "categoria_operatori_sanitari_sociosanitari":94,
+            "categoria_personale_non_sanitario":46,
+            "categoria_ospiti_rsa":164
+        },
+        {
+            "index":297,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"PUG",
+            "totale":30,
+            "sesso_maschile":22,
+            "sesso_femminile":8,
+            "categoria_operatori_sanitari_sociosanitari":7,
+            "categoria_personale_non_sanitario":23,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":298,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"SAR",
+            "totale":96,
+            "sesso_maschile":42,
+            "sesso_femminile":54,
+            "categoria_operatori_sanitari_sociosanitari":73,
+            "categoria_personale_non_sanitario":23,
+            "categoria_ospiti_rsa":0
+        },
+        {
+            "index":299,
+            "data_somministrazione":"2021-01-12T00:00:00.000Z",
+            "area":"UMB",
+            "totale":60,
+            "sesso_maschile":20,
+            "sesso_femminile":40,
+            "categoria_operatori_sanitari_sociosanitari":56,
+            "categoria_personale_non_sanitario":4,
+            "categoria_ospiti_rsa":0
         }
     ]
 }
