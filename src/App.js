@@ -15,6 +15,8 @@ function App () {
   const timeLoc = timeFormatLocale(timeItIT)
   const fmtDate = timeLoc.format('%A %e %B %Y')
   const fmtISODate = timeLoc.format('%Y-%M-%d')
+  const fmtMonth = timeLoc.format('%B')
+  const fmtYear = timeLoc.format('%Y')
 
   const [indexedData, setIndexedData] = useState(new Map())
   const [data, setData] = useState([])
@@ -32,6 +34,10 @@ function App () {
   const [administrations, setAdministrations] = useState(0)
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
   const [remainingDays, setRemainingDays] = useState(0)
+  const [targetMonth, setTargetMonth] = useState(11)
+  const [targetYear, setTargetYear] = useState((new Date()).getFullYear())
+  const [targetDate, setTargetDate] = useState(new Date())
+  const [targetAvgAdministrationsPerDay, setTargetAvgAdministrationsPerDay] = useState(0)
 
   useEffect(() => {
     window.fetch('./last-update-dataset.json')
@@ -46,6 +52,10 @@ function App () {
       .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
       .then(data => { setIndexedData(group(data, d => d.area)) })
   }, [])
+
+  useEffect(() => {
+    setTargetDate(new Date(targetYear, targetMonth, 0))
+  }, [targetMonth, targetYear])
 
   useEffect(() => {
     if (indexedData.get(areaKey)) {
@@ -73,6 +83,10 @@ function App () {
       sum(data, d => d.totale)
     )
   }, [data])
+
+  useEffect(() => {
+    setTargetAvgAdministrationsPerDay(remainingAdministrations / (targetDate.getTime() - (new Date()).getTime()) * 1000 * 60 * 60 * 24)
+  }, [targetDate, remainingAdministrations])
 
   useEffect(() => {
     setAvgAdministrationsLastDays(
@@ -108,6 +122,7 @@ function App () {
         con <em>{fmtInt(doses)}</em> dosi a testa.
         Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <em>{fmtInt(lastDays)} giorni</em>,
         mancano <em>{Math.floor(remainingDays / 365)} anni, {Math.floor((remainingDays % 365) / 30)} mesi e {Math.floor(remainingDays % 12)} giorni</em> prima di raggiungere <em>l'immunità di gregge</em>.
+        Per ottenerla entro <em>{fmtMonth(targetDate).toLowerCase()} {fmtYear(targetDate)}</em> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
       </p>
       <div className='Cube lt' />
       <div className='Cube lb' />
