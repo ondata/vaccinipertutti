@@ -1,5 +1,10 @@
 [
   {
+    "area": "ITA",
+    "nome": "Italia",
+    "totale": 59641488
+  },
+  {
     "area": "PIE",
     "nome": "Piemonte",
     "totale": 4311217
@@ -103,10 +108,5 @@
     "area": "SAR",
     "nome": "Sardegna",
     "totale": 1611621
-  },
-  {
-    "area": "ITA",
-    "nome": "Italia",
-    "totale": 59641488
   }
 ]
