@@ -1,4 +1,11 @@
 import { useEffect, useState } from 'react'
+
+import {
+  TextField,
+  InputAdornment,
+  Select,
+  MenuItem
+} from '@material-ui/core'
 import { rollups, group, sum, descending } from 'd3-array'
 import { formatLocale } from 'd3-format'
 import { timeFormatLocale } from 'd3-time-format'
@@ -10,22 +17,19 @@ import './App.css'
 function App () {
   const numberLoc = formatLocale(numberItIT)
   const fmtInt = numberLoc.format(',d')
-  const fmtPerc = numberLoc.format('.0%')
 
   const timeLoc = timeFormatLocale(timeItIT)
   const fmtDate = timeLoc.format('%A %e %B %Y')
   const fmtISODate = timeLoc.format('%Y-%M-%d')
-  const fmtMonth = timeLoc.format('%B')
-  const fmtYear = timeLoc.format('%Y')
 
-  const [indexedData, setIndexedData] = useState(new Map())
+  const [indexedData, setIndexedData] = useState({})
   const [data, setData] = useState([])
-  const [areaKey, setAreaKey] = useState('ITA')
-  const [areaName, setAreaName] = useState('Italia')
+  const [areas, setAreas] = useState([])
+  const [area, setArea] = useState('ITA')
   const [lastUpdate, setLastUpdate] = useState(new Date())
   const [lastDays, setLastDays] = useState(7)
   const [lastDate, setLastDate] = useState(new Date())
-  const [indexedPopulation, setIndexedPopulation] = useState(new Map())
+  const [indexedPopulation, setIndexedPopulation] = useState({})
   const [population, setPopulation] = useState(6e7)
   const [populationFraction, setPopulationFraction] = useState(0.8)
   const [doses, setDoses] = useState(2)
@@ -40,35 +44,44 @@ function App () {
   const [targetAvgAdministrationsPerDay, setTargetAvgAdministrationsPerDay] = useState(0)
 
   useEffect(() => {
-    window.fetch('./last-update-dataset.json')
+    window.fetch('../vaccinipertutti-data/last-update-dataset.json')
       .then(data => data.json())
       .then(data => { setLastUpdate(new Date(data.ultimo_aggiornamento)) })
-    window.fetch('./popolazione_residente_2020.json')
+    window.fetch('../vaccinipertutti-data/popolazione_residente_2020.json')
       .then(data => data.json())
-      .then(data => { setIndexedPopulation(group(data, d => d.area)) })
-    window.fetch('./somministrazioni-vaccini-summary-latest.json')
+      .then(data => {
+        setAreas(data)
+        setIndexedPopulation(Object.fromEntries(group(data, d => d.area)))
+      })
+    window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-summary-latest.json')
       .then(res => res.json())
       .then(res => res.data)
       .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
-      .then(data => { setIndexedData(group(data, d => d.area)) })
+      .then(data => { setIndexedData(Object.fromEntries(group(data, d => d.area))) })
   }, [])
 
   useEffect(() => {
-    setTargetDate(new Date(targetYear, targetMonth, 0))
+    const currentDate = new Date()
+    const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0)
+    const selectedMonth = new Date(targetYear, targetMonth + 1, 0)
+    console.log(currentMonth, selectedMonth)
+    if (selectedMonth > currentMonth) {
+      setTargetDate(new Date(targetYear, targetMonth + 1, 0))
+    } else {
+      setTargetMonth(targetDate.getMonth())
+      setTargetYear(targetDate.getFullYear())
+    }
   }, [targetMonth, targetYear])
 
   useEffect(() => {
-    if (indexedData.get(areaKey)) {
-      setData(indexedData.get(areaKey) || [])
-    }
-  }, [indexedData, areaKey])
+    setData(indexedData[area] || [])
+  }, [indexedData, area])
 
   useEffect(() => {
-    if (indexedPopulation.get(areaKey)) {
-      setAreaName(indexedPopulation.get(areaKey)[0].nome)
-      setPopulation(indexedPopulation.get(areaKey)[0].totale)
+    if (indexedPopulation[area]) {
+      setPopulation(indexedPopulation[area][0].totale)
     }
-  }, [indexedPopulation, areaKey])
+  }, [indexedPopulation, area])
 
   useEffect(() => {
     setAdministrationsPerDay(
@@ -113,17 +126,17 @@ function App () {
 
   return (
     <div className='App'>
-      <p>Termine previsto della campagna vaccinale in <em>{areaName}</em> contro Sars-CoV-2.</p>
+      <p>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</p>
       <h1>{fmtDate(lastDate)}</h1>
-      <p>
-        In <em>{areaName}</em> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
+      <div>
+        In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
         A oggi, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
-        ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare l'<em>{fmtPerc(populationFraction)}</em> della popolazione
-        con <em>{fmtInt(doses)}</em> dosi a testa.
-        Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <em>{fmtInt(lastDays)} giorni</em>,
+        ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare l'<TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} size='small' inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
+        con <TextField value={doses} onChange={e => setDoses(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
+        Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
         mancano <em>{Math.floor(remainingDays / 365)} anni, {Math.floor((remainingDays % 365) / 30)} mesi e {Math.floor(remainingDays % 12)} giorni</em> prima di raggiungere <em>l'immunità di gregge</em>.
-        Per ottenerla entro <em>{fmtMonth(targetDate).toLowerCase()} {fmtYear(targetDate)}</em> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
-      </p>
+        Per ottenerla entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} size='small' inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+      </div>
       <div className='Cube lt' />
       <div className='Cube lb' />
       <div className='Cube rt' />
