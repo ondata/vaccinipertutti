@@ -1,86 +1,112 @@
 [
   {
     "area": "PIE",
+    "nome": "Piemonte",
     "totale": 4311217
   },
   {
     "area": "VDA",
+    "nome": "Valle D'Aosta",
     "totale": 125034
   },
   {
     "area": "LOM",
+    "nome": "Lombardia",
     "totale": 10027602
   },
   {
     "area": "PAT",
+    "nome": "Provincia Autonoma di Trento",
     "totale": 545425
   },
   {
     "area": "PAB",
+    "nome": "Provincia Autonoma di Bolzano",
     "totale": 532644
   },
   {
     "area": "VEN",
+    "nome": "Veneto",
     "totale": 4879133
   },
   {
     "area": "FVG",
+    "nome": "Friuli-Venezia Giulia",
     "totale": 1206216
   },
   {
     "area": "LIG",
+    "nome": "Liguria",
     "totale": 1524826
   },
   {
     "area": "EMR",
+    "nome": "Emilia-Romagna",
     "totale": 4464119
   },
   {
     "area": "TOS",
+    "nome": "Toscana",
     "totale": 3692555
   },
   {
     "area": "UMB",
+    "nome": "Umbria",
     "totale": 870165
   },
   {
     "area": "MAR",
+    "nome": "Marche",
     "totale": 1512672
   },
   {
     "area": "LAZ",
+    "nome": "Lazio",
     "totale": 5755700
   },
   {
     "area": "ABR",
+    "nome": "Abruzzo",
     "totale": 1293941
   },
   {
     "area": "MOL",
+    "nome": "Molise",
     "totale": 300516
   },
   {
     "area": "CAM",
+    "nome": "Campania",
     "totale": 5712143
   },
   {
     "area": "PUG",
+    "nome": "Puglia",
     "totale": 3953305
   },
   {
     "area": "BAS",
+    "nome": "Basilicata",
     "totale": 553254
   },
   {
     "area": "CAL",
+    "nome": "Calabria",
     "totale": 1894110
   },
   {
     "area": "SIC",
+    "nome": "Sicilia",
     "totale": 4875290
   },
   {
     "area": "SAR",
+    "nome": "Sardegna",
     "totale": 1611621
+  },
+  {
+    "area": "ITA",
+    "nome": "Italia",
+    "totale": 59641488
   }
 ]

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { rollups, sum, descending } from 'd3-array'
+import { rollups, group, sum, descending } from 'd3-array'
 import { formatLocale } from 'd3-format'
 import { timeFormatLocale } from 'd3-time-format'
 import numberItIT from 'd3-format/locale/it-IT.json'
@@ -13,14 +13,17 @@ function App () {
   const fmtPerc = numberLoc.format('.0%')
 
   const timeLoc = timeFormatLocale(timeItIT)
-  const fmtDate = timeLoc.format('%A %d %B %Y')
+  const fmtDate = timeLoc.format('%A %e %B %Y')
   const fmtISODate = timeLoc.format('%Y-%M-%d')
 
+  const [indexedData, setIndexedData] = useState(new Map())
   const [data, setData] = useState([])
-  const [area, setArea] = useState('ITA')
+  const [areaKey, setAreaKey] = useState('ITA')
+  const [areaName, setAreaName] = useState('Italia')
   const [lastUpdate, setLastUpdate] = useState(new Date())
   const [lastDays, setLastDays] = useState(7)
   const [lastDate, setLastDate] = useState(new Date())
+  const [indexedPopulation, setIndexedPopulation] = useState(new Map())
   const [population, setPopulation] = useState(6e7)
   const [populationFraction, setPopulationFraction] = useState(0.8)
   const [doses, setDoses] = useState(2)
@@ -36,14 +39,26 @@ function App () {
       .then(data => { setLastUpdate(new Date(data.ultimo_aggiornamento)) })
     window.fetch('./popolazione_residente_2020.json')
       .then(data => data.json())
-      .then(data => { setPopulation(sum(data, d => d.totale)) })
+      .then(data => { setIndexedPopulation(group(data, d => d.area)) })
     window.fetch('./somministrazioni-vaccini-summary-latest.json')
       .then(res => res.json())
       .then(res => res.data)
-      .then(data => data.filter(d => d.area === 'ITA'))
       .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
-      .then(data => { setData(data) })
+      .then(data => { setIndexedData(group(data, d => d.area)) })
   }, [])
+
+  useEffect(() => {
+    if (indexedData.get(areaKey)) {
+      setData(indexedData.get(areaKey) || [])
+    }
+  }, [indexedData, areaKey])
+
+  useEffect(() => {
+    if (indexedPopulation.get(areaKey)) {
+      setAreaName(indexedPopulation.get(areaKey)[0].nome)
+      setPopulation(indexedPopulation.get(areaKey)[0].totale)
+    }
+  }, [indexedPopulation, areaKey])
 
   useEffect(() => {
     setAdministrationsPerDay(
@@ -84,14 +99,14 @@ function App () {
 
   return (
     <div className='App'>
-      <p>Termine previsto della campagna vaccinale italiana contro <em>Sars-CoV-2</em>.</p>
+      <p>Termine previsto della campagna vaccinale in <em>{areaName}</em> contro Sars-CoV-2.</p>
       <h1>{fmtDate(lastDate)}</h1>
       <p>
-        L'Italia ha iniziato a somministrare il primo vaccino approvato dall'EMA e dall'AIFA il <em>27 dicembre 2020</em>.
-        A oggi, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)} dosi</em> a livello nazionale,
-        ne mancano <em>{fmtInt(remainingAdministrations)}</em> prima di riuscire a vaccinare l'<em>{fmtPerc(populationFraction)}</em> della popolazione italiana
-        con <em>{fmtInt(doses)} dosi</em> a testa.
-        Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)} dosi</em> somministrate al giorno tenuto negli ultimi <em>{fmtInt(lastDays)} giorni</em>,
+        In <em>{areaName}</em> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
+        A oggi, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
+        ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare l'<em>{fmtPerc(populationFraction)}</em> della popolazione
+        con <em>{fmtInt(doses)}</em> dosi a testa.
+        Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <em>{fmtInt(lastDays)} giorni</em>,
         mancano <em>{Math.floor(remainingDays / 365)} anni, {Math.floor((remainingDays % 365) / 30)} mesi e {Math.floor(remainingDays % 12)} giorni</em> prima di raggiungere <em>l'immunità di gregge</em>.
       </p>
       <div className='Cube lt' />
