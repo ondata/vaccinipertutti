@@ -3,15 +3,33 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params'
 
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: '#e82f7d'
+    }
+  },
+  typography: {
+    fontFamily: [
+      '"Titillium Web"',
+      'sans-serif'
+    ]
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <QueryParamProvider ReactRouterRoute={Route}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </QueryParamProvider>
     </Router>
   </React.StrictMode>,

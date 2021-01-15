@@ -14,43 +14,46 @@ body {
   background-color: #fbba00;
 }
 
-p {
-  line-height: 1.5em;
-}
-
 em {
   text-decoration: underline;
   text-decoration-color: #e82f7d;
   font-style: normal;
 }
 
-.App {
-  max-width: 640px;
+.MuiInputBase-root {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: calc(10px + 2vmin) !important;
 }
 
 .Cube {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #e82f7d;
+    width: 60px;
+    height: 60px;
+    background-image: url('logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .Cube.lt {
   top: 0;
   left: 0;
+  background-position: -30px -30px;
 }
 
 .Cube.lb {
   bottom: 0;
   left: 0;
+  background-position: -30px 30px;
 }
 
 .Cube.rt {
   top: 0;
   right: 0;
+  background-position: 30px -30px;
 }
 
 .Cube.rb {
   bottom: 0;
   right: 0;
+  background-position: 30px 30px;
 }
