@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 body {
-  font-family: 'Titillium Web', sans-serif;
-  text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
-  background-color: #fbba00;
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
+    background-color: #fbba00;
 }
 
 em {
-  text-decoration: underline;
-  text-decoration-color: #e82f7d;
-  font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: #e82f7d;
+    font-style: normal;
 }
 
 .MuiInputBase-root {
@@ -25,35 +25,53 @@ em {
     font-size: calc(10px + 2vmin) !important;
 }
 
-.Cube {
+.Flower {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background-image: url('logo.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.Cube.lt {
-  top: 0;
-  left: 0;
-  background-position: -30px -30px;
+.Cube {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #e82f7d;
 }
 
-.Cube.lb {
-  bottom: 0;
-  left: 0;
-  background-position: -30px 30px;
+.Cube .MuiSvgIcon-root {
+    color: #fbba00;
+    cursor: pointer;
+}
+
+.Flower.lt {
+    top: 0;
+    left: 0;
+    background-position: -40px -40px;
+}
+
+.Flower.lb {
+    bottom: 0;
+    left: 0;
+    background-position: -40px 40px;
+}
+
+.Flower.rt {
+    top: 0;
+    right: 0;
+    background-position: 40px -40px;
+}
+
+.Flower.rb {
+    bottom: 0;
+    right: 0;
+    background-position: 40px 40px;
 }
 
 .Cube.rt {
-  top: 0;
-  right: 0;
-  background-position: 30px -30px;
+    top: 0;
+    right: 0;
 }
-
-.Cube.rb {
-  bottom: 0;
-  right: 0;
-  background-position: 30px 30px;
-}
+    

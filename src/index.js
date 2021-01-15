@@ -24,15 +24,13 @@ const theme = createMuiTheme({
 })
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <QueryParamProvider ReactRouterRoute={Route}>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </QueryParamProvider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <QueryParamProvider ReactRouterRoute={Route}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </QueryParamProvider>
+  </Router>,
   document.getElementById('root')
 )
 

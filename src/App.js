@@ -13,8 +13,18 @@ import {
   Select,
   MenuItem,
   Container,
-  Grid
+  Grid,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
+  Box,
+  IconButton
 } from '@material-ui/core'
+
+import { Help } from '@material-ui/icons'
 
 import { rollups, group, sum, descending } from 'd3-array'
 import { formatLocale } from 'd3-format'
@@ -52,6 +62,15 @@ function App () {
   const [targetYear, setTargetYear] = useQueryParam('targetYear', withDefault(NumberParam, (new Date()).getFullYear()))
   const [targetDate, setTargetDate] = useState(new Date())
   const [targetAvgAdministrationsPerDay, setTargetAvgAdministrationsPerDay] = useState(0)
+  const [dialogOpen, setDialogOpen] = useState(false)
+
+  function handleOpenDialog () {
+    setDialogOpen(true)
+  }
+
+  function handleCloseDialog () {
+    setDialogOpen(false)
+  }
 
   useEffect(() => {
     window.fetch('../vaccinipertutti-data/last-update-dataset.json')
@@ -135,25 +154,47 @@ function App () {
   }, [remainingAdministrations, avgAdministrationsLastDays])
 
   return (
-    <Container maxWidth='md'>
-      <Grid container direction='column' justify='center' spacing={2}>
-        <Grid item>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
-        <Grid item component='h1'>{fmtDate(lastDate)}</Grid>
-        <Grid item>
-          In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
-          A oggi, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
-          ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare l'<TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} size='small' inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
-          con <TextField value={doses} onChange={e => setDoses(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
-          Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
-          mancano <em>{Math.floor(remainingDays / 365)} anni, {Math.floor((remainingDays % 365) / 30)} mesi e {Math.floor(remainingDays % 12)} giorni</em> prima di raggiungere <em>l'immunità di gregge</em>.
-          Per ottenerla entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} size='small' inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+    <>
+      <Container maxWidth='md'>
+        <Grid container direction='column' justify='center' spacing={2}>
+          <Grid item>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
+          <Grid item component='h1'>{fmtDate(lastDate)}</Grid>
+          <Grid item>
+            In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
+            A oggi, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
+            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare l'<TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} size='small' inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
+            con <TextField value={doses} onChange={e => setDoses(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
+            Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
+            mancano <em>{Math.floor(remainingDays / 365)} anni, {Math.floor((remainingDays % 365) / 30)} mesi e {Math.floor(remainingDays % 12)} giorni</em> prima di raggiungere <em>l'immunità di gregge</em>.
+            Per ottenerla entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} size='small' inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+          </Grid>
+          <Box className='Flower lt' />
+          <Box className='Flower lb' />
+          <Box className='Cube rt icon'>
+            <Help color='primary' onClick={handleOpenDialog} />
+          </Box>
+          <Box className='Flower rb' />
         </Grid>
-        <div className='Cube lt' />
-        <div className='Cube lb' />
-        <div className='Cube rt' />
-        <div className='Cube rb' />
-      </Grid>
-    </Container>
+      </Container>
+      <Dialog
+        open={dialogOpen}
+        onClose={handleCloseDialog}
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
+      >
+        <DialogTitle id='alert-dialog-title'>Vaccini per tutti by onData</DialogTitle>
+        <DialogContent>
+          <DialogContentText id='alert-dialog-description'>
+            Questa è un'applicazione di onData.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color='secondary' autoFocus>
+            Ok!
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   )
 }
 
