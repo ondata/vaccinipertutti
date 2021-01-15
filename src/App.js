@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react'
 
 import {
+  useQueryParam,
+  NumberParam,
+  StringParam,
+  withDefault
+} from 'use-query-params'
+
+import {
   TextField,
   InputAdornment,
   Select,
   MenuItem
 } from '@material-ui/core'
+
 import { rollups, group, sum, descending } from 'd3-array'
 import { formatLocale } from 'd3-format'
 import { timeFormatLocale } from 'd3-time-format'
@@ -25,21 +33,21 @@ function App () {
   const [indexedData, setIndexedData] = useState({})
   const [data, setData] = useState([])
   const [areas, setAreas] = useState([])
-  const [area, setArea] = useState('ITA')
+  const [area, setArea] = useQueryParam('area', withDefault(StringParam, 'ITA'))
   const [lastUpdate, setLastUpdate] = useState(new Date())
-  const [lastDays, setLastDays] = useState(7)
+  const [lastDays, setLastDays] = useQueryParam('lastDays', withDefault(NumberParam, 7))
   const [lastDate, setLastDate] = useState(new Date())
   const [indexedPopulation, setIndexedPopulation] = useState({})
   const [population, setPopulation] = useState(6e7)
-  const [populationFraction, setPopulationFraction] = useState(0.8)
-  const [doses, setDoses] = useState(2)
+  const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.8))
+  const [doses, setDoses] = useQueryParam('doses', withDefault(NumberParam, 2))
   const [administrationsPerDay, setAdministrationsPerDay] = useState([])
   const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState([])
   const [administrations, setAdministrations] = useState(0)
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
   const [remainingDays, setRemainingDays] = useState(0)
-  const [targetMonth, setTargetMonth] = useState(11)
-  const [targetYear, setTargetYear] = useState((new Date()).getFullYear())
+  const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 11))
+  const [targetYear, setTargetYear] = useQueryParam('targetYear', withDefault(NumberParam, (new Date()).getFullYear()))
   const [targetDate, setTargetDate] = useState(new Date())
   const [targetAvgAdministrationsPerDay, setTargetAvgAdministrationsPerDay] = useState(0)
 

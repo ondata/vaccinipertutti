@@ -5,16 +5,19 @@
   "homepage": "https://ondata.github.io/vaccinipertutti",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.0",
     "d3-array": "^2.9.1",
     "d3-format": "^2.0.0",
     "d3-time-format": "^3.0.0",
+    "query-string": "^6.13.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "use-query-params": "^1.1.9",
+    "web-vitals": "^1.1.0"
   },
   "scripts": {
     "start": "PUBLIC_URL=/vaccinipertutti-data/ react-scripts start",
