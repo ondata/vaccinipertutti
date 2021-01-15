@@ -155,7 +155,7 @@ function App () {
 
   return (
     <>
-      <Container maxWidth='md'>
+      <Container className='container' maxWidth='md' style={{ opacity: +!!data.length }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
           <Grid item component='h1'>{fmtDate(lastDate)}</Grid>
@@ -182,15 +182,24 @@ function App () {
         aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id='alert-dialog-title'>Vaccini per tutti by onData</DialogTitle>
+        <DialogTitle id='alert-dialog-title'>"Vaccini per tutti" by onData</DialogTitle>
         <DialogContent>
-          <DialogContentText id='alert-dialog-description'>
-            Questa è un'applicazione di onData.
+          <DialogContentText>
+            "Vaccini per tutti" è un esperimento che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data ufficiali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
+          </DialogContentText>
+          <DialogContentText>
+            L'applicazione è sviluppata e mantenuta da <a href='https://github.com/jenkin' target='_blank' rel='noreferrer'>@jenkin</a> per <a href='https://ondata.it/' target='_blank' rel='noreferrer'>onData APS</a>, associazione di promozione sociale che promuove l'apertura dei dati pubblici per renderli accessibili a tutte e tutti.
+          </DialogContentText>
+          <DialogContentText>
+            Il codice sorgente è open source e rilasciato sotto licenza MIT su Github: <a href='https://github.com/ondata/vaccinipertutti' target='_blank' rel='noreferrer'>ondata/vaccinipertutti</a>. Questa pagina è ospitata dal servizio <a href='https://pages.github.com/' target='_blank' rel='noreferrer'>Github Pages</a> e fa esclusivamente uso di cookie tecnici: non traccia né profila in alcun modo gli utenti. Se vuoi fare una segnalazione, puoi <a href='https://github.com/ondata/vaccinipertutti/issues' target='_blank' rel='noreferrer'>aprire una issue</a>.
+          </DialogContentText>
+          <DialogContentText>
+            Puoi sostenere l'attività di onData in molti modi, <a href='https://sostieni.ondata.it/' target='_blank' rel='noreferrer'>dai un'occhiata</a>!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog} color='secondary' autoFocus>
-            Ok!
+            Ho capito, grazie!
           </Button>
         </DialogActions>
       </Dialog>

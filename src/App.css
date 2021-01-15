@@ -14,6 +14,15 @@ body {
     background-color: #fbba00;
 }
 
+.container {
+    transition: opacity 3s;
+}
+
+a {
+    color: #e82f7d;
+    text-decoration-color: #e82f7d;
+}
+
 em {
     text-decoration: underline;
     text-decoration-color: #e82f7d;
