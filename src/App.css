@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 body {
-    font-family: 'Titillium Web', sans-serif;
     text-align: left;
-    background-color: #282c34;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,6 +10,7 @@ body {
     font-size: calc(10px + 2vmin);
     color: black;
     background-color: #fbba00;
+    position: relative;
 }
 
 .container {
@@ -36,6 +35,12 @@ em {
 
 .mainText {
     text-align: left;
+}
+
+.footerText {
+    text-align: center;
+    font-size: .5em;
+    margin-top: 2em !important;
 }
 
 .MuiInputBase-root {
