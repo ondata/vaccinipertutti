@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "#VacciniPerTutti",
+  "name": "Vaccini per tutti by onData",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,7 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "fullscreen",
+  "theme_color": "#e82f7d",
+  "background_color": "#fbba00"
 }
