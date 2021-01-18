@@ -20,13 +20,12 @@ import {
   DialogContentText,
   DialogActions,
   Button,
-  Box,
-  IconButton
+  Box
 } from '@material-ui/core'
 
 import { Help } from '@material-ui/icons'
 
-import { rollups, group, sum, descending } from 'd3-array'
+import { rollups, group, sum, ascending, descending } from 'd3-array'
 import { formatLocale } from 'd3-format'
 import { timeFormatLocale } from 'd3-time-format'
 import numberItIT from 'd3-format/locale/it-IT.json'
@@ -78,6 +77,7 @@ function App () {
       .then(data => { setLastUpdate(new Date(data.ultimo_aggiornamento)) })
     window.fetch('../vaccinipertutti-data/popolazione_residente_2020.json')
       .then(data => data.json())
+      .then(data => data.sort((a, b) => ascending(a.order, b.order)))
       .then(data => {
         setAreas(data)
         setIndexedPopulation(Object.fromEntries(group(data, d => d.area)))
@@ -86,7 +86,9 @@ function App () {
       .then(res => res.json())
       .then(res => res.data)
       .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
-      .then(data => { setIndexedData(Object.fromEntries(group(data, d => d.area))) })
+      .then(data => {
+        setIndexedData(Object.fromEntries(group(data, d => d.area)))
+      })
   }, [])
 
   useEffect(() => {
