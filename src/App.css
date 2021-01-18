@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Titillium Web', sans-serif;
-    text-align: center;
+    text-align: left;
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -27,6 +27,15 @@ em {
     text-decoration: underline;
     text-decoration-color: #e82f7d;
     font-style: normal;
+}
+
+.supTitle,
+.mainTitle {
+    text-align: center;
+}
+
+.mainText {
+    text-align: left;
 }
 
 .MuiInputBase-root {
