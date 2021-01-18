@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/vaccinipertutti/static/css/main.71786f25.chunk.css",
-    "main.js": "/vaccinipertutti/static/js/main.2e3d0307.chunk.js",
-    "main.js.map": "/vaccinipertutti/static/js/main.2e3d0307.chunk.js.map",
+    "main.css": "/vaccinipertutti/static/css/main.e85b7dac.chunk.css",
+    "main.js": "/vaccinipertutti/static/js/main.25e671da.chunk.js",
+    "main.js.map": "/vaccinipertutti/static/js/main.25e671da.chunk.js.map",
     "runtime-main.js": "/vaccinipertutti/static/js/runtime-main.605a03b3.js",
     "runtime-main.js.map": "/vaccinipertutti/static/js/runtime-main.605a03b3.js.map",
-    "static/js/2.f6ae41ea.chunk.js": "/vaccinipertutti/static/js/2.f6ae41ea.chunk.js",
-    "static/js/2.f6ae41ea.chunk.js.map": "/vaccinipertutti/static/js/2.f6ae41ea.chunk.js.map",
+    "static/js/2.010d3da0.chunk.js": "/vaccinipertutti/static/js/2.010d3da0.chunk.js",
+    "static/js/2.010d3da0.chunk.js.map": "/vaccinipertutti/static/js/2.010d3da0.chunk.js.map",
     "static/js/3.401a361d.chunk.js": "/vaccinipertutti/static/js/3.401a361d.chunk.js",
     "static/js/3.401a361d.chunk.js.map": "/vaccinipertutti/static/js/3.401a361d.chunk.js.map",
     "index.html": "/vaccinipertutti/index.html",
-    "static/css/main.71786f25.chunk.css.map": "/vaccinipertutti/static/css/main.71786f25.chunk.css.map",
-    "static/js/2.f6ae41ea.chunk.js.LICENSE.txt": "/vaccinipertutti/static/js/2.f6ae41ea.chunk.js.LICENSE.txt",
+    "static/css/main.e85b7dac.chunk.css.map": "/vaccinipertutti/static/css/main.e85b7dac.chunk.css.map",
+    "static/js/2.010d3da0.chunk.js.LICENSE.txt": "/vaccinipertutti/static/js/2.010d3da0.chunk.js.LICENSE.txt",
     "static/media/App.css": "/vaccinipertutti/static/media/logo.edac9da1.png"
   },
   "entrypoints": [
     "static/js/runtime-main.605a03b3.js",
-    "static/js/2.f6ae41ea.chunk.js",
-    "static/css/main.71786f25.chunk.css",
-    "static/js/main.2e3d0307.chunk.js"
+    "static/js/2.010d3da0.chunk.js",
+    "static/css/main.e85b7dac.chunk.css",
+    "static/js/main.25e671da.chunk.js"
   ]
 }
