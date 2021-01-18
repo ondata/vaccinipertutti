@@ -2,111 +2,133 @@
   {
     "area": "ITA",
     "nome": "Italia",
-    "totale": 59641488
+    "totale": 59641488,
+    "order": 0
   },
   {
     "area": "PIE",
     "nome": "Piemonte",
-    "totale": 4311217
+    "totale": 4311217,
+    "order": 14
   },
   {
     "area": "VDA",
     "nome": "Valle D'Aosta",
-    "totale": 125034
+    "totale": 125034,
+    "order": 20
   },
   {
     "area": "LOM",
     "nome": "Lombardia",
-    "totale": 10027602
+    "totale": 10027602,
+    "order": 9
   },
   {
     "area": "PAT",
     "nome": "Provincia Autonoma di Trento",
-    "totale": 545425
+    "totale": 545425,
+    "order": 13
   },
   {
     "area": "PAB",
     "nome": "Provincia Autonoma di Bolzano",
-    "totale": 532644
+    "totale": 532644,
+    "order": 12
   },
   {
     "area": "VEN",
     "nome": "Veneto",
-    "totale": 4879133
+    "totale": 4879133,
+    "order": 21
   },
   {
     "area": "FVG",
     "nome": "Friuli-Venezia Giulia",
-    "totale": 1206216
+    "totale": 1206216,
+    "order": 6
   },
   {
     "area": "LIG",
     "nome": "Liguria",
-    "totale": 1524826
+    "totale": 1524826,
+    "order": 8
   },
   {
     "area": "EMR",
     "nome": "Emilia-Romagna",
-    "totale": 4464119
+    "totale": 4464119,
+    "order": 5
   },
   {
     "area": "TOS",
     "nome": "Toscana",
-    "totale": 3692555
+    "totale": 3692555,
+    "order": 18
   },
   {
     "area": "UMB",
     "nome": "Umbria",
-    "totale": 870165
+    "totale": 870165,
+    "order": 19
   },
   {
     "area": "MAR",
     "nome": "Marche",
-    "totale": 1512672
+    "totale": 1512672,
+    "order": 10
   },
   {
     "area": "LAZ",
     "nome": "Lazio",
-    "totale": 5755700
+    "totale": 5755700,
+    "order": 7
   },
   {
     "area": "ABR",
     "nome": "Abruzzo",
-    "totale": 1293941
+    "totale": 1293941,
+    "order": 1
   },
   {
     "area": "MOL",
     "nome": "Molise",
-    "totale": 300516
+    "totale": 300516,
+    "order": 11
   },
   {
     "area": "CAM",
     "nome": "Campania",
-    "totale": 5712143
+    "totale": 5712143,
+    "order": 4
   },
   {
     "area": "PUG",
     "nome": "Puglia",
-    "totale": 3953305
+    "totale": 3953305,
+    "order": 15
   },
   {
     "area": "BAS",
     "nome": "Basilicata",
-    "totale": 553254
+    "totale": 553254,
+    "order": 2
   },
   {
     "area": "CAL",
     "nome": "Calabria",
-    "totale": 1894110
+    "totale": 1894110,
+    "order": 3
   },
   {
     "area": "SIC",
     "nome": "Sicilia",
-    "totale": 4875290
+    "totale": 4875290,
+    "order": 17
   },
   {
     "area": "SAR",
     "nome": "Sardegna",
-    "totale": 1611621
+    "totale": 1611621,
+    "order": 16
   }
 ]
