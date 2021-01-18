@@ -50,14 +50,14 @@ function App () {
   const [lastDate, setLastDate] = useState(new Date())
   const [indexedPopulation, setIndexedPopulation] = useState({})
   const [population, setPopulation] = useState(6e7)
-  const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.8))
+  const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.7))
   const [doses, setDoses] = useQueryParam('doses', withDefault(NumberParam, 2))
   const [administrationsPerDay, setAdministrationsPerDay] = useState([])
   const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState([])
   const [administrations, setAdministrations] = useState(0)
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
   const [remainingDays, setRemainingDays] = useState(0)
-  const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 11))
+  const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 8))
   const [targetYear, setTargetYear] = useQueryParam('targetYear', withDefault(NumberParam, (new Date()).getFullYear()))
   const [targetDate, setTargetDate] = useState(new Date())
   const [targetAvgAdministrationsPerDay, setTargetAvgAdministrationsPerDay] = useState(0)
@@ -164,7 +164,7 @@ function App () {
           <Grid item>
             In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
             A oggi, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
-            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare l'<TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} size='small' inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
+            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare il <TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} size='small' inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
             con <TextField value={doses} onChange={e => setDoses(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
             Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
             mancano <em>{Math.floor(remainingDays / 365)} anni, {Math.floor((remainingDays % 365) / 30)} mesi e {Math.floor(remainingDays % 12)} giorni</em> prima di raggiungere <em>l'immunità di gregge</em>.
