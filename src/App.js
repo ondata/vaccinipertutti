@@ -211,16 +211,18 @@ function App () {
             Per ottenerla entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} size='small' inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           {
-            nextMilestoneTargetAvgAdministrationsPerDay < avgAdministrationsLastDays
-              ? (
-                <Grid item className='mainText'>
-                  Il ritmo attuale è in linea con il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
-                </Grid>
-              ) : (
-                <Grid item className='mainText'>
-                  Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
-                </Grid>
-              )
+            area === 'ITA' ? (
+              nextMilestoneTargetAvgAdministrationsPerDay < avgAdministrationsLastDays
+                ? (
+                  <Grid item className='mainText'>
+                    Il ritmo attuale è in linea con il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
+                  </Grid>
+                ) : (
+                  <Grid item className='mainText'>
+                    Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
+                  </Grid>
+                )
+              ) : null
           }
           <Grid item className='footerText'>
             Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>.
