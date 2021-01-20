@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import { Fragment , useEffect, useState } from 'react'
+
+
 
 import {
   useQueryParam,
@@ -36,31 +38,45 @@ import './App.css'
 function App () {
   const numberLoc = formatLocale(numberItIT)
   const fmtInt = numberLoc.format(',d')
+  const fmtPerc = numberLoc.format('.1%')
 
   const timeLoc = timeFormatLocale(timeItIT)
   const fmtDate = timeLoc.format('%A %e %B %Y')
+  const fmtMonthYear = timeLoc.format('%B %Y')
   const fmtISODate = timeLoc.format('%Y-%M-%d')
 
   const [indexedData, setIndexedData] = useState({})
   const [data, setData] = useState([])
-  const [areas, setAreas] = useState([])
-  const [area, setArea] = useQueryParam('area', withDefault(StringParam, 'ITA'))
-  const [lastUpdate, setLastUpdate] = useState(new Date())
-  const [lastDays, setLastDays] = useQueryParam('lastDays', withDefault(NumberParam, 7))
-  const [lastDate, setLastDate] = useState(new Date())
+
   const [indexedPopulation, setIndexedPopulation] = useState({})
   const [population, setPopulation] = useState(6e7)
   const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.7))
+
+  const [areas, setAreas] = useState([])
+  const [area, setArea] = useQueryParam('area', withDefault(StringParam, 'ITA'))
+
+  const [lastUpdate, setLastUpdate] = useState(new Date())
+  const [lastDays, setLastDays] = useQueryParam('lastDays', withDefault(NumberParam, 7))
+  const [lastDate, setLastDate] = useState(new Date())
+
   const [doses, setDoses] = useQueryParam('doses', withDefault(NumberParam, 2))
-  const [administrationsPerDay, setAdministrationsPerDay] = useState([])
-  const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState([])
+
   const [administrations, setAdministrations] = useState(0)
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
   const [remainingDays, setRemainingDays] = useState(0)
+  const [administrationsPerDay, setAdministrationsPerDay] = useState([])
+  const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState([])
+
   const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 8))
   const [targetYear, setTargetYear] = useQueryParam('targetYear', withDefault(NumberParam, (new Date()).getFullYear()))
   const [targetDate, setTargetDate] = useState(new Date())
   const [targetAvgAdministrationsPerDay, setTargetAvgAdministrationsPerDay] = useState(0)
+
+  const [nextMilestone, setNextMilestone] = useState({})
+  const [nextMilestoneRemainingDays, setNextMilestoneRemainingDays] = useState(0)
+  const [nextMilestoneRemainingAdministrations, setNextMilestoneRemainingAdministrations] = useState(0)
+  const [nextMilestoneTargetAvgAdministrationsPerDay, setNextMilestoneTargetAvgAdministrationsPerDay] = useState(0)
+
   const [dialogOpen, setDialogOpen] = useState(false)
 
   function handleOpenDialog () {
@@ -82,6 +98,11 @@ function App () {
         setAreas(data)
         setIndexedPopulation(Object.fromEntries(group(data, d => d.area)))
       })
+    window.fetch('../vaccinipertutti-data/campaign-milestones.json')
+      .then(data => data.json())
+      .then(data => data.sort((a, b) => ascending(a.startDate, b.startDate)))
+      .then(data => data.filter(d => (new Date(d.startDate) < new Date()) && (new Date(d.endDate) > new Date())))
+      .then(data => { setNextMilestone(data?.[0]) })
     window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-summary-latest.json')
       .then(res => res.json())
       .then(res => res.data)
@@ -129,7 +150,7 @@ function App () {
   }, [data])
 
   useEffect(() => {
-    setTargetAvgAdministrationsPerDay(remainingAdministrations / (targetDate.getTime() - (new Date()).getTime()) * 1000 * 60 * 60 * 24)
+    setTargetAvgAdministrationsPerDay(remainingAdministrations / (targetDate - (new Date())) * 1000 * 60 * 60 * 24)
   }, [targetDate, remainingAdministrations])
 
   useEffect(() => {
@@ -155,6 +176,15 @@ function App () {
     setLastDate(datetime)
   }, [remainingAdministrations, avgAdministrationsLastDays])
 
+  useEffect(() => {
+    setNextMilestoneRemainingDays((new Date(nextMilestone.endDate) - new Date()) / (1000 * 60 * 60 * 24))
+    setNextMilestoneRemainingAdministrations((doses * nextMilestone.total) - administrations)
+  }, [doses, nextMilestone, administrations])
+
+  useEffect(() => {
+    setNextMilestoneTargetAvgAdministrationsPerDay(nextMilestoneRemainingAdministrations / nextMilestoneRemainingDays)
+  }, [nextMilestoneRemainingAdministrations, nextMilestoneRemainingDays])
+
   return (
     <>
       <Container className='container' maxWidth='md' style={{ opacity: +!!data.length }}>
@@ -174,6 +204,18 @@ function App () {
           <Grid item className='mainText'>
             Per ottenerla entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} size='small' inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
+          {
+            nextMilestoneTargetAvgAdministrationsPerDay < avgAdministrationsLastDays
+              ? (
+                <Grid item className='mainText'>
+                  Il ritmo attuale è in linea con il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
+                </Grid>
+              ) : (
+                <Grid item className='mainText'>
+                  Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
+                </Grid>
+              )
+          }
           <Grid item className='footerText'>
             Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>
           </Grid>
@@ -194,7 +236,7 @@ function App () {
         <DialogTitle id='alert-dialog-title'>"Vaccini per tutti" by onData</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            "Vaccini per tutti" è un esperimento che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data ufficiali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
+            "Vaccini per tutti" è un esperimento che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data ufficiali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
           </DialogContentText>
           <DialogContentText>
             L'applicazione è sviluppata e mantenuta da <a href='https://github.com/jenkin' target='_blank' rel='noreferrer'>@jenkin</a> per <a href='https://ondata.it/' target='_blank' rel='noreferrer'>onData APS</a>, associazione di promozione sociale che promuove l'apertura dei dati pubblici per renderli accessibili a tutte e tutti.
