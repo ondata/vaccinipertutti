@@ -59,8 +59,8 @@ em {
 
 .Cube {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    padding: 4px;
     background-color: #e82f7d;
 }
 

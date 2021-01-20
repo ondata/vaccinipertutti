@@ -1,6 +1,5 @@
-import { Fragment , useEffect, useState } from 'react'
-
-
+import { useEffect, useState } from 'react'
+import he from 'he'
 
 import {
   useQueryParam,
@@ -25,7 +24,14 @@ import {
   Box
 } from '@material-ui/core'
 
-import { Help } from '@material-ui/icons'
+import {
+  Facebook,
+  Help,
+  InsertLink,
+  LinkedIn,
+  Mail,
+  Twitter
+} from '@material-ui/icons'
 
 import { rollups, group, sum, ascending, descending } from 'd3-array'
 import { formatLocale } from 'd3-format'
@@ -217,12 +223,19 @@ function App () {
               )
           }
           <Grid item className='footerText'>
-            Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>
+            Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>.
           </Grid>
           <Box className='Flower lt' />
           <Box className='Flower lb' />
           <Box className='Cube rt icon'>
-            <Help color='primary' onClick={handleOpenDialog} />
+            <Grid container justify='center' alignContent='center' direction='column'>
+              <Grid item xs><Help color='primary' onClick={handleOpenDialog} /></Grid>
+              <Grid item xs><a title='Condividi su Twitter' href={`https://twitter.com/share?text="${he.decode(`Termine previsto della campagna vaccinale in ${indexedPopulation[area]?.[0]?.nome} contro Sars-CoV-2: ${fmtDate(lastDate)}`)}" via @ondatait&url=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Twitter color='primary' /></a></Grid>
+              <Grid item xs><a title='Condividi su Facebook' href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Facebook color='primary' /></a></Grid>
+              <Grid item xs><a title='Condividi su LinkedIn' href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><LinkedIn color='primary' /></a></Grid>
+              <Grid item xs><a title='Condividi via e-mail' href={`mailto:?subject="${he.decode(`Termine previsto della campagna vaccinale in ${indexedPopulation[area]?.[0]?.nome} contro Sars-CoV-2: ${fmtDate(lastDate)}`)}" via onData - APS&body=${he.decode(`In ${indexedPopulation[area]?.[0]?.nome} si è iniziato a somministrare il primo vaccino il 27 dicembre 2020`)}... Continua a leggere su ${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Mail color='primary' /></a></Grid>
+              <Grid item xs><a title='Permalink' href={window.location.href} target='_blank' rel='noreferrer'><InsertLink color='primary' /></a></Grid>
+            </Grid>
           </Box>
           <Box className='Flower rb' />
         </Grid>
