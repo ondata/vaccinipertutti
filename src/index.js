@@ -20,6 +20,14 @@ const theme = createMuiTheme({
       '"Titillium Web"',
       'sans-serif'
     ]
+  },
+  overrides: {
+    MuiInput: {
+      root: {
+        padding: '0 .5em',
+        backgroundColor: '#e82f7d'
+      }
+    }
   }
 })
 
