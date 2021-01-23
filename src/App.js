@@ -88,10 +88,12 @@ function App () {
   const [remainingDays, setRemainingDays] = useState(0)
   // Rate of administrations
   const [administrationsPerDay, setAdministrationsPerDay] = useState([])
-  // Average rate of administrations in last days
-  const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState([])
   // Rate of vaccinations (second dose administrations)
   const [vaccinatedPeoplePerDay, setVaccinatedPeoplePerDay] = useState([])
+  // Average rate of administrations in last days
+  const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState(0)
+  // Average rate of vaccinations in last days
+  const [avgVaccinatedPeopleLastDays, setAvgVaccinatedPeopleLastDays] = useState(0)
   // Selected final goal month
   const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 8))
   // Selected final goal year
@@ -221,6 +223,16 @@ function App () {
     )
   }, [administrationsPerDay, lastDays])
 
+  // Compute vaccinated people rate in last days, filtering out today administrations to avoid underestimation
+  useEffect(() => {
+    setAvgVaccinatedPeopleLastDays(
+      sum(
+        vaccinatedPeoplePerDay.filter(d => d[0] !== fmtISODate(new Date())).slice(0, lastDays),
+        d => d[1]
+      ) / lastDays
+    )
+  }, [vaccinatedPeoplePerDay, lastDays])
+
   // Compute remaining administrations for final goal
   useEffect(() => {
     setRemainingAdministrations(
@@ -252,21 +264,27 @@ function App () {
     <>
       <Container className='container' maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
+          <Grid item className='footerText'>
+            Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Scoprilo!</a>
+          </Grid>
           <Grid item className='supTitle'>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
           <Grid item component='h1' className='mainTitle'>{fmtDate(lastDate)}</Grid>
+          {/* <Grid item className='footerText'>
+            Come l'abbiamo calcolato? <a href='#' onClick={handleOpenDialog}>Scoprilo!</a>
+          </Grid> */}
           <Grid item className='mainText'>
             In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
             A {lastUpdate.getDate() === (new Date()).getDate() ? 'oggi' : 'ieri'}, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
-            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare il <TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} size='small' inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
-            con <TextField value={doses} onChange={e => setDoses(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
+            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare il <TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
+            con <TextField value={doses} onChange={e => setDoses(+e.target.value)} inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
           </Grid>
           <Grid item className='mainText'>
-            Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
+            Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
             mancano <em>{fmtInt(remainingDays / 365)} anni, {fmtInt((remainingDays % 365) / 30)} mesi e {fmtInt(remainingDays % 12)} giorni</em> prima di raggiungere l'obiettivo.
-            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} size='small' inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
-            Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em>, pari al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
+            Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em> (una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari allo <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
           </Grid>
           {
             area === 'ITA' ? (
@@ -309,13 +327,20 @@ function App () {
         <DialogTitle id='alert-dialog-title'>"Vaccini per tutti" by onData</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            "Vaccini per tutti" è un'applicazione sperimentale che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data ufficiali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
+            "Vaccini per tutti" è un'applicazione sperimentale <b>non ufficiale</b> che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data ufficiali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
+          </DialogContentText>
+          <DialogContentText>
+            Tutte le informazioni contenute in questa pagina sono da prendersi così <a href='https://en.wikipedia.org/wiki/As_is' target='_blank' rel='noreferrer'>come sono</a>, senza nessuna garanzia di correttezza o pretesa di affidabilità.
+            I dati sottostanti sono aggiornati quotidianamente dalle fonti indicate e le stime cambiano quindi ogni giorno seguendo l'andamento della campagna vaccinale.
+          </DialogContentText>
+          <DialogContentText>
+            Se hai un dubbio o vuoi fare una segnalazione, puoi <a href='https://github.com/ondata/vaccinipertutti/issues' target='_blank' rel='noreferrer'>aprire una issue</a>.
           </DialogContentText>
           <DialogContentText>
             L'applicazione è sviluppata e mantenuta da <a href='https://github.com/jenkin' target='_blank' rel='noreferrer'>@jenkin</a> per <a href='https://ondata.it/' target='_blank' rel='noreferrer'>onData APS</a>, associazione di promozione sociale che promuove l'apertura dei dati pubblici per renderli accessibili a tutte e tutti.
           </DialogContentText>
           <DialogContentText>
-            Il codice sorgente è open source e rilasciato sotto licenza MIT su Github: <a href='https://github.com/ondata/vaccinipertutti' target='_blank' rel='noreferrer'>ondata/vaccinipertutti</a>. Questa pagina è ospitata dal servizio <a href='https://pages.github.com/' target='_blank' rel='noreferrer'>Github Pages</a> e fa esclusivamente uso di cookie tecnici: non traccia né profila in alcun modo gli utenti. Se vuoi fare una segnalazione, puoi <a href='https://github.com/ondata/vaccinipertutti/issues' target='_blank' rel='noreferrer'>aprire una issue</a>.
+            Il codice sorgente è open source e rilasciato sotto <a href='https://tldrlegal.com/license/mit-license' target='_blank' rel='noreferrer'>licenza MIT</a> su Github: <a href='https://github.com/ondata/vaccinipertutti' target='_blank' rel='noreferrer'>ondata/vaccinipertutti</a>. Questa pagina è ospitata dal servizio <a href='https://pages.github.com/' target='_blank' rel='noreferrer'>Github Pages</a> e fa esclusivamente uso di cookie tecnici: non traccia né profila in alcun modo gli utenti.
           </DialogContentText>
           <DialogContentText>
             Puoi sostenere l'attività di onData in molti modi, <a href='https://sostieni.ondata.it/' target='_blank' rel='noreferrer'>dai un'occhiata</a>!
