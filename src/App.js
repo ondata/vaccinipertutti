@@ -80,6 +80,8 @@ function App () {
 
   // Total number of administrations
   const [administrations, setAdministrations] = useState(0)
+  // Total number of vaccinations (second dose administrations)
+  const [vaccinatedPeople, setVaccinatedPeople] = useState(0)
   // Remaining administrations to final goal
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
   // Remaining days to final goal
@@ -88,7 +90,8 @@ function App () {
   const [administrationsPerDay, setAdministrationsPerDay] = useState([])
   // Average rate of administrations in last days
   const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState([])
-
+  // Rate of vaccinations (second dose administrations)
+  const [vaccinatedPeoplePerDay, setVaccinatedPeoplePerDay] = useState([])
   // Selected final goal month
   const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 8))
   // Selected final goal year
@@ -174,7 +177,7 @@ function App () {
   }, [indexedPopulation, area])
 
   useEffect(() => {
-    // Compute partial aggregation (sum of administration) per day
+    // Compute partial aggregation (sum of administrations) per day
     setAdministrationsPerDay(
       rollups(
         dataPerArea,
@@ -183,9 +186,23 @@ function App () {
       )
     )
 
+    // Compute partial aggregation (sum of vaccinated people) per day
+    setVaccinatedPeoplePerDay(
+      rollups(
+        dataPerArea,
+        v => sum(v, d => d.seconda_dose),
+        d => fmtISODate(new Date(d.data_somministrazione))
+      )
+    )
+
     // Update total administrations
     setAdministrations(
       sum(dataPerArea, d => d.totale)
+    )
+
+    // Update total vaccinated people
+    setVaccinatedPeople(
+      sum(dataPerArea, d => d.seconda_dose)
     )
   }, [dataPerArea])
 
@@ -245,8 +262,11 @@ function App () {
           </Grid>
           <Grid item className='mainText'>
             Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} size='small' inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
-            mancano <em>{Math.floor(remainingDays / 365)} anni, {Math.floor((remainingDays % 365) / 30)} mesi e {Math.floor(remainingDays % 12)} giorni</em> prima di raggiungere l'obiettivo.
+            mancano <em>{fmtInt(remainingDays / 365)} anni, {fmtInt((remainingDays % 365) / 30)} mesi e {fmtInt(remainingDays % 12)} giorni</em> prima di raggiungere l'obiettivo.
             Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} size='small' inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+          </Grid>
+          <Grid item className='mainText'>
+            Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em>, pari al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
           </Grid>
           {
             area === 'ITA' ? (
