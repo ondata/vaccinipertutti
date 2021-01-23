@@ -49,40 +49,65 @@ function App () {
   const timeLoc = timeFormatLocale(timeItIT)
   const fmtDate = timeLoc.format('%A %e %B %Y')
   const fmtMonthYear = timeLoc.format('%B %Y')
-  const fmtISODate = timeLoc.format('%Y-%M-%d')
+  const fmtISODate = timeLoc.format('%Y-%m-%d')
 
+  // Daily data indexed by area
   const [indexedData, setIndexedData] = useState({})
-  const [data, setData] = useState([])
+  // Daily data per area
+  const [dataPerArea, setDataPerArea] = useState([])
 
+  // Population indexed by area
   const [indexedPopulation, setIndexedPopulation] = useState({})
-  const [population, setPopulation] = useState(6e7)
+  // Population per area
+  const [populationPerArea, setPopulationPerArea] = useState(6e7)
+  // Population fraction to be vaccinated (final goal)
   const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.7))
 
+  // All available area
   const [areas, setAreas] = useState([])
+  // Selected area
   const [area, setArea] = useQueryParam('area', withDefault(StringParam, 'ITA'))
 
+  // Last data update
   const [lastUpdate, setLastUpdate] = useState(new Date())
+  // Width of average time window
   const [lastDays, setLastDays] = useQueryParam('lastDays', withDefault(NumberParam, 7))
+  // Selected milestone when population fraction will be vaccinated
   const [lastDate, setLastDate] = useState(new Date())
 
+  // Selected doses per person
   const [doses, setDoses] = useQueryParam('doses', withDefault(NumberParam, 2))
 
+  // Total number of administrations
   const [administrations, setAdministrations] = useState(0)
+  // Remaining administrations to final goal
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
+  // Remaining days to final goal
   const [remainingDays, setRemainingDays] = useState(0)
+  // Rate of administrations
   const [administrationsPerDay, setAdministrationsPerDay] = useState([])
+  // Average rate of administrations in last days
   const [avgAdministrationsLastDays, setAvgAdministrationsLastDays] = useState([])
 
+  // Selected final goal month
   const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 8))
+  // Selected final goal year
   const [targetYear, setTargetYear] = useQueryParam('targetYear', withDefault(NumberParam, (new Date()).getFullYear()))
+  // Selected final goal date
   const [targetDate, setTargetDate] = useState(new Date())
+  // Average rate of administrations to reach the final goal within selected date
   const [targetAvgAdministrationsPerDay, setTargetAvgAdministrationsPerDay] = useState(0)
 
+  // Next milestone
   const [nextMilestone, setNextMilestone] = useState({})
+  // Remaining days to next milestone
   const [nextMilestoneRemainingDays, setNextMilestoneRemainingDays] = useState(0)
+  // Remaining administrations to next milestone
   const [nextMilestoneRemainingAdministrations, setNextMilestoneRemainingAdministrations] = useState(0)
+  // Rate required for the next milestone
   const [nextMilestoneTargetAvgAdministrationsPerDay, setNextMilestoneTargetAvgAdministrationsPerDay] = useState(0)
 
+  const [isReady, setIsReady] = useState(false)
   const [dialogOpen, setDialogOpen] = useState(false)
 
   function handleOpenDialog () {
@@ -93,36 +118,41 @@ function App () {
     setDialogOpen(false)
   }
 
+  // Download all requested data on page load
   useEffect(() => {
-    window.fetch('../vaccinipertutti-data/last-update-dataset.json')
-      .then(data => data.json())
-      .then(data => { setLastUpdate(new Date(data.ultimo_aggiornamento)) })
-    window.fetch('../vaccinipertutti-data/popolazione_residente_2020.json')
-      .then(data => data.json())
-      .then(data => data.sort((a, b) => ascending(a.order, b.order)))
-      .then(data => {
-        setAreas(data)
-        setIndexedPopulation(Object.fromEntries(group(data, d => d.area)))
-      })
-    window.fetch('../vaccinipertutti-data/campaign-milestones.json')
-      .then(data => data.json())
-      .then(data => data.sort((a, b) => ascending(a.startDate, b.startDate)))
-      .then(data => data.filter(d => (new Date(d.startDate) < new Date()) && (new Date(d.endDate) > new Date())))
-      .then(data => { setNextMilestone(data?.[0]) })
-    window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-summary-latest.json')
-      .then(res => res.json())
-      .then(res => res.data)
-      .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
-      .then(data => {
-        setIndexedData(Object.fromEntries(group(data, d => d.area)))
-      })
+    Promise.all([
+      window.fetch('../vaccinipertutti-data/last-update-dataset.json')
+        .then(data => data.json())
+        .then(data => { setLastUpdate(new Date(data.ultimo_aggiornamento)) }),
+      window.fetch('../vaccinipertutti-data/popolazione_residente_2020.json')
+        .then(data => data.json())
+        .then(data => data.sort((a, b) => ascending(a.order, b.order)))
+        .then(data => {
+          setAreas(data)
+          setIndexedPopulation(Object.fromEntries(group(data, d => d.area)))
+        }),
+      window.fetch('../vaccinipertutti-data/campaign-milestones.json')
+        .then(data => data.json())
+        .then(data => data.sort((a, b) => ascending(a.startDate, b.startDate)))
+        .then(data => data.filter(d => (new Date(d.startDate) < new Date()) && (new Date(d.endDate) > new Date())))
+        .then(data => { setNextMilestone(data?.[0]) }),
+      window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-summary-latest.json')
+        .then(res => res.json())
+        .then(res => res.data)
+        .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
+        .then(data => {
+          setIndexedData(Object.fromEntries(group(data, d => d.area)))
+        })
+    ]).then(() => { setIsReady(true) })
   }, [])
 
+  // On user selection of month and year of final goal, compute full date
   useEffect(() => {
     const currentDate = new Date()
     const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0)
     const selectedMonth = new Date(targetYear, targetMonth + 1, 0)
-    console.log(currentMonth, selectedMonth)
+
+    // Check to avoid selection of past months
     if (selectedMonth > currentMonth) {
       setTargetDate(new Date(targetYear, targetMonth + 1, 0))
     } else {
@@ -131,49 +161,57 @@ function App () {
     }
   }, [targetMonth, targetYear])
 
+  // On user selection of area, update administrations data per area
   useEffect(() => {
-    setData(indexedData[area] || [])
+    setDataPerArea(indexedData[area] || [])
   }, [indexedData, area])
 
+  // On user selection of area, update population per area
   useEffect(() => {
     if (indexedPopulation[area]) {
-      setPopulation(indexedPopulation[area][0].totale)
+      setPopulationPerArea(indexedPopulation[area][0].totale)
     }
   }, [indexedPopulation, area])
 
   useEffect(() => {
+    // Compute partial aggregation (sum of administration) per day
     setAdministrationsPerDay(
       rollups(
-        data,
+        dataPerArea,
         v => sum(v, d => d.totale),
         d => fmtISODate(new Date(d.data_somministrazione))
       )
     )
 
+    // Update total administrations
     setAdministrations(
-      sum(data, d => d.totale)
+      sum(dataPerArea, d => d.totale)
     )
-  }, [data])
+  }, [dataPerArea])
 
+  // Compute average rate of administrations to reach the final goal within selected date
   useEffect(() => {
     setTargetAvgAdministrationsPerDay(remainingAdministrations / (targetDate - (new Date())) * 1000 * 60 * 60 * 24)
   }, [targetDate, remainingAdministrations])
 
+  // Compute administrations rate in last days, filtering out today administrations to avoid underestimation
   useEffect(() => {
     setAvgAdministrationsLastDays(
       sum(
-        administrationsPerDay.slice(1, lastDays + 1),
+        administrationsPerDay.filter(d => d[0] !== fmtISODate(new Date())).slice(0, lastDays),
         d => d[1]
       ) / lastDays
     )
   }, [administrationsPerDay, lastDays])
 
+  // Compute remaining administrations for final goal
   useEffect(() => {
     setRemainingAdministrations(
-      doses * population * populationFraction - administrations
+      doses * populationPerArea * populationFraction - administrations
     )
-  }, [doses, population, populationFraction, administrations])
+  }, [doses, populationPerArea, populationFraction, administrations])
 
+  // Compute remaining days and date of final goal
   useEffect(() => {
     const days = remainingAdministrations / avgAdministrationsLastDays
     const datetime = new Date()
@@ -182,18 +220,20 @@ function App () {
     setLastDate(datetime)
   }, [remainingAdministrations, avgAdministrationsLastDays])
 
+  // Compute remaining days and administrations for next milestone
   useEffect(() => {
     setNextMilestoneRemainingDays((new Date(nextMilestone.endDate) - new Date()) / (1000 * 60 * 60 * 24))
     setNextMilestoneRemainingAdministrations((doses * nextMilestone.total) - administrations)
   }, [doses, nextMilestone, administrations])
 
+  // Compute requested average rate of administrations to reach next milestone
   useEffect(() => {
     setNextMilestoneTargetAvgAdministrationsPerDay(nextMilestoneRemainingAdministrations / nextMilestoneRemainingDays)
   }, [nextMilestoneRemainingAdministrations, nextMilestoneRemainingDays])
 
   return (
     <>
-      <Container className='container' maxWidth='md' style={{ opacity: +!!data.length }}>
+      <Container className='container' maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item className='supTitle'>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
           <Grid item component='h1' className='mainTitle'>{fmtDate(lastDate)}</Grid>
