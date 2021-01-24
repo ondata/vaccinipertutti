@@ -280,7 +280,7 @@ function App () {
           </Grid>
           <Grid item className='mainText'>
             Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
-            mancano <em>{fmtInt(remainingDays / 365)} anni, {fmtInt((remainingDays % 365) / 30)} mesi e {fmtInt(remainingDays % 12)} giorni</em> prima di raggiungere l'obiettivo.
+            mancano <em>{fmtInt(Math.floor(remainingDays / 365))} anni, {fmtInt(Math.floor((remainingDays % 365) / 30))} mesi e {fmtInt(Math.floor(remainingDays % 12))} giorni</em> prima di raggiungere l'obiettivo.
             Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
