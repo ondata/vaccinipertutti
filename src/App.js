@@ -281,7 +281,7 @@ function App () {
           <Grid item className='mainText'>
             Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
             mancano <em>{fmtInt(Math.floor(remainingDays / 365))} anni, {fmtInt(Math.floor((remainingDays % 365) / 30))} mesi e {fmtInt(Math.floor(remainingDays % 12))} giorni</em> prima di raggiungere l'obiettivo.
-            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: (new Date()).getFullYear() + 10, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
             Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em> (una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari allo <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
@@ -349,7 +349,7 @@ function App () {
             Se hai un dubbio o vuoi fare una segnalazione, puoi <a href='https://github.com/ondata/vaccinipertutti/issues' target='_blank' rel='noreferrer'>aprire una issue</a>.
           </DialogContentText>
           <DialogContentText>
-            Tutte le informazioni contenute in questa pagina sono da prendersi così <a href='https://en.wikipedia.org/wiki/As_is' target='_blank' rel='noreferrer'>come sono</a>, senza nessuna garanzia di correttezza o pretesa di affidabilità.
+            Tutte le informazioni contenute in questa pagina sono da prendersi <a href='https://en.wikipedia.org/wiki/As_is' target='_blank' rel='noreferrer'>così come sono</a>, senza nessuna garanzia di correttezza o pretesa di affidabilità.
             I dati sottostanti sono aggiornati quotidianamente dalle fonti indicate e le stime cambiano quindi ogni giorno seguendo l'andamento della campagna vaccinale.
           </DialogContentText>
           <DialogContentText>
