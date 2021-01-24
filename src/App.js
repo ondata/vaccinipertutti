@@ -270,7 +270,7 @@ function App () {
           <Grid item className='supTitle'>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
           <Grid item component='h1' className='mainTitle'>{fmtDate(lastDate)}</Grid>
           <Grid item className='footerText'>
-            Come abbiamo calcolato questa data? <a href='#' onClick={handleOpenDialog}>Ecco tutte le info!</a>
+            Come abbiamo calcolato questa data? <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md#le-stime' target='_blank' rel='noreferrer'>Ecco tutte le info!</a>
           </Grid>
           <Grid item className='mainText'>
             In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
@@ -304,7 +304,7 @@ function App () {
             Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>.
           </Grid>
           <Grid item className='footerText'>
-            Perché l'abbiamo fatto? <a href='https://ondata.it' target='_blank' rel='noreferrer'>Scoprilo!</a>
+            Perché l'abbiamo fatto? <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md#frequently-asked-question-faq' target='_blank' rel='noreferrer'>Scoprilo!</a>
           </Grid>
           <Grid item className='footerText'>
             E se ti piace, sottoscrivi la campagna <a href='https://datibenecomune.it/' target='_blank' rel='noreferrer'>#datiBeneComune</a>!
@@ -340,10 +340,10 @@ function App () {
           </DialogContentText>
           <DialogContentText>
             Come funziona? In base all'andamento della campagna di vaccinazione (quante somministrazioni effettuate in Italia nei giorni passati) stimiamo quanto tempo resta per raggiungere gli obiettivi di copertura vaccinale della popolazione generale e di quella dei soggetti ad alta priorità, così come definiti nel <a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>piano nazionale di vaccinazione</a>.
-            Puoi modificare i parametri che influiscono sul calcolo, prova a interagire con i numeri su <em className='bg'>sfondo colorato</em> e simula la tua campagna di vaccinazione virtuale.
+            Puoi modificare i parametri che influiscono sul calcolo, prova a interagire con i numeri su <em className='bg'>sfondo colorato</em> ed esplora tutti gli scenari possibili. Trovi ulteriori dettagli in <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md#le-stime' target='_blank' rel='noreferrer'>questa pagina</a>.
           </DialogContentText>
           <DialogContentText>
-            Per approfondire le motivazioni dietro lo sviluppo di questo lavoro, il significato e i limiti dei dati a disposizione, le modalità di calcolo e l'affidabilità delle stime presentate puoi leggere le nostre <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md' target='_blank' rel='noreferrer'>FAQ</a> (Frequently Asking Questions).
+            Per approfondire le motivazioni dietro lo sviluppo di questo lavoro, il significato e i limiti dei dati a disposizione, le modalità di calcolo e l'affidabilità delle stime presentate puoi leggere le nostre <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md#frequently-asked-question-faq' target='_blank' rel='noreferrer'>FAQ</a> (Frequently Asked Questions).
           </DialogContentText>
           <DialogContentText>
             Se hai un dubbio o vuoi fare una segnalazione, puoi <a href='https://github.com/ondata/vaccinipertutti/issues' target='_blank' rel='noreferrer'>aprire una issue</a>.
@@ -363,12 +363,6 @@ function App () {
           </DialogContentText>
         </DialogContent>
         <DialogActions justify='flex-start'>
-          {/* <Button color='primary' href='https://github.com/ondata/vaccinipertutti/blob/main/README.md' target='_blank' rel='noreferrer'>
-            Leggi le FAQ
-          </Button> */}
-          {/* <Button color='primary' href='https://github.com/ondata/vaccinipertutti/issues/new' target='_blank' rel='noreferrer'>
-            Invia una segnalazione
-          </Button> */}
           <Button color='primary' href='https://datibenecomune.it/' target='_blank' rel='noreferrer'>
             Sottoscrivi la campagna #datiBeneComune
           </Button>

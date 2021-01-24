@@ -4,6 +4,8 @@
 
 Si tratta di un progetto dell'associazione [onData APS](https://ondata.it) nell'ambito della campagna [#datiBeneComune](https://datibenecomune.it/) basato interamente su dati aperti e codice open source.
 
+![alt text](https://github.com/ondata/vaccinipertutti/blob/main/public/card.png?raw=true)
+
 ## Come funziona
 
 Apri l'applicazione con il tuo browser, puoi farlo sia da desktop che da tablet e smartphone: https://ondata.github.io/vaccinipertutti/.
@@ -36,6 +38,7 @@ Questa data è calcolata ogni volta che apri la pagina e quindi cambia ogni volt
 
 La formula dipende da alcuni parametri che puoi modificare a piacimento:
 
+- il territorio di riferimento (es. Italia, ma puoi scegliere anche una regione o una provincia autonoma);
 - percentuale della popolazione da vaccinare (es. 70%);
 - numero di giorni su cui calcolare la media di somministrazioni al giorno (es. gli ultimi 7, escludendo i dati del giorno corrente, che potrebbero essere parziali);
 - numero delle dosi che costituiscono il trattamento completo (es. 2 dosi a testa).
@@ -56,7 +59,7 @@ Calcoli molto simili sono applicati per i paragrafi successivi:
 
 Puoi controllare tutte queste formule e la loro implementazione guardando direttamente il [codice sorgente dell'applicazione](https://github.com/ondata/vaccinipertutti/blob/main/src/App.js).
 
-## Frequently Asking Question (FAQ)
+## Frequently Asked Question (FAQ)
 
 ### A cosa serve questo lavoro?
 
