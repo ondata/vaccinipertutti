@@ -11,6 +11,9 @@ import reportWebVitals from './reportWebVitals'
 
 const theme = createMuiTheme({
   palette: {
+    primary: {
+      main: 'rgba(0, 0, 0, 0.87)'
+    },
     secondary: {
       main: '#e82f7d'
     }
@@ -25,7 +28,16 @@ const theme = createMuiTheme({
     MuiInput: {
       root: {
         padding: '0 .5em',
-        backgroundColor: '#e82f7d'
+        backgroundColor: '#e82f7d',
+        color: 'white'
+      }
+    },
+    MuiDialogActions: {
+      root: {
+        justifyContent: 'flex-start',
+        '& > *:last-child': {
+          marginLeft: 'auto !important'
+        }
       }
     }
   }

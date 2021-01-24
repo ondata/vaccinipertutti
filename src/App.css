@@ -28,6 +28,12 @@ em {
     font-style: normal;
 }
 
+em.bg {
+    background-color: #e82f7d;
+    color: white;
+    padding: 0 .25em;
+}
+
 .supTitle,
 .mainTitle {
     text-align: center;
@@ -40,7 +46,7 @@ em {
 .footerText {
     text-align: center;
     font-size: .5em;
-    margin-top: 2em !important;
+    padding-bottom: 0 !important;
 }
 
 .MuiInputBase-root {

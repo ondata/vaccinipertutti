@@ -265,13 +265,13 @@ function App () {
       <Container className='container' maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item className='footerText'>
-            Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Scoprilo!</a>
+            Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Leggi qui!</a>
           </Grid>
           <Grid item className='supTitle'>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
           <Grid item component='h1' className='mainTitle'>{fmtDate(lastDate)}</Grid>
-          {/* <Grid item className='footerText'>
-            Come l'abbiamo calcolato? <a href='#' onClick={handleOpenDialog}>Scoprilo!</a>
-          </Grid> */}
+          <Grid item className='footerText'>
+            Come abbiamo calcolato questa data? <a href='#' onClick={handleOpenDialog}>Ecco tutte le info!</a>
+          </Grid>
           <Grid item className='mainText'>
             In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
             A {lastUpdate.getDate() === (new Date()).getDate() ? 'oggi' : 'ieri'}, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
@@ -303,6 +303,12 @@ function App () {
           <Grid item className='footerText'>
             Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>.
           </Grid>
+          <Grid item className='footerText'>
+            Perché l'abbiamo fatto? <a href='https://ondata.it' target='_blank' rel='noreferrer'>Scoprilo!</a>
+          </Grid>
+          <Grid item className='footerText'>
+            E se ti piace, sottoscrivi la campagna <a href='https://datibenecomune.it/' target='_blank' rel='noreferrer'>#datiBeneComune</a>!
+          </Grid>
           <Box className='Flower lt' />
           <Box className='Flower lb' />
           <Box className='Cube rt icon'>
@@ -327,17 +333,27 @@ function App () {
         <DialogTitle id='alert-dialog-title'>"Vaccini per tutti" by onData</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            "Vaccini per tutti" è un'applicazione sperimentale <b>non ufficiale</b> che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data ufficiali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
+            "Vaccini per tutti" è un'<b>applicazione sperimentale non ufficiale</b> che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data istituzionali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
+          </DialogContentText>
+          <DialogContentText>
+            <img width='100%' src='card.png' />
+          </DialogContentText>
+          <DialogContentText>
+            Come funziona? In base all'andamento della campagna di vaccinazione (quante somministrazioni effettuate in Italia nei giorni passati) stimiamo quanto tempo resta per raggiungere gli obiettivi di copertura vaccinale della popolazione generale e di quella dei soggetti ad alta priorità, così come definiti nel <a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>piano nazionale di vaccinazione</a>.
+            Puoi modificare i parametri che influiscono sul calcolo, prova a interagire con i numeri su <em className='bg'>sfondo colorato</em> e simula la tua campagna di vaccinazione virtuale.
+          </DialogContentText>
+          <DialogContentText>
+            Per approfondire le motivazioni dietro lo sviluppo di questo lavoro, il significato e i limiti dei dati a disposizione, le modalità di calcolo e l'affidabilità delle stime presentate puoi leggere le nostre <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md' target='_blank' rel='noreferrer'>FAQ</a> (Frequently Asking Questions).
+          </DialogContentText>
+          <DialogContentText>
+            Se hai un dubbio o vuoi fare una segnalazione, puoi <a href='https://github.com/ondata/vaccinipertutti/issues' target='_blank' rel='noreferrer'>aprire una issue</a>.
           </DialogContentText>
           <DialogContentText>
             Tutte le informazioni contenute in questa pagina sono da prendersi così <a href='https://en.wikipedia.org/wiki/As_is' target='_blank' rel='noreferrer'>come sono</a>, senza nessuna garanzia di correttezza o pretesa di affidabilità.
             I dati sottostanti sono aggiornati quotidianamente dalle fonti indicate e le stime cambiano quindi ogni giorno seguendo l'andamento della campagna vaccinale.
           </DialogContentText>
           <DialogContentText>
-            Se hai un dubbio o vuoi fare una segnalazione, puoi <a href='https://github.com/ondata/vaccinipertutti/issues' target='_blank' rel='noreferrer'>aprire una issue</a>.
-          </DialogContentText>
-          <DialogContentText>
-            L'applicazione è sviluppata e mantenuta da <a href='https://github.com/jenkin' target='_blank' rel='noreferrer'>@jenkin</a> per <a href='https://ondata.it/' target='_blank' rel='noreferrer'>onData APS</a>, associazione di promozione sociale che promuove l'apertura dei dati pubblici per renderli accessibili a tutte e tutti.
+            L'applicazione è sviluppata e mantenuta da <a href='https://github.com/jenkin' target='_blank' rel='noreferrer'>jenkin</a> per <a href='https://ondata.it/' target='_blank' rel='noreferrer'>onData APS</a>, associazione di promozione sociale che promuove l'apertura dei dati pubblici per renderli accessibili a tutte e tutti.
           </DialogContentText>
           <DialogContentText>
             Il codice sorgente è open source e rilasciato sotto <a href='https://tldrlegal.com/license/mit-license' target='_blank' rel='noreferrer'>licenza MIT</a> su Github: <a href='https://github.com/ondata/vaccinipertutti' target='_blank' rel='noreferrer'>ondata/vaccinipertutti</a>. Questa pagina è ospitata dal servizio <a href='https://pages.github.com/' target='_blank' rel='noreferrer'>Github Pages</a> e fa esclusivamente uso di cookie tecnici: non traccia né profila in alcun modo gli utenti.
@@ -346,8 +362,17 @@ function App () {
             Puoi sostenere l'attività di onData in molti modi, <a href='https://sostieni.ondata.it/' target='_blank' rel='noreferrer'>dai un'occhiata</a>!
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog} color='secondary' autoFocus>
+        <DialogActions justify='flex-start'>
+          {/* <Button color='primary' href='https://github.com/ondata/vaccinipertutti/blob/main/README.md' target='_blank' rel='noreferrer'>
+            Leggi le FAQ
+          </Button> */}
+          {/* <Button color='primary' href='https://github.com/ondata/vaccinipertutti/issues/new' target='_blank' rel='noreferrer'>
+            Invia una segnalazione
+          </Button> */}
+          <Button color='primary' href='https://datibenecomune.it/' target='_blank' rel='noreferrer'>
+            Sottoscrivi la campagna #datiBeneComune
+          </Button>
+          <Button onClick={handleCloseDialog} color='secondary' variant='contained' autoFocus>
             Ho capito, grazie!
           </Button>
         </DialogActions>
