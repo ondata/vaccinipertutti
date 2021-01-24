@@ -20,7 +20,7 @@ Le fonti istituzionali sono tre:
 
 - [Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri](https://github.com/italia/covid19-opendata-vaccini/): dati sulle somministrazioni a livello nazionale, per le regioni e le province autonome, aggiornamento quotidiano, licenza [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.it);
 
-- [Istituto Superiore di Sanità](https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione): dati sugli obiettivi del Piano nazionale di vaccinazione COVID-19 al 12 dicembre 2020, licenza open by default;
+- [Istituto Superiore di Sanità](https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione): dati sugli obiettivi del Piano nazionale di vaccinazione COVID-19 al 12 dicembre 2020, licenza [CC BY-NC-ND 2.5 IT](https://www.epicentro.iss.it/chi-siamo/disclaimer);
 
 - [ISTAT](http://demo.istat.it/popres/index.php?anno=2020&lingua=ita): dati sulla popolazione residente a livello nazionale, nelle regioni e nelle province autonome al 1 gennaio 2020.
 
