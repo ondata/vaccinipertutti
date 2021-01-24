@@ -95,7 +95,7 @@ Tutte le informazioni contenute in questa pagina sono da prendersi [così come s
 
 L'applicazione è sviluppata e mantenuta da [jenkin](https://github.com/jenkin) per [onData APS](https://ondata.it/), associazione di promozione sociale che promuove l'apertura dei dati pubblici per renderli accessibili a tutte e tutti.
 
-L'immagine di copertina è di Lisa Orlando.
+L'immagine di copertina è di [Lisa Orlando](https://www.linkedin.com/in/lisa-orla/).
 
 Dipendenze esterne: [ReactJS](https://it.reactjs.org/), [Material-UI](https://material-ui.com/), [Titillium Web](https://fonts.google.com/specimen/Titillium+Web), [Create React App](https://github.com/facebook/create-react-app), [d3js](https://d3js.org/).
 
