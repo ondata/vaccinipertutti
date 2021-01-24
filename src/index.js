@@ -32,6 +32,14 @@ const theme = createMuiTheme({
         color: 'white'
       }
     },
+    MuiInputAdornment: {
+      root: {
+        '& > *': {
+          color: 'white !important',
+          fontSize: '1.5rem'
+        }
+      }
+    },
     MuiDialogActions: {
       root: {
         justifyContent: 'flex-start',
