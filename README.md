@@ -4,7 +4,7 @@
 
 Si tratta di un progetto dell'associazione [onData APS](https://ondata.it) nell'ambito della campagna [#datiBeneComune](https://datibenecomune.it/) basato interamente su dati aperti e codice open source.
 
-![alt text](https://github.com/ondata/vaccinipertutti/blob/main/public/card.png?raw=true)
+[![alt text](https://github.com/ondata/vaccinipertutti/blob/main/public/card.png?raw=true)](https://ondata.github.io/vaccinipertutti/)
 
 ## Come funziona
 
