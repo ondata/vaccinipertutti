@@ -91,7 +91,7 @@ Aggiungendo anche il parametro `area` è possibile mostrare direttamente i dati 
 
 Non dimenticare di citare la fonte, puoi copiare / incollare questo testo da qualche parte nella tua pagina.
 
-> L'uso di questa applicazione è stato concesso dall'[Associazione OnData](https://ondata.it) nell'ambito della campagna [#datiBeneComune](https://datibenecomune.it/), il codice sorgente è open source e rilasciato sotto [licenza MIT](https://tldrlegal.com/license/mit-license) su Github: [ondata/vaccinipertutti](https://github.com/ondata/vaccinipertutti).
+> L'uso di questa applicazione è stato concesso dall'[Associazione onData](https://ondata.it) nell'ambito della campagna [#datiBeneComune](https://datibenecomune.it/). Il codice sorgente è open source e rilasciato sotto [licenza MIT](https://tldrlegal.com/license/mit-license) su Github: [ondata/vaccinipertutti](https://github.com/ondata/vaccinipertutti).
 
 ### Ho una domanda e non trovo una risposta, a chi posso chiedere?
 
