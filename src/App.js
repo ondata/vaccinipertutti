@@ -284,6 +284,9 @@ function App () {
       <Container className={`container ${isEmbed ? 'slim' : 'boxed'}`} maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item className='footerText'>
+            <img src='/vaccinipertutti-data/syringe.png' width={240} />
+          </Grid>
+          <Grid item className='footerText'>
             Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Leggi qui!</a>
           </Grid>
           <Grid item className='supTitle'>Termine previsto della campagna vaccinale in <em>{indexedPopulation[area]?.[0]?.nome}</em> contro Sars-CoV-2.</Grid>
@@ -319,6 +322,9 @@ function App () {
                 )
               ) : null
           }
+          <Grid item className='footerText'>
+            <img src='/vaccinipertutti-data/syringe.png' width={480} />
+          </Grid>
           <Grid item className='footerText'>
             Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>.
           </Grid>
