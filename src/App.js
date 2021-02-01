@@ -144,9 +144,24 @@ function App () {
       window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-summary-latest.json')
         .then(res => res.json())
         .then(res => res.data)
+        .then(data => data.filter(d => d.area !== 'ITA'))
         .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
         .then(data => {
-          setIndexedData(Object.fromEntries(group(data, d => d.area)))
+          setIndexedData({
+            ITA: Array
+              .from(group(data, d => d.data_somministrazione).values())
+              .map(d => d.reduce(
+                (o, v) => ({
+                  area: 'ITA',
+                  nome_area: 'Italia',
+                  data_somministrazione: v.data_somministrazione,
+                  totale: (o.totale ?? 0) + v.totale,
+                  seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose
+                }),
+                {})
+              ),
+            ...Object.fromEntries(group(data, d => d.area))
+          })
         })
     ]).then(() => { setIsReady(true) })
   }, [])
@@ -259,6 +274,8 @@ function App () {
   useEffect(() => {
     setNextMilestoneTargetAvgAdministrationsPerDay(nextMilestoneRemainingAdministrations / nextMilestoneRemainingDays)
   }, [nextMilestoneRemainingAdministrations, nextMilestoneRemainingDays])
+
+  console.log(indexedData)
 
   return (
     <>
