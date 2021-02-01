@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/vaccinipertutti/static/css/main.f4523cf7.chunk.css",
-    "main.js": "/vaccinipertutti/static/js/main.b128fc7b.chunk.js",
-    "main.js.map": "/vaccinipertutti/static/js/main.b128fc7b.chunk.js.map",
+    "main.css": "/vaccinipertutti/static/css/main.6725579f.chunk.css",
+    "main.js": "/vaccinipertutti/static/js/main.9574b039.chunk.js",
+    "main.js.map": "/vaccinipertutti/static/js/main.9574b039.chunk.js.map",
     "runtime-main.js": "/vaccinipertutti/static/js/runtime-main.4a4fd43c.js",
     "runtime-main.js.map": "/vaccinipertutti/static/js/runtime-main.4a4fd43c.js.map",
-    "static/js/2.5581cd93.chunk.js": "/vaccinipertutti/static/js/2.5581cd93.chunk.js",
-    "static/js/2.5581cd93.chunk.js.map": "/vaccinipertutti/static/js/2.5581cd93.chunk.js.map",
+    "static/js/2.311558df.chunk.js": "/vaccinipertutti/static/js/2.311558df.chunk.js",
+    "static/js/2.311558df.chunk.js.map": "/vaccinipertutti/static/js/2.311558df.chunk.js.map",
     "static/js/3.0b055df1.chunk.js": "/vaccinipertutti/static/js/3.0b055df1.chunk.js",
     "static/js/3.0b055df1.chunk.js.map": "/vaccinipertutti/static/js/3.0b055df1.chunk.js.map",
     "index.html": "/vaccinipertutti/index.html",
-    "static/css/main.f4523cf7.chunk.css.map": "/vaccinipertutti/static/css/main.f4523cf7.chunk.css.map",
-    "static/js/2.5581cd93.chunk.js.LICENSE.txt": "/vaccinipertutti/static/js/2.5581cd93.chunk.js.LICENSE.txt",
+    "static/css/main.6725579f.chunk.css.map": "/vaccinipertutti/static/css/main.6725579f.chunk.css.map",
+    "static/js/2.311558df.chunk.js.LICENSE.txt": "/vaccinipertutti/static/js/2.311558df.chunk.js.LICENSE.txt",
     "static/media/App.css": "/vaccinipertutti/static/media/logo.edac9da1.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4a4fd43c.js",
-    "static/js/2.5581cd93.chunk.js",
-    "static/css/main.f4523cf7.chunk.css",
-    "static/js/main.b128fc7b.chunk.js"
+    "static/js/2.311558df.chunk.js",
+    "static/css/main.6725579f.chunk.css",
+    "static/js/main.9574b039.chunk.js"
   ]
 }
