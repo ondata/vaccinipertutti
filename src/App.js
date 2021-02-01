@@ -5,6 +5,7 @@ import {
   useQueryParam,
   NumberParam,
   StringParam,
+  BooleanParam,
   withDefault
 } from 'use-query-params'
 
@@ -50,6 +51,9 @@ function App () {
   const fmtDate = timeLoc.format('%A %e %B %Y')
   const fmtMonthYear = timeLoc.format('%B %Y')
   const fmtISODate = timeLoc.format('%Y-%m-%d')
+
+  // Embed mode
+  const [isEmbed, setEmbed] = useQueryParam('embed', withDefault(BooleanParam, false))
 
   // Daily data indexed by area
   const [indexedData, setIndexedData] = useState({})
@@ -275,11 +279,9 @@ function App () {
     setNextMilestoneTargetAvgAdministrationsPerDay(nextMilestoneRemainingAdministrations / nextMilestoneRemainingDays)
   }, [nextMilestoneRemainingAdministrations, nextMilestoneRemainingDays])
 
-  console.log(indexedData)
-
   return (
     <>
-      <Container className='container' maxWidth='md' style={{ opacity: +isReady }}>
+      <Container className={`container ${isEmbed ? 'slim' : 'boxed'}`} maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item className='footerText'>
             Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Leggi qui!</a>
@@ -326,19 +328,25 @@ function App () {
           <Grid item className='footerText'>
             E se ti piace, sottoscrivi la campagna <a href='https://datibenecomune.it/' target='_blank' rel='noreferrer'>#datiBeneComune</a>!
           </Grid>
-          <Box className='Flower lt' />
-          <Box className='Flower lb' />
-          <Box className='Cube rt icon'>
-            <Grid container justify='center' alignContent='center' direction='column'>
-              <Grid item xs><Help color='primary' onClick={handleOpenDialog} /></Grid>
-              <Grid item xs><a title='Condividi su Twitter' href={`https://twitter.com/share?text="${he.decode(`Termine previsto della campagna vaccinale in ${indexedPopulation[area]?.[0]?.nome} contro Sars-CoV-2: ${fmtDate(lastDate)}`)}" via @ondatait&hashtags=datiBeneComune&url=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Twitter color='primary' /></a></Grid>
-              <Grid item xs><a title='Condividi su Facebook' href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&hashtag=${encodeURIComponent('#datiBeneComune')}`} target='_blank' rel='noreferrer'><Facebook color='primary' /></a></Grid>
-              <Grid item xs><a title='Condividi su LinkedIn' href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><LinkedIn color='primary' /></a></Grid>
-              <Grid item xs><a title='Condividi via e-mail' href={`mailto:?subject="${he.decode(`#datiBeneComune - Termine previsto della campagna vaccinale in ${indexedPopulation[area]?.[0]?.nome} contro Sars-CoV-2: ${fmtDate(lastDate)}`)}" via onData - APS&body=${he.decode(`In ${indexedPopulation[area]?.[0]?.nome} si è iniziato a somministrare il primo vaccino il 27 dicembre 2020`)}... Continua a leggere su ${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Mail color='primary' /></a></Grid>
-              <Grid item xs><a title='Permalink' href={window.location.href} target='_blank' rel='noreferrer'><InsertLink color='primary' /></a></Grid>
-            </Grid>
-          </Box>
-          <Box className='Flower rb' />
+          {
+            isEmbed || (
+              <>
+                <Box className='Flower lt' />
+                <Box className='Flower lb' />
+                <Box className='Cube rt icon'>
+                  <Grid container justify='center' alignContent='center' direction='column'>
+                    <Grid item xs><Help color='primary' onClick={handleOpenDialog} /></Grid>
+                    <Grid item xs><a title='Condividi su Twitter' href={`https://twitter.com/share?text="${he.decode(`Termine previsto della campagna vaccinale in ${indexedPopulation[area]?.[0]?.nome} contro Sars-CoV-2: ${fmtDate(lastDate)}`)}" via @ondatait&hashtags=datiBeneComune&url=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Twitter color='primary' /></a></Grid>
+                    <Grid item xs><a title='Condividi su Facebook' href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&hashtag=${encodeURIComponent('#datiBeneComune')}`} target='_blank' rel='noreferrer'><Facebook color='primary' /></a></Grid>
+                    <Grid item xs><a title='Condividi su LinkedIn' href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><LinkedIn color='primary' /></a></Grid>
+                    <Grid item xs><a title='Condividi via e-mail' href={`mailto:?subject="${he.decode(`#datiBeneComune - Termine previsto della campagna vaccinale in ${indexedPopulation[area]?.[0]?.nome} contro Sars-CoV-2: ${fmtDate(lastDate)}`)}" via onData - APS&body=${he.decode(`In ${indexedPopulation[area]?.[0]?.nome} si è iniziato a somministrare il primo vaccino il 27 dicembre 2020`)}... Continua a leggere su ${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Mail color='primary' /></a></Grid>
+                    <Grid item xs><a title='Permalink' href={window.location.href} target='_blank' rel='noreferrer'><InsertLink color='primary' /></a></Grid>
+                  </Grid>
+                </Box>
+                <Box className='Flower rb' />
+              </>
+            )
+          }
         </Grid>
       </Container>
       <Dialog
