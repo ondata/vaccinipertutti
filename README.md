@@ -77,6 +77,22 @@ Non è detto che lo faccia al meglio, tutto è perfettibile, ma lo è proprio pe
 
 È un esempio di informazione aumentata: non è solo un testo, ma è un testo interattivo in cui l'utente può esplorare autonomamente i dati per verificare altri scenari possibili. È un esperimento di giornalismo digitale e basato sui dati (data journalism).
 
+### Posso includere questa applicazione in una mia pagina web?
+
+Certamente, puoi usare questo snippet di codice nel tuo sito.
+
+```
+<iframe src='https://ondata.github.io/vaccinipertutti/?embed=1'></iframe>
+```
+
+Il parametro `embed` ottimizza l'applicazione per il caricamento in un iframe nascondendo i fiori agli angoli e le icone di condivisione.
+
+Aggiungendo anche il parametro `area` è possibile mostrare direttamente i dati della regione scelta al caricamento della pagina. Es. `<iframe src='https://ondata.github.io/vaccinipertutti/?area=VEN&embed=1'></iframe>` per il Veneto. [Qui](https://github.com/ondata/vaccinipertutti-data/blob/main/popolazione_residente_2020.json) puoi trovare tutti i codici regione disponibili.
+
+Non dimenticare di citare la fonte, puoi copiare / incollare questo testo da qualche parte nella tua pagina.
+
+> L'uso di questa applicazione è stato concesso dall'[Associazione OnData](https://ondata.it) nell'ambito della campagna [#datiBeneComune](https://datibenecomune.it/), il codice sorgente è open source e rilasciato sotto [licenza MIT](https://tldrlegal.com/license/mit-license) su Github: [ondata/vaccinipertutti](https://github.com/ondata/vaccinipertutti).
+
 ### Ho una domanda e non trovo una risposta, a chi posso chiedere?
 
 Fai una segnalazione pubblica [cliccando qui](https://github.com/ondata/vaccinipertutti/issues/new). Puoi fare domande, dare suggerimenti, segnalare errori, proporre correzioni, esprimere dubbi, ma anche rispondere alle segnalazioni delle altre persone.
@@ -102,6 +118,19 @@ Dipendenze esterne: [ReactJS](https://it.reactjs.org/), [Material-UI](https://ma
 I servizi di [automation](https://github.com/features/actions) e [hosting](https://pages.github.com/) sono offerti da [GitHub](https://www.github.com/).
 
 Si ringraziano le comunità di [onData](https://ondata.it), [Dataninja](https://www.facebook.com/groups/dataninja/) e [#datiBeneComune](https://datibenecomune.it/) per i suggerimenti e il supporto.
+
+## Contribuisci alla sviluppo
+
+Per eseguire l'applicazione in locale e modificarne il codice devi avere installato [NodeJS](https://nodejs.org/it/) e [Yarn](https://yarnpkg.com/).
+
+1. Clona questo repository: `git clone https://github.com/ondata/vaccinipertutti.git`
+2. Entra nella cartella appena creata: `cd vaccinipertutti/`
+3. Installa le dipendenze: `yarn install`
+4. Avvia il server di sviluppo: `yarn start`
+
+Una volta finito, puoi generare i file ottimizzati con `yarn build` nella cartella `dist/` e pubblicare le modifiche in produzione con `yarn deploy` (solo per utenti con privilegi di *push* in questo repository).
+
+Per proporre una modifica, effettua un [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) di questo repository, poi lavora su una *branch* diversa da `main` e infine apri una [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
 ## Sostieni il progetto
 
