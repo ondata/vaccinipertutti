@@ -26,6 +26,18 @@ body {
     padding-bottom: 40px;
 }
 
+.syringe {
+    width: 100%;
+}
+
+.syringe.small {
+    max-width: 240px;
+}
+
+.syringe.large {
+    max-width: 480px;
+}
+
 a {
     color: #e82f7d;
     text-decoration-color: #e82f7d;

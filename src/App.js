@@ -284,7 +284,7 @@ function App () {
       <Container className={`container ${isEmbed ? 'slim' : 'boxed'}`} maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item className='footerText'>
-            <img src='/vaccinipertutti-data/syringe.png' width={240} />
+            <img src='syringe.png' className='syringe small' />
           </Grid>
           <Grid item className='footerText'>
             Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Leggi qui!</a>
@@ -323,7 +323,7 @@ function App () {
               ) : null
           }
           <Grid item className='footerText'>
-            <img src='/vaccinipertutti-data/syringe.png' width={480} />
+            <img src='syringe.png' className='syringe large' />
           </Grid>
           <Grid item className='footerText'>
             Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>.
