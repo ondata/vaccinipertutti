@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
-    "d3-array": "^2.10.0",
+    "d3-array": "^2.11.0",
     "d3-format": "^2.0.0",
     "d3-time-format": "^3.0.0",
     "he": "^1.2.0",
