@@ -127,6 +127,11 @@ function App () {
     setDialogOpen(false)
   }
 
+  const handlerNumber = (setFunc, eventValue, min, max) => {
+    const value = eventValue > max ? max : eventValue < min ? min : eventValue;
+    setFunc(value);
+  };
+
   // Download all requested data on page load
   useEffect(() => {
     Promise.all([
@@ -297,13 +302,13 @@ function App () {
           <Grid item className='mainText'>
             In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
             A {lastUpdate.getDate() === (new Date()).getDate() ? 'oggi' : 'ieri'}, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
-            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare il <TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
-            con <TextField value={doses} onChange={e => setDoses(+e.target.value)} inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
+            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare il <TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} onBlur={e => handlerNumber(setPopulationFraction, +e.target.value / 100, 0.6, 1)} inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
+            con <TextField value={doses} onChange={e => setDoses(+e.target.value)} onBlur={e => handlerNumber(setDoses, +e.target.value, 1, 2)} inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
           </Grid>
           <Grid item className='mainText'>
-            Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
+            Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} onBlur={e => handlerNumber(setLastDays, +e.target.value, 1, administrationsPerDay.length)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
             mancano <em>{fmtInt(Math.floor(remainingDays / 365))} anni, {fmtInt(Math.floor((remainingDays % 365) / 30))} mesi e {fmtInt(Math.floor(remainingDays % 12))} giorni</em> prima di raggiungere l'obiettivo.
-            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handlerNumber(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
             Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em> (una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari allo <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
