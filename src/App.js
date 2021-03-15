@@ -65,7 +65,7 @@ function App () {
   // Population per area
   const [populationPerArea, setPopulationPerArea] = useState(6e7)
   // Population fraction to be vaccinated (final goal)
-  const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.7))
+  const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.8))
 
   // All available area
   const [areas, setAreas] = useState([])
@@ -147,6 +147,7 @@ function App () {
         }),
       window.fetch('../vaccinipertutti-data/campaign-milestones.json')
         .then(data => data.json())
+        .then(data => data.filter(d => !d.deprecated))
         .then(data => data.sort((a, b) => ascending(a.startDate, b.startDate)))
         .then(data => data.filter(d => (new Date(d.startDate) < new Date()) && (new Date(d.endDate) > new Date())))
         .then(data => { setNextMilestone(data?.[0]) }),
@@ -312,7 +313,7 @@ function App () {
             Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handleInputValue(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
-            Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em> (una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari allo <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
+            Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em> (una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
           </Grid>
           {
             area === 'ITA' ? (
@@ -323,7 +324,7 @@ function App () {
                   </Grid>
                 ) : (
                   <Grid item className='mainText'>
-                    Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
+                    Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em> (fonte: <a href={nextMilestone?.source?.url} target='_blank' rel='noreferrer'>{nextMilestone?.source?.name}</a>).
                   </Grid>
                 )
               ) : null
@@ -376,7 +377,7 @@ function App () {
             <img width='100%' src='card.png' />
           </DialogContentText>
           <DialogContentText>
-            Come funziona? In base all'andamento della campagna di vaccinazione (quante somministrazioni effettuate in Italia nei giorni passati) stimiamo quanto tempo resta per raggiungere gli obiettivi di copertura vaccinale della popolazione generale e di quella dei soggetti ad alta priorità, così come definiti nel <a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>piano nazionale di vaccinazione</a>.
+            Come funziona? In base all'andamento della campagna di vaccinazione (quante somministrazioni effettuate in Italia nei giorni passati) stimiamo quanto tempo resta per raggiungere gli obiettivi di copertura vaccinale della popolazione generale e di quella dei soggetti ad alta priorità, così come definiti nel <a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>primo</a> e <a href='https://www.governo.it/sites/governo.it/files/210313_Piano_Vaccinale_marzo_2021.pdf' target='_blank' rel='noreferrer'>secondo</a> piano nazionale di vaccinazione.
             Puoi modificare i parametri che influiscono sul calcolo, prova a interagire con i numeri su <em className='bg'>sfondo colorato</em> ed esplora tutti gli scenari possibili. Trovi ulteriori dettagli in <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md#le-stime' target='_blank' rel='noreferrer'>questa pagina</a>.
           </DialogContentText>
           <DialogContentText>

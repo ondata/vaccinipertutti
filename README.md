@@ -6,6 +6,10 @@ Si tratta di un progetto dell'associazione [onData APS](https://ondata.it) nell'
 
 [![alt text](https://github.com/ondata/vaccinipertutti/blob/main/public/card.png?raw=true)](https://ondata.github.io/vaccinipertutti/)
 
+> AGGIORNAMENTO: con la pubblicazione del [nuovo piano vaccinale](https://www.governo.it/sites/governo.it/files/210313_Piano_Vaccinale_marzo_2021.pdf) (13 marzo 2021) è cambiato il valore di default dell'obiettivo di copertura vaccinale dal 70% all'80% (pag. 9).
+
+> AGGIORNAMENTO: con la pubblicazione del [nuovo piano vaccinale](https://www.governo.it/sites/governo.it/files/210313_Piano_Vaccinale_marzo_2021.pdf) (13 marzo 2021) sono cambiati gli obiettivi nazionali intermedi (pag. 20), vedi anche [issue #23](https://github.com/ondata/vaccinipertutti/issues/23).
+
 ## Come funziona
 
 Apri l'applicazione con il tuo browser, puoi farlo sia da desktop che da tablet e smartphone: https://ondata.github.io/vaccinipertutti/.
