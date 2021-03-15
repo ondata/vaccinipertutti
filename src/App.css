@@ -26,6 +26,14 @@ body {
     padding-bottom: 40px;
 }
 
+.logo {
+    margin: 15px;
+}
+
+.logo.small {
+    height: 75px;
+}
+
 .syringe {
     width: 100%;
 }

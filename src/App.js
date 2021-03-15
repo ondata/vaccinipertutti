@@ -289,7 +289,8 @@ function App () {
       <Container className={`container ${isEmbed ? 'slim' : 'boxed'}`} maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item className='footerText'>
-            <img src='syringe.png' className='syringe small' />
+            <a href='https://ondata.it' target='_blank' rel='noreferrer'><img src='ondata.png' className='logo small' /></a>
+            <a href='http://www.datibenecomune.it' target='_blank' rel='noreferrer'><img src='datibenecomune.png' className='logo small' /></a>
           </Grid>
           <Grid item className='footerText'>
             Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Leggi qui!</a>
