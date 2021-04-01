@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import he from 'he'
+import dayjs from 'dayjs'
+import Duration from 'dayjs/plugin/duration'
+import 'dayjs/locale/it'
 
 import {
   useQueryParam,
@@ -51,6 +54,9 @@ function App () {
   const fmtDate = timeLoc.format('%A %e %B %Y')
   const fmtMonthYear = timeLoc.format('%B %Y')
   const fmtISODate = timeLoc.format('%Y-%m-%d')
+
+  dayjs.extend(Duration)
+  dayjs.locale('it')
 
   // Embed mode
   const [isEmbed, setEmbed] = useQueryParam('embed', withDefault(BooleanParam, false))
@@ -130,6 +136,22 @@ function App () {
   const handleInputValue = (setFunc, eventValue, min, max) => {
     const value = eventValue > max ? max : eventValue < min ? min : eventValue
     setFunc(value)
+  }
+
+  const formatRemainingDays = (lastDate) => {
+    const remainingTime = dayjs.duration(dayjs(lastDate).diff(dayjs()))
+    const years = remainingTime.years() ? `${remainingTime.years()} ann${remainingTime.years() === 1 ? "o" : "i"}` : ""
+    const months = remainingTime.months() ? `${remainingTime.months()} mes${remainingTime.months() === 1 ? "e" : "i"}` : ""
+    const days = remainingTime.days() ? `${remainingTime.days()} giorn${remainingTime.days() === 1 ? "o" : "i"}` : ""
+    return [years, months, days].filter(s => s).join(", ").replace(/, ([^,]*)$/, ' e $1')
+  }
+
+  const formatNumberArticle = (num) => {
+    if ((num).toString().slice(0, 1) === '8') {
+      return "l'"
+    } else {
+      return "il "
+    }
   }
 
   // Download all requested data on page load
@@ -304,12 +326,12 @@ function App () {
           <Grid item className='mainText'>
             In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
             A {lastUpdate.getDate() === (new Date()).getDate() ? 'oggi' : 'ieri'}, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
-            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare il <TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} onBlur={e => handleInputValue(setPopulationFraction, +e.target.value / 100, 0.6, 1)} inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
+            ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare {formatNumberArticle(populationFraction * 100)}<TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} onBlur={e => handleInputValue(setPopulationFraction, +e.target.value / 100, 0.6, 1)} inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
             con <TextField value={doses} onChange={e => setDoses(+e.target.value)} onBlur={e => handleInputValue(setDoses, +e.target.value, 1, 2)} inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
           </Grid>
           <Grid item className='mainText'>
             Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} onBlur={e => handleInputValue(setLastDays, +e.target.value, 1, administrationsPerDay.length)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
-            mancano <em>{fmtInt(Math.floor(remainingDays / 365))} anni, {fmtInt(Math.floor((remainingDays % 365) / 30))} mesi e {fmtInt(Math.floor(remainingDays % 12))} giorni</em> prima di raggiungere l'obiettivo.
+            mancano circa <em>{formatRemainingDays(lastDate)}</em> prima di raggiungere l'obiettivo.
             Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handleInputValue(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
