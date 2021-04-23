@@ -1,5 +1,6 @@
 [
   {
+    "deprecated": true,
     "startDate": "2021-01-01",
     "endDate": "2021-03-31",
     "label": "Priorità massima",
@@ -24,6 +25,7 @@
     ]
   },
   {
+    "deprecated": true,
     "startDate": "2021-04-01",
     "endDate": "2021-06-30",
     "label": "Priorità alta",
@@ -44,7 +46,7 @@
     ]
   },
   {
-    "startDate": "2021-07-01",
+    "startDate": "2021-01-01",
     "endDate": "2021-07-31",
     "label": "60% della popolazione",
     "source": {
