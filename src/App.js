@@ -59,7 +59,7 @@ function App () {
   dayjs.locale('it')
 
   // Embed mode
-  const [isEmbed, setEmbed] = useQueryParam('embed', withDefault(BooleanParam, false))
+  const [isEmbed/*, setEmbed */] = useQueryParam('embed', withDefault(BooleanParam, false))
 
   // Daily data indexed by area
   const [indexedData, setIndexedData] = useState({})
@@ -92,10 +92,12 @@ function App () {
   const [administrations, setAdministrations] = useState(0)
   // Total number of vaccinations (second dose administrations)
   const [vaccinatedPeople, setVaccinatedPeople] = useState(0)
+  const [vaccinatedPeople1, setVaccinatedPeople1] = useState(0)
+  const [vaccinatedPeople2, setVaccinatedPeople2] = useState(0)
   // Remaining administrations to final goal
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
   // Remaining days to final goal
-  const [remainingDays, setRemainingDays] = useState(0)
+  // const [remainingDays, setRemainingDays] = useState(0)
   // Rate of administrations
   const [administrationsPerDay, setAdministrationsPerDay] = useState([])
   // Rate of vaccinations (second dose administrations)
@@ -140,17 +142,17 @@ function App () {
 
   const formatRemainingDays = (lastDate) => {
     const remainingTime = dayjs.duration(dayjs(lastDate).diff(dayjs()))
-    const years = remainingTime.years() ? `${remainingTime.years()} ann${remainingTime.years() === 1 ? "o" : "i"}` : ""
-    const months = remainingTime.months() ? `${remainingTime.months()} mes${remainingTime.months() === 1 ? "e" : "i"}` : ""
-    const days = remainingTime.days() ? `${remainingTime.days()} giorn${remainingTime.days() === 1 ? "o" : "i"}` : ""
-    return [years, months, days].filter(s => s).join(", ").replace(/, ([^,]*)$/, ' e $1')
+    const years = remainingTime.years() ? `${remainingTime.years()} ann${remainingTime.years() === 1 ? 'o' : 'i'}` : ''
+    const months = remainingTime.months() ? `${remainingTime.months()} mes${remainingTime.months() === 1 ? 'e' : 'i'}` : ''
+    const days = remainingTime.days() ? `${remainingTime.days()} giorn${remainingTime.days() === 1 ? 'o' : 'i'}` : ''
+    return [years, months, days].filter(s => s).join(', ').replace(/, ([^,]*)$/, ' e $1')
   }
 
   const formatNumberArticle = (num) => {
     if ((num).toString().slice(0, 1) === '8') {
       return "l'"
     } else {
-      return "il "
+      return 'il '
     }
   }
 
@@ -173,7 +175,7 @@ function App () {
         .then(data => data.sort((a, b) => ascending(a.startDate, b.startDate)))
         .then(data => data.filter(d => (new Date(d.startDate) < new Date()) && (new Date(d.endDate) > new Date())))
         .then(data => { setNextMilestone(data?.[0]) }),
-      window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-summary-latest.json')
+      window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-latest.json')
         .then(res => res.json())
         .then(res => res.data)
         .then(data => data.filter(d => d.area !== 'ITA'))
@@ -187,8 +189,12 @@ function App () {
                   area: 'ITA',
                   nome_area: 'Italia',
                   data_somministrazione: v.data_somministrazione,
-                  totale: (o.totale ?? 0) + v.totale,
-                  seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose
+                  totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
+                  prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
+                  seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
+                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0),
+                  vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
+                  vaccinati: (o.vaccinati ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0) + v.seconda_dose
                 }),
                 {})
               ),
@@ -215,7 +221,32 @@ function App () {
 
   // On user selection of area, update administrations data per area
   useEffect(() => {
-    setDataPerArea(indexedData[area] || [])
+    setDataPerArea(
+      indexedData[area]
+        ? (
+            area === 'ITA'
+              ? indexedData[area]
+              : (
+                  Array
+                    .from(group(indexedData[area], d => d.data_somministrazione).values())
+                    .map(d => d.reduce(
+                      (o, v) => ({
+                        area: v.area,
+                        nome_area: v.nome_area,
+                        data_somministrazione: v.data_somministrazione,
+                        totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
+                        prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
+                        seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
+                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0),
+                        vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
+                        vaccinati: (o.vaccinati ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0) + v.seconda_dose
+                      }),
+                      {})
+                    )
+                )
+          )
+        : []
+    )
   }, [indexedData, area])
 
   // On user selection of area, update population per area
@@ -239,7 +270,7 @@ function App () {
     setVaccinatedPeoplePerDay(
       rollups(
         dataPerArea,
-        v => sum(v, d => d.seconda_dose),
+        v => sum(v, d => d.vaccinati),
         d => fmtISODate(new Date(d.data_somministrazione))
       )
     )
@@ -251,7 +282,17 @@ function App () {
 
     // Update total vaccinated people
     setVaccinatedPeople(
-      sum(dataPerArea, d => d.seconda_dose)
+      sum(dataPerArea, d => d.vaccinati)
+    )
+
+    // Update total vaccinated people with single administration
+    setVaccinatedPeople1(
+      sum(dataPerArea, d => d.vaccinati_monodose)
+    )
+
+    // Update total vaccinated people with double administration
+    setVaccinatedPeople2(
+      sum(dataPerArea, d => d.vaccinati_doppiadose)
     )
   }, [dataPerArea])
 
@@ -292,7 +333,7 @@ function App () {
     const days = remainingAdministrations / avgAdministrationsLastDays
     const datetime = new Date()
     datetime.setDate(datetime.getDate() + Math.round(days))
-    setRemainingDays(days)
+    // setRemainingDays(days)
     setLastDate(datetime)
   }, [remainingAdministrations, avgAdministrationsLastDays])
 
@@ -335,21 +376,24 @@ function App () {
             Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handleInputValue(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
-            Attualmente le persone vaccinate con due dosi sono <em>{fmtInt(vaccinatedPeople)}</em> (una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
+            Attualmente le persone vaccinate sono <em>{fmtInt(vaccinatedPeople)}</em> ({!!vaccinatedPeople1 && <><em>{fmtInt(vaccinatedPeople2)}</em> con doppia dose e <em>{fmtInt(vaccinatedPeople1)}</em> monodose, </>}una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
           </Grid>
           {
-            area === 'ITA' ? (
-              nextMilestoneTargetAvgAdministrationsPerDay < avgAdministrationsLastDays
-                ? (
-                  <Grid item className='mainText'>
-                    Il ritmo attuale è in linea con il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
-                  </Grid>
-                ) : (
-                  <Grid item className='mainText'>
-                    Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em> (fonte: <a href={nextMilestone?.source?.url} target='_blank' rel='noreferrer'>{nextMilestone?.source?.name}</a>).
-                  </Grid>
+            area === 'ITA'
+              ? (
+                  nextMilestoneTargetAvgAdministrationsPerDay < avgAdministrationsLastDays
+                    ? (
+                      <Grid item className='mainText'>
+                        Il ritmo attuale è in linea con il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
+                      </Grid>
+                      )
+                    : (
+                      <Grid item className='mainText'>
+                        Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em> (fonte: <a href={nextMilestone?.source?.url} target='_blank' rel='noreferrer'>{nextMilestone?.source?.name}</a>).
+                      </Grid>
+                      )
                 )
-              ) : null
+              : null
           }
           <Grid item className='footerText'>
             <img src='syringe.png' className='syringe large' />
