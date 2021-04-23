@@ -37,7 +37,7 @@ import {
   Twitter
 } from '@material-ui/icons'
 
-import { rollups, group, sum, ascending, descending } from 'd3-array'
+import { rollups, group, sum, ascending, descending, filter } from 'd3-array'
 import { formatLocale } from 'd3-format'
 import { timeFormatLocale } from 'd3-time-format'
 import numberItIT from 'd3-format/locale/it-IT.json'
@@ -46,6 +46,8 @@ import timeItIT from 'd3-time-format/locale/it-IT.json'
 import './App.css'
 
 function App () {
+  const singleAdministrationVaccines = ['Janssen']
+
   const numberLoc = formatLocale(numberItIT)
   const fmtInt = numberLoc.format(',d')
   const fmtPerc = numberLoc.format('.1%')
@@ -85,8 +87,14 @@ function App () {
   // Selected milestone when population fraction will be vaccinated
   const [lastDate, setLastDate] = useState(new Date())
 
+  // Delivered administrations
+  const [deliveredAdministrations, setDeliveredAdministrations] = useState(0)
+  const [deliveredAdministrations1, setDeliveredAdministrations1] = useState(0)
+  // const [deliveredAdministrations2, setDeliveredAdministrations2] = useState(0)
+
   // Selected doses per person
-  const [doses, setDoses] = useQueryParam('doses', withDefault(NumberParam, 2))
+  const [requestedDoses, setRequestedDoses] = useQueryParam('doses', withDefault(NumberParam, 0))
+  const [doses, setDoses] = useState(2)
 
   // Total number of administrations
   const [administrations, setAdministrations] = useState(0)
@@ -175,6 +183,14 @@ function App () {
         .then(data => data.sort((a, b) => ascending(a.startDate, b.startDate)))
         .then(data => data.filter(d => (new Date(d.startDate) < new Date()) && (new Date(d.endDate) > new Date())))
         .then(data => { setNextMilestone(data?.[0]) }),
+      window.fetch('../vaccinipertutti-data/consegne-vaccini-latest.json')
+        .then(res => res.json())
+        .then(res => res.data)
+        .then(data => {
+          setDeliveredAdministrations(sum(data, d => d.numero_dosi))
+          setDeliveredAdministrations1(sum(filter(data, d => singleAdministrationVaccines.includes(d.fornitore)), d => d.numero_dosi))
+          // setDeliveredAdministrations2(sum(filter(data, d => !singleAdministrationVaccines.includes(d.fornitore)), d => d.numero_dosi))
+        }),
       window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-latest.json')
         .then(res => res.json())
         .then(res => res.data)
@@ -192,9 +208,9 @@ function App () {
                   totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
                   prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
                   seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0),
+                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0),
                   vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                  vaccinati: (o.vaccinati ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0) + v.seconda_dose
+                  vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0) + v.seconda_dose
                 }),
                 {})
               ),
@@ -237,9 +253,9 @@ function App () {
                         totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
                         prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
                         seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0),
+                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0),
                         vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                        vaccinati: (o.vaccinati ?? 0) + (v.fornitore === 'Janssen' ? v.prima_dose : 0) + v.seconda_dose
+                        vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0) + v.seconda_dose
                       }),
                       {})
                     )
@@ -248,6 +264,14 @@ function App () {
         : []
     )
   }, [indexedData, area])
+
+  useEffect(() => {
+    if (requestedDoses) {
+      setDoses(requestedDoses)
+    } else if (deliveredAdministrations) {
+      setDoses(2 - (deliveredAdministrations1 / deliveredAdministrations))
+    }
+  }, [deliveredAdministrations, deliveredAdministrations1, requestedDoses])
 
   // On user selection of area, update population per area
   useEffect(() => {
@@ -368,7 +392,8 @@ function App () {
             In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
             A {lastUpdate.getDate() === (new Date()).getDate() ? 'oggi' : 'ieri'}, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
             ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare {formatNumberArticle(populationFraction * 100)}<TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} onBlur={e => handleInputValue(setPopulationFraction, +e.target.value / 100, 0.6, 1)} inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
-            con <TextField value={doses} onChange={e => setDoses(+e.target.value)} onBlur={e => handleInputValue(setDoses, +e.target.value, 1, 2)} inputProps={{ type: 'number', min: 1, max: 2, step: 1 }} /> dosi a testa.
+            con una media di circa <TextField value={Math.round(doses * 10) / 10} onChange={e => { setDoses(+e.target.value); setRequestedDoses(+e.target.value) }} onBlur={e => handleInputValue(setDoses, +e.target.value, 1, 2)} inputProps={{ type: 'number', min: 1, max: 2, step: 0.1 }} /> dosi a testa
+            {!!deliveredAdministrations1 && <> (<em>{fmtPerc(1 - deliveredAdministrations1 / deliveredAdministrations)}</em> con doppia dose e <em>{fmtPerc(deliveredAdministrations1 / deliveredAdministrations)}</em> monodose, in base alle attuali forniture nazionali)</>}.
           </Grid>
           <Grid item className='mainText'>
             Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} onBlur={e => handleInputValue(setLastDays, +e.target.value, 1, administrationsPerDay.length)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
