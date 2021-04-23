@@ -208,9 +208,9 @@ function App () {
                   totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
                   prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
                   seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0),
+                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0),
                   vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                  vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0) + v.seconda_dose
+                  vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + v.seconda_dose
                 }),
                 {})
               ),
@@ -253,9 +253,9 @@ function App () {
                         totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
                         prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
                         seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0),
+                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0),
                         vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                        vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(d.fornitore) ? v.prima_dose : 0) + v.seconda_dose
+                        vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + v.seconda_dose
                       }),
                       {})
                     )
@@ -372,6 +372,7 @@ function App () {
     setNextMilestoneTargetAvgAdministrationsPerDay(nextMilestoneRemainingAdministrations / nextMilestoneRemainingDays)
   }, [nextMilestoneRemainingAdministrations, nextMilestoneRemainingDays])
 
+  console.log(indexedData, vaccinatedPeople1)
   return (
     <>
       <Container className={`container ${isEmbed ? 'slim' : 'boxed'}`} maxWidth='md' style={{ opacity: +isReady }}>

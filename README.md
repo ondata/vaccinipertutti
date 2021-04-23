@@ -132,7 +132,7 @@ Per eseguire l'applicazione in locale e modificarne il codice devi avere install
 3. Installa le dipendenze: `yarn install`
 4. Avvia il server di sviluppo: `yarn start`
 
-Una volta finito, puoi generare i file ottimizzati con `yarn build` nella cartella `dist/` e pubblicare le modifiche in produzione con `yarn deploy` (solo per utenti con privilegi di *push* in questo repository).
+Una volta finito, puoi generare i file ottimizzati con `yarn build` nella cartella `build/` e pubblicare le modifiche in produzione con `yarn deploy` (solo per utenti con privilegi di *push* in questo repository).
 
 Per proporre una modifica, effettua un [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) di questo repository, poi lavora su una *branch* diversa da `main` e infine apri una [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
