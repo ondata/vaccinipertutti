@@ -170,7 +170,7 @@ function App () {
       window.fetch('../vaccinipertutti-data/last-update-dataset.json')
         .then(data => data.json())
         .then(data => { setLastUpdate(new Date(data.ultimo_aggiornamento)) }),
-      window.fetch('../vaccinipertutti-data/popolazione_residente_2020.json')
+      window.fetch('../vaccinipertutti-data/popolazione_residente_2021.json')
         .then(data => data.json())
         .then(data => data.sort((a, b) => ascending(a.order, b.order)))
         .then(data => {
@@ -399,7 +399,7 @@ function App () {
           <Grid item className='mainText'>
             Al ritmo di <em>{fmtInt(avgAdministrationsLastDays)}</em> somministrazioni al giorno tenuto negli ultimi <TextField value={lastDays} onChange={e => setLastDays(+e.target.value)} onBlur={e => handleInputValue(setLastDays, +e.target.value, 1, administrationsPerDay.length)} inputProps={{ type: 'number', min: 1, max: administrationsPerDay.length, step: 1 }} /> giorni,
             mancano circa <em>{formatRemainingDays(lastDate)}</em> prima di raggiungere l'obiettivo.
-            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handleInputValue(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> bisognerebbe somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
+            Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handleInputValue(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> {avgAdministrationsLastDays > targetAvgAdministrationsPerDay ? 'basterebbe' : 'bisognerebbe'} somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
             Attualmente le persone vaccinate sono <em>{fmtInt(vaccinatedPeople)}</em> ({!!vaccinatedPeople1 && <><em>{fmtInt(vaccinatedPeople2)}</em> con doppia dose e <em>{fmtInt(vaccinatedPeople1)}</em> monodose, </>}una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
@@ -463,7 +463,7 @@ function App () {
         <DialogTitle id='alert-dialog-title'>"Vaccini per tutti" by onData</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            "Vaccini per tutti" è un'<b>applicazione sperimentale non ufficiale</b> che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data istituzionali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index.php?anno=2020&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
+            "Vaccini per tutti" è un'<b>applicazione sperimentale non ufficiale</b> che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data istituzionali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index2.php?anno=2021&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
           </DialogContentText>
           <DialogContentText>
             <img width='100%' src='card.png' />

@@ -26,13 +26,13 @@ Le fonti istituzionali sono tre:
 
 - [Istituto Superiore di Sanità](https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione): dati sugli obiettivi del Piano nazionale di vaccinazione COVID-19 al 12 dicembre 2020, licenza [CC BY-NC-ND 2.5 IT](https://www.epicentro.iss.it/chi-siamo/disclaimer);
 
-- [ISTAT](http://demo.istat.it/popres/index.php?anno=2020&lingua=ita): dati sulla popolazione residente a livello nazionale, nelle regioni e nelle province autonome al 1 gennaio 2020.
+- [ISTAT](http://demo.istat.it/popres/index2.php?anno=2021&lingua=ita): dati sulla popolazione residente a livello nazionale, nelle regioni e nelle province autonome al 1 gennaio 2021.
 
 I dati sulle somministrazioni usati da questa applicazione sono automaticamente caricati su [questo repository](https://github.com/ondata/vaccinipertutti-data) ogni sei ore a partire da quello ufficiale della Struttura Commissariale per l'Emergenza Covid-19.
 
 ## Le stime
 
-I vaccini che a partire dal 27 dicembre 2020 sono a disposizione delle autorità sanitarie possono essere uno strumento utile ad arginare la diffusione dell'epidemia da Sars-CoV-2 che causa la Covid-19. La campagna di vaccinazione in Italia si pone come obiettivo di vaccinare una frazione importante della popolazione italiana, intorno al 70%, seguendo un piano di somministrazione articolato in varie fasi, a partire dalla vaccinazione delle fasce di popolazione più esposte o più a rischio di complicanze gravi della malattia.
+I vaccini che a partire dal 27 dicembre 2020 sono a disposizione delle autorità sanitarie possono essere uno strumento utile ad arginare la diffusione dell'epidemia da Sars-CoV-2 che causa la Covid-19. La campagna di vaccinazione in Italia si pone come obiettivo di vaccinare una frazione importante della popolazione italiana, intorno all'80%, seguendo un piano di somministrazione articolato in varie fasi, a partire dalla vaccinazione delle fasce di popolazione più esposte o più a rischio di complicanze gravi della malattia.
 
 Il termine previsto della campagna vaccinale in Italia contro Sars-CoV-2 è calcolato secondo questa formula:
 
@@ -43,9 +43,13 @@ Questa data è calcolata ogni volta che apri la pagina e quindi cambia ogni volt
 La formula dipende da alcuni parametri che puoi modificare a piacimento:
 
 - il territorio di riferimento (es. Italia, ma puoi scegliere anche una regione o una provincia autonoma);
-- percentuale della popolazione da vaccinare (es. 70%);
+- percentuale della popolazione da vaccinare (es. 80%);
 - numero di giorni su cui calcolare la media di somministrazioni al giorno (es. gli ultimi 7, escludendo i dati del giorno corrente, che potrebbero essere parziali);
 - numero delle dosi che costituiscono il trattamento completo (es. 2 dosi a testa).
+
+Dall'introduzione dei vaccini monodose (al momento il solo Janssen), di default il numero medio di dosi necessarie a vaccinare una persona è un numero tra 1 e 2:
+
+> numero delle dosi che costituiscono il trattamento completo **uguale a** ( 2 **meno** ( forniture nazionali di vaccini monodose **diviso** forniture nazionali vaccini totali ) )
 
 Puoi anche definire una data di termine della campagna (es. fine settembre 2021) e ottenere così il numero medio di somministrazioni giornaliere che bisognerebbe effettuare per raggiungere l'obiettivo:
 
@@ -58,7 +62,7 @@ La formula dipende da due parametri che puoi modificare a piacimento:
 
 Calcoli molto simili sono applicati per i paragrafi successivi:
 
-- per ottenere la percentuale di popolazione effettivamente vaccinata (cioè che ha completato il ciclo di due dosi somministrate) sull'obiettivo totale si tiene conto delle sole somministrazioni di seconda dose;
+- per ottenere la percentuale di popolazione effettivamente vaccinata (cioè che ha completato il ciclo di due dosi somministrate) sull'obiettivo totale si tiene conto delle somministrazioni di seconda dose più quelle monodose di Johnson&Johnson (vaccino Janssen);
 - per ottenere l'aumento nel numero medio di somministrazioni al giorno necessario per raggiungere il prossimo obiettivo del piano vaccinale si tiene conto del totale delle persone appartenenti alle fasce di popolazione prioritarie specificate.
 
 Puoi controllare tutte queste formule e la loro implementazione guardando direttamente il [codice sorgente dell'applicazione](https://github.com/ondata/vaccinipertutti/blob/main/src/App.js).
