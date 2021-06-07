@@ -4,15 +4,15 @@
   "private": true,
   "homepage": "https://ondata.github.io/vaccinipertutti",
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
+    "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^13.1.5",
-    "d3-array": "^2.12.1",
-    "d3-format": "^2.0.0",
-    "d3-time-format": "^3.0.0",
-    "dayjs": "^1.10.4",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
+    "d3-array": "^3.0.1",
+    "d3-format": "^3.0.1",
+    "d3-time-format": "^4.0.0",
+    "dayjs": "^1.10.5",
     "he": "^1.2.0",
     "query-string": "^7.0.0",
     "react": "^17.0.2",
@@ -20,7 +20,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "use-query-params": "^1.2.2",
-    "web-vitals": "^1.1.1"
+    "web-vitals": "^2.0.1"
   },
   "scripts": {
     "start": "PUBLIC_URL=/vaccinipertutti-data/ react-scripts start",
@@ -49,7 +49,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0",
+    "gh-pages": "^3.2.0",
     "standard": "^16.0.3"
   }
 }
