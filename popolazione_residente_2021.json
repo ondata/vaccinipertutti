@@ -1,0 +1,134 @@
+[
+  {
+    "area": "ITA",
+    "nome": "Italia",
+    "totale": 59641488,
+    "order": 0
+  },
+  {
+    "area": "PIE",
+    "nome": "Piemonte",
+    "totale": 4273210,
+    "order": 14
+  },
+  {
+    "area": "VDA",
+    "nome": "Valle D'Aosta",
+    "totale": 123895,
+    "order": 20
+  },
+  {
+    "area": "LOM",
+    "nome": "Lombardia",
+    "totale": 9966992,
+    "order": 9
+  },
+  {
+    "area": "PAT",
+    "nome": "Provincia Autonoma di Trento",
+    "totale": 544745,
+    "order": 13
+  },
+  {
+    "area": "PAB",
+    "nome": "Provincia Autonoma di Bolzano",
+    "totale": 533715,
+    "order": 12
+  },
+  {
+    "area": "VEN",
+    "nome": "Veneto",
+    "totale": 4852453,
+    "order": 21
+  },
+  {
+    "area": "FVG",
+    "nome": "Friuli-Venezia Giulia",
+    "totale": 1198753,
+    "order": 6
+  },
+  {
+    "area": "LIG",
+    "nome": "Liguria",
+    "totale": 1509805,
+    "order": 8
+  },
+  {
+    "area": "EMR",
+    "nome": "Emilia-Romagna",
+    "totale": 4445549,
+    "order": 5
+  },
+  {
+    "area": "TOS",
+    "nome": "Toscana",
+    "totale": 3668333,
+    "order": 18
+  },
+  {
+    "area": "UMB",
+    "nome": "Umbria",
+    "totale": 865013,
+    "order": 19
+  },
+  {
+    "area": "MAR",
+    "nome": "Marche",
+    "totale": 1501406,
+    "order": 10
+  },
+  {
+    "area": "LAZ",
+    "nome": "Lazio",
+    "totale": 5720796,
+    "order": 7
+  },
+  {
+    "area": "ABR",
+    "nome": "Abruzzo",
+    "totale": 1285256,
+    "order": 1
+  },
+  {
+    "area": "MOL",
+    "nome": "Molise",
+    "totale": 296547,
+    "order": 11
+  },
+  {
+    "area": "CAM",
+    "nome": "Campania",
+    "totale": 5679759,
+    "order": 4
+  },
+  {
+    "area": "PUG",
+    "nome": "Puglia",
+    "totale": 3926931,
+    "order": 15
+  },
+  {
+    "area": "BAS",
+    "nome": "Basilicata",
+    "totale": 547579,
+    "order": 2
+  },
+  {
+    "area": "CAL",
+    "nome": "Calabria",
+    "totale": 1877728,
+    "order": 3
+  },
+  {
+    "area": "SIC",
+    "nome": "Sicilia",
+    "totale": 4840876,
+    "order": 17
+  },
+  {
+    "area": "SAR",
+    "nome": "Sardegna",
+    "totale": 1598225,
+    "order": 16
+  }
+]
