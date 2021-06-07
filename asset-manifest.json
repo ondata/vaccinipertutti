@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/vaccinipertutti/static/css/main.260a66af.chunk.css",
-    "main.js": "/vaccinipertutti/static/js/main.456f1df9.chunk.js",
-    "main.js.map": "/vaccinipertutti/static/js/main.456f1df9.chunk.js.map",
+    "main.js": "/vaccinipertutti/static/js/main.269a890d.chunk.js",
+    "main.js.map": "/vaccinipertutti/static/js/main.269a890d.chunk.js.map",
     "runtime-main.js": "/vaccinipertutti/static/js/runtime-main.7354ab84.js",
     "runtime-main.js.map": "/vaccinipertutti/static/js/runtime-main.7354ab84.js.map",
     "static/js/2.2cce07e3.chunk.js": "/vaccinipertutti/static/js/2.2cce07e3.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.7354ab84.js",
     "static/js/2.2cce07e3.chunk.js",
     "static/css/main.260a66af.chunk.css",
-    "static/js/main.456f1df9.chunk.js"
+    "static/js/main.269a890d.chunk.js"
   ]
 }
