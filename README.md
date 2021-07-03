@@ -14,7 +14,7 @@ Si tratta di un progetto dell'associazione [onData APS](https://ondata.it) nell'
 
 Apri l'applicazione con il tuo browser, puoi farlo sia da desktop che da tablet e smartphone: https://ondata.github.io/vaccinipertutti/.
 
-In base a quante somministrazioni sono state effettuate in Italia nei giorni passati, l'applicazione stima quanto tempo resta per raggiungere gli obiettivi di copertura vaccinale della popolazione generale e di quelle fasce di popolazione considerate ad alta priorità, così come definiti nel [piano nazionale di vaccinazione](https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione) (obiettivi di marzo e di giugno).
+In base a quante somministrazioni sono state effettuate in Italia nei giorni passati, l'applicazione stima quanto tempo resta per raggiungere gli obiettivi di copertura vaccinale della popolazione generale e di quelle fasce di popolazione considerate ad alta priorità, così come definiti nel [piano nazionale di vaccinazione](https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione) (obiettivi di luglio, agosto e settembre).
 
 Puoi modificare i parametri che influiscono sul calcolo, prova a interagire con i numeri su sfondo colorato ed esplora tutti gli scenari possibili.
 
@@ -22,9 +22,9 @@ Puoi modificare i parametri che influiscono sul calcolo, prova a interagire con 
 
 Le fonti istituzionali sono tre:
 
-- [Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri](https://github.com/italia/covid19-opendata-vaccini/): dati sulle somministrazioni a livello nazionale, per le regioni e le province autonome, aggiornamento quotidiano, licenza [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.it);
+- [Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri](https://github.com/italia/covid19-opendata-vaccini/): dati sulle somministrazioni e le forniture a livello nazionale, per le regioni e le province autonome, aggiornamento quotidiano, licenza [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.it);
 
-- [Istituto Superiore di Sanità](https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione): dati sugli obiettivi del Piano nazionale di vaccinazione COVID-19 al 12 dicembre 2020, licenza [CC BY-NC-ND 2.5 IT](https://www.epicentro.iss.it/chi-siamo/disclaimer);
+- [Istituto Superiore di Sanità](https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione): dati sugli obiettivi del Piano nazionale di vaccinazione COVID-19 al 12 dicembre 2020, poi aggiornato a marzo 2021, licenza [CC BY-NC-ND 2.5 IT](https://www.epicentro.iss.it/chi-siamo/disclaimer);
 
 - [ISTAT](http://demo.istat.it/popres/index2.php?anno=2021&lingua=ita): dati sulla popolazione residente a livello nazionale, nelle regioni e nelle province autonome al 1 gennaio 2021.
 
@@ -32,7 +32,7 @@ I dati sulle somministrazioni usati da questa applicazione sono automaticamente 
 
 ## Le stime
 
-I vaccini che a partire dal 27 dicembre 2020 sono a disposizione delle autorità sanitarie possono essere uno strumento utile ad arginare la diffusione dell'epidemia da Sars-CoV-2 che causa la Covid-19. La campagna di vaccinazione in Italia si pone come obiettivo di vaccinare una frazione importante della popolazione italiana, intorno all'80%, seguendo un piano di somministrazione articolato in varie fasi, a partire dalla vaccinazione delle fasce di popolazione più esposte o più a rischio di complicanze gravi della malattia.
+I vaccini che a partire dal 27 dicembre 2020 sono a disposizione delle autorità sanitarie possono essere uno strumento utile ad arginare la diffusione dell'epidemia da Sars-CoV-2 che causa la Covid-19. La campagna di vaccinazione in Italia si pone come obiettivo di vaccinare una frazione importante della popolazione italiana, l'80% entro settembre 2021, seguendo un piano di somministrazione articolato in varie fasi, a partire dalla vaccinazione delle fasce di popolazione più esposte o più a rischio di complicanze gravi della malattia.
 
 Il termine previsto della campagna vaccinale in Italia contro Sars-CoV-2 è calcolato secondo questa formula:
 
@@ -51,7 +51,10 @@ Dall'introduzione dei vaccini monodose (al momento il solo Janssen), di default 
 
 > numero delle dosi che costituiscono il trattamento completo **uguale a** ( 2 **meno** ( forniture nazionali di vaccini monodose **diviso** forniture nazionali vaccini totali ) )
 
-Puoi anche definire una data di termine della campagna (es. fine settembre 2021) e ottenere così il numero medio di somministrazioni giornaliere che bisognerebbe effettuare per raggiungere l'obiettivo:
+Le linee guida del piano vaccinale indicano anche che i soggetti con pregressa infezione da Covid-19 nel periodo 3-6 mesi concludono il ciclo vaccinale con un'unica dose.
+Non vengono però presi in considerazione nella stima del numero medio di dosi necessarie a vaccinare una persona perché non se ne conosce la numerosità, a differenza delle forniture (note) dei vaccini monodose.
+
+Puoi anche definire una data di termine della campagna (es. fine settembre 2021) e ottenere così il numero medio di somministrazioni giornaliere che bisognerebbe effettuare per raggiungere l'obiettivo indicato:
 
 > numero medio di somministrazioni giornaliere **uguale a** ( numero di somministrazioni necessarie per vaccinare la popolazione **meno** numero totale di somministrazioni già effettuate ) **diviso** numero di giorni rimanenti alla data indicata
 
@@ -62,7 +65,10 @@ La formula dipende da due parametri che puoi modificare a piacimento:
 
 Calcoli molto simili sono applicati per i paragrafi successivi:
 
-- per ottenere la percentuale di popolazione effettivamente vaccinata (cioè che ha completato il ciclo di due dosi somministrate) sull'obiettivo totale si tiene conto delle somministrazioni di seconda dose più quelle monodose di Johnson&Johnson (vaccino Janssen);
+- per ottenere la percentuale di popolazione effettivamente vaccinata (cioè che ha completato il ciclo di somministrazioni) sull'obiettivo totale si tiene conto di tre fattori:
+  1. le somministrazioni di seconda dose (vaccini Astrazeneca, Pfizer, Moderna),
+  2. le somministrazioni monodose (vaccino Janssen),
+  3. le somministrazioni di prima dose ai soggetti con pregressa infezione (tutti i fornitori),
 - per ottenere l'aumento nel numero medio di somministrazioni al giorno necessario per raggiungere il prossimo obiettivo del piano vaccinale si tiene conto del totale delle persone appartenenti alle fasce di popolazione prioritarie specificate.
 
 Puoi controllare tutte queste formule e la loro implementazione guardando direttamente il [codice sorgente dell'applicazione](https://github.com/ondata/vaccinipertutti/blob/main/src/App.js).

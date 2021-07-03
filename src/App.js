@@ -208,9 +208,9 @@ function App () {
                   totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
                   prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
                   seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0),
+                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + (v.pregressa_infezione ?? 0),
                   vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                  vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + v.seconda_dose
+                  vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + (v.pregressa_infezione ?? 0) + v.seconda_dose
                 }),
                 {})
               ),
@@ -253,9 +253,9 @@ function App () {
                         totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose)),
                         prima_dose: (o.prima_dose ?? 0) + v.prima_dose,
                         seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0),
+                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0)+ (v.pregressa_infezione ?? 0),
                         vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                        vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + v.seconda_dose
+                        vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + (v.pregressa_infezione ?? 0) + v.seconda_dose
                       }),
                       {})
                     )
@@ -372,14 +372,13 @@ function App () {
     setNextMilestoneTargetAvgAdministrationsPerDay(nextMilestoneRemainingAdministrations / nextMilestoneRemainingDays)
   }, [nextMilestoneRemainingAdministrations, nextMilestoneRemainingDays])
 
-  console.log(indexedData, vaccinatedPeople1)
   return (
     <>
       <Container className={`container ${isEmbed ? 'slim' : 'boxed'}`} maxWidth='md' style={{ opacity: +isReady }}>
         <Grid container direction='column' justify='center' spacing={2}>
           <Grid item className='footerText'>
-            <a href='https://ondata.it' target='_blank' rel='noreferrer'><img src='ondata.png' className='logo small' /></a>
-            <a href='http://www.datibenecomune.it' target='_blank' rel='noreferrer'><img src='datibenecomune.png' className='logo small' /></a>
+            <a href='https://ondata.it' target='_blank' rel='noreferrer'><img src='ondata.png' className='logo small' alt='onData Logo' /></a>
+            <a href='http://www.datibenecomune.it' target='_blank' rel='noreferrer'><img src='datibenecomune.png' className='logo small' alt='datiBeneComune Logo' /></a>
           </Grid>
           <Grid item className='footerText'>
             Che cos'è questa pagina? <a href='#' onClick={handleOpenDialog}>Leggi qui!</a>
@@ -422,7 +421,7 @@ function App () {
               : null
           }
           <Grid item className='footerText'>
-            <img src='syringe.png' className='syringe large' />
+            <img src='syringe.png' className='syringe large' alt='Syringe' />
           </Grid>
           <Grid item className='footerText'>
             Un progetto a cura dell'<a href='https://ondata.it' target='_blank' rel='noreferrer'>Associazione onData</a>.
@@ -466,7 +465,7 @@ function App () {
             "Vaccini per tutti" è un'<b>applicazione sperimentale non ufficiale</b> che permette di stimare i tempi di avanzamento della campagna di vaccinazione in Italia sulla base degli open data istituzionali del <a href='https://github.com/italia/covid19-opendata-vaccini/' target='_blank' rel='noreferrer'>Commissario straordinario per l'emergenza Covid-19 - Presidenza del Consiglio dei Ministri</a>, dell'<a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>Istituto Superiore di Sanità</a> e di <a href='http://demo.istat.it/popres/index2.php?anno=2021&lingua=ita' target='_blank' rel='noreferrer'>ISTAT</a>.
           </DialogContentText>
           <DialogContentText>
-            <img width='100%' src='card.png' />
+            <img width='100%' src='card.png' alt='Social Card' />
           </DialogContentText>
           <DialogContentText>
             Come funziona? In base all'andamento della campagna di vaccinazione (quante somministrazioni effettuate in Italia nei giorni passati) stimiamo quanto tempo resta per raggiungere gli obiettivi di copertura vaccinale della popolazione generale e di quella dei soggetti ad alta priorità, così come definiti nel <a href='https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione' target='_blank' rel='noreferrer'>primo</a> e <a href='https://www.governo.it/sites/governo.it/files/210313_Piano_Vaccinale_marzo_2021.pdf' target='_blank' rel='noreferrer'>secondo</a> piano nazionale di vaccinazione.
