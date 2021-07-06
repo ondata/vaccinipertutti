@@ -47,11 +47,14 @@ La formula dipende da alcuni parametri che puoi modificare a piacimento:
 - numero di giorni su cui calcolare la media di somministrazioni al giorno (es. gli ultimi 7, escludendo i dati del giorno corrente, che potrebbero essere parziali);
 - numero delle dosi che costituiscono il trattamento completo (es. 2 dosi a testa).
 
-Dall'introduzione dei vaccini monodose (al momento il solo Janssen), di default il numero medio di dosi necessarie a vaccinare una persona è un numero tra 1 e 2:
+Dall'introduzione dei vaccini monodose (al momento il solo Janssen) e del dettaglio sui vaccini somministrati ai già guariti da Covid,
+di default il numero medio di dosi necessarie a vaccinare una persona è un numero tra 1 e 2:
 
 > numero delle dosi che costituiscono il trattamento completo **uguale a** ( 2 **meno** ( forniture nazionali di vaccini monodose **diviso** forniture nazionali vaccini totali ) )
 
 Le linee guida del piano vaccinale indicano anche che i soggetti con pregressa infezione da Covid-19 nel periodo 3-6 mesi concludono il ciclo vaccinale con un'unica dose.
+Questo numero è correttamente presi in considerazione per il calcolo del *numero totale di somministrazioni già effettuate* e per quello del *numero dei completamente vaccinati*
+(vedi [#179](https://github.com/italia/covid19-opendata-vaccini/issues/179)).
 Non vengono però presi in considerazione nella stima del numero medio di dosi necessarie a vaccinare una persona perché non se ne conosce la numerosità, a differenza delle forniture (note) dei vaccini monodose.
 
 Puoi anche definire una data di termine della campagna (es. fine settembre 2021) e ottenere così il numero medio di somministrazioni giornaliere che bisognerebbe effettuare per raggiungere l'obiettivo indicato:
