@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params'
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: 'rgba(0, 0, 0, 0.87)'

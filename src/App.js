@@ -375,7 +375,7 @@ function App () {
   return (
     <>
       <Container className={`container ${isEmbed ? 'slim' : 'boxed'}`} maxWidth='md' style={{ opacity: +isReady }}>
-        <Grid container direction='column' justify='center' spacing={2}>
+        <Grid container direction='column' justifyContent='center' spacing={2}>
           <Grid item className='footerText'>
             <a href='https://ondata.it' target='_blank' rel='noreferrer'><img src='ondata.png' className='logo small' alt='onData Logo' /></a>
             <a href='http://www.datibenecomune.it' target='_blank' rel='noreferrer'><img src='datibenecomune.png' className='logo small' alt='datiBeneComune Logo' /></a>
@@ -438,7 +438,7 @@ function App () {
                 <Box className='Flower lt' />
                 <Box className='Flower lb' />
                 <Box className='Cube rt icon'>
-                  <Grid container justify='center' alignContent='center' direction='column'>
+                  <Grid container justifyContent='center' alignContent='center' direction='column'>
                     <Grid item xs><Help color='primary' onClick={handleOpenDialog} /></Grid>
                     <Grid item xs><a title='Condividi su Twitter' href={`https://twitter.com/share?text="${he.decode(`Termine previsto della campagna vaccinale in ${indexedPopulation[area]?.[0]?.nome} contro Sars-CoV-2: ${fmtDate(lastDate)}`)}" via @ondatait&hashtags=datiBeneComune&url=${encodeURIComponent(window.location.href)}`} target='_blank' rel='noreferrer'><Twitter color='primary' /></a></Grid>
                     <Grid item xs><a title='Condividi su Facebook' href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&hashtag=${encodeURIComponent('#datiBeneComune')}`} target='_blank' rel='noreferrer'><Facebook color='primary' /></a></Grid>
@@ -491,7 +491,7 @@ function App () {
             Puoi sostenere l'attività di onData in molti modi, <a href='https://sostieni.ondata.it/' target='_blank' rel='noreferrer'>dai un'occhiata</a>!
           </DialogContentText>
         </DialogContent>
-        <DialogActions justify='flex-start'>
+        <DialogActions justifyContent='flex-start'>
           <Button color='primary' href='https://datibenecomune.it/' target='_blank' rel='noreferrer'>
             Sottoscrivi la campagna #datiBeneComune
           </Button>
