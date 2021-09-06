@@ -6,7 +6,7 @@
     "label": "Priorità massima",
     "source": {
       "name": "Istituto Superiore di Sanità",
-      "url": "https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione"
+      "url": "https://web.archive.org/web/20210318015932/https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione"
     },
     "total": 6370000,
     "people": [
@@ -31,7 +31,7 @@
     "label": "Priorità alta",
     "source": {
       "name": "Istituto Superiore di Sanità",
-      "url": "https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione"
+      "url": "https://web.archive.org/web/20210318015932/https://www.epicentro.iss.it/vaccini/covid-19-piano-vaccinazione"
     },
     "total": 20800000,
     "people": [
