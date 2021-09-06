@@ -227,7 +227,7 @@ function App () {
     const selectedMonth = new Date(targetYear, targetMonth + 1, 0)
 
     // Check to avoid selection of past months
-    if (selectedMonth > currentMonth) {
+    if (selectedMonth >= currentMonth) {
       setTargetDate(new Date(targetYear, targetMonth + 1, 0))
     } else {
       setTargetMonth(targetDate.getMonth())
@@ -401,7 +401,7 @@ function App () {
             Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handleInputValue(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> {avgAdministrationsLastDays > targetAvgAdministrationsPerDay ? 'basterebbe' : 'bisognerebbe'} somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
-            Attualmente le persone vaccinate sono <em>{fmtInt(vaccinatedPeople)}</em> ({!!vaccinatedPeople1 && <><em>{fmtInt(vaccinatedPeople2)}</em> con doppia dose e <em>{fmtInt(vaccinatedPeople1)}</em> monodose, </>}una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale della popolazione.
+            Attualmente le persone vaccinate sono <em>{fmtInt(vaccinatedPeople)}</em> ({!!vaccinatedPeople1 && <><em>{fmtInt(vaccinatedPeople2)}</em> con doppia dose e <em>{fmtInt(vaccinatedPeople1)}</em> monodose, </>}una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari al <em>{fmtPerc(vaccinatedPeople / populationPerArea)}</em> della popolazione complessiva e al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale.
           </Grid>
           {
             area === 'ITA'
