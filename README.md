@@ -72,6 +72,7 @@ Calcoli molto simili sono applicati per i paragrafi successivi:
   1. le somministrazioni di seconda dose (vaccini Astrazeneca, Pfizer, Moderna),
   2. le somministrazioni monodose (vaccino Janssen),
   3. le somministrazioni di prima dose ai soggetti con pregressa infezione (tutti i fornitori),
+- per ottenere il numero di vaccinati più di tot mesi fa si tiene conto del tempo passato dalla seconda somministrazione (o prima se Janssen o soggetto già guarito), puoi modificare questo intervallo da 3 mesi in su,
 - per ottenere l'aumento nel numero medio di somministrazioni al giorno necessario per raggiungere il prossimo obiettivo del piano vaccinale si tiene conto del totale delle persone appartenenti alle fasce di popolazione prioritarie specificate.
 
 Puoi controllare tutte queste formule e la loro implementazione guardando direttamente il [codice sorgente dell'applicazione](https://github.com/ondata/vaccinipertutti/blob/main/src/App.js).

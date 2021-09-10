@@ -47,6 +47,8 @@ import './App.css'
 
 function App () {
   const singleAdministrationVaccines = ['Janssen']
+  const firstAdministrationDate = dayjs('2020-12-27')
+  const monthsFromFirstAdministrationDate = dayjs().diff(firstAdministrationDate, 'month')
 
   const numberLoc = formatLocale(numberItIT)
   const fmtInt = numberLoc.format(',d')
@@ -102,6 +104,7 @@ function App () {
   const [vaccinatedPeople, setVaccinatedPeople] = useState(0)
   const [vaccinatedPeople1, setVaccinatedPeople1] = useState(0)
   const [vaccinatedPeople2, setVaccinatedPeople2] = useState(0)
+  const [oldVaccinatedPeople, setOldVaccinatedPeople] = useState(0)
   // Remaining administrations to final goal
   const [remainingAdministrations, setRemainingAdministrations] = useState(0)
   // Remaining days to final goal
@@ -131,6 +134,8 @@ function App () {
   const [nextMilestoneRemainingAdministrations, setNextMilestoneRemainingAdministrations] = useState(0)
   // Rate required for the next milestone
   const [nextMilestoneTargetAvgAdministrationsPerDay, setNextMilestoneTargetAvgAdministrationsPerDay] = useState(0)
+  // Duration of protection (in months)
+  const [protectionDuration, setProtectionDuration] = useQueryParam('protectionDuration', withDefault(NumberParam, 6))
 
   const [isReady, setIsReady] = useState(false)
   const [dialogOpen, setDialogOpen] = useState(false)
@@ -157,10 +162,24 @@ function App () {
   }
 
   const formatNumberArticle = (num) => {
-    if ((num).toString().slice(0, 1) === '8') {
+    const firstDigit = (num).toString().slice(0, 1)
+    if (firstDigit === '1' || firstDigit === '8') {
       return "l'"
+    } else if (firstDigit === '0') {
+      return 'lo '
     } else {
       return 'il '
+    }
+  }
+
+  const formatNumberArticleA = (num) => {
+    const firstDigit = (num).toString().slice(0, 1)
+    if (firstDigit === '1' || firstDigit === '8') {
+      return "all'"
+    } else if (firstDigit === '0') {
+      return 'allo '
+    } else {
+      return 'al '
     }
   }
 
@@ -320,6 +339,17 @@ function App () {
     )
   }, [dataPerArea])
 
+  // Update old vaccinated people
+  useEffect(() => {
+    const oldVaccinationDate = dayjs().subtract(protectionDuration, 'month')
+    setOldVaccinatedPeople(
+      sum(
+        filter(dataPerArea, d => dayjs(d.data_somministrazione).isBefore(oldVaccinationDate)),
+        d => d.vaccinati
+      )
+    )
+  }, [dataPerArea, protectionDuration])
+
   // Compute average rate of administrations to reach the final goal within selected date
   useEffect(() => {
     setTargetAvgAdministrationsPerDay(remainingAdministrations / (targetDate - (new Date())) * 1000 * 60 * 60 * 24)
@@ -389,7 +419,7 @@ function App () {
             Come abbiamo calcolato questa data? <a href='https://github.com/ondata/vaccinipertutti/blob/main/README.md#le-stime' target='_blank' rel='noreferrer'>Ecco tutte le info!</a>
           </Grid>
           <Grid item className='mainText'>
-            In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>27 dicembre 2020</em>.
+            In <Select value={areas.length ? area : ''} onChange={e => setArea(e.target.value)}>{areas.map(a => <MenuItem key={a.area} value={a.area}>{a.nome}</MenuItem>)}</Select> si è iniziato a somministrare il primo vaccino il <em>{firstAdministrationDate.format('D MMMM YYYY')}</em>.
             A {lastUpdate.getDate() === (new Date()).getDate() ? 'oggi' : 'ieri'}, <em>{fmtDate(lastUpdate).toLowerCase()}</em>, sono state somministrate <em>{fmtInt(administrations)}</em> dosi,
             ma ne mancano <em>{fmtInt(remainingAdministrations)}</em> per vaccinare {formatNumberArticle(populationFraction * 100)}<TextField value={populationFraction * 100} onChange={e => setPopulationFraction(+e.target.value / 100)} onBlur={e => handleInputValue(setPopulationFraction, +e.target.value / 100, 0.6, 1)} inputProps={{ type: 'number', min: 60, max: 100, step: 5 }} InputProps={{ endAdornment: <InputAdornment position='end'>%</InputAdornment> }} /> della popolazione
             con una media di circa <TextField value={Math.round(doses * 10) / 10} onChange={e => { setDoses(+e.target.value); setRequestedDoses(+e.target.value) }} onBlur={e => handleInputValue(setDoses, +e.target.value, 1, 2)} inputProps={{ type: 'number', min: 1, max: 2, step: 0.1 }} /> dosi a testa
@@ -401,7 +431,8 @@ function App () {
             Per farlo entro <Select value={targetMonth} onChange={e => setTargetMonth(+e.target.value)}>{timeItIT.months.map((m, i) => <MenuItem key={i} value={i}>{m.toLocaleLowerCase()}</MenuItem>)}</Select> <TextField value={targetYear} onChange={e => setTargetYear(+e.target.value)} onBlur={e => handleInputValue(setTargetYear, +e.target.value, (new Date()).getFullYear(), 2030)} inputProps={{ type: 'number', min: (new Date()).getFullYear(), max: 2030, step: 1 }} /> {avgAdministrationsLastDays > targetAvgAdministrationsPerDay ? 'basterebbe' : 'bisognerebbe'} somministrare una media di <em>{fmtInt(targetAvgAdministrationsPerDay)}</em> dosi al giorno.
           </Grid>
           <Grid item className='mainText'>
-            Attualmente le persone vaccinate sono <em>{fmtInt(vaccinatedPeople)}</em> ({!!vaccinatedPeople1 && <><em>{fmtInt(vaccinatedPeople2)}</em> con doppia dose e <em>{fmtInt(vaccinatedPeople1)}</em> monodose, </>}una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari al <em>{fmtPerc(vaccinatedPeople / populationPerArea)}</em> della popolazione complessiva e al <em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale.
+            Attualmente le persone vaccinate sono <em>{fmtInt(vaccinatedPeople)}</em> ({!!vaccinatedPeople1 && <><em>{fmtInt(vaccinatedPeople2)}</em> con doppia dose e <em>{fmtInt(vaccinatedPeople1)}</em> monodose, </>}una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari {formatNumberArticleA(vaccinatedPeople / populationPerArea * 100)}<em>{fmtPerc(vaccinatedPeople / populationPerArea)}</em> della popolazione complessiva e {formatNumberArticleA(vaccinatedPeople / (populationFraction * populationPerArea) * 100)}<em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale.
+            Di queste però <em>{fmtInt(oldVaccinatedPeople)}</em> persone ({formatNumberArticle(oldVaccinatedPeople / vaccinatedPeople * 100)}<em>{fmtPerc(oldVaccinatedPeople / vaccinatedPeople)}</em>) sono state vaccinate più di <TextField value={protectionDuration} onChange={e => { setProtectionDuration(+e.target.value) }} onBlur={e => handleInputValue(setProtectionDuration, +e.target.value, 3, monthsFromFirstAdministrationDate)} inputProps={{ type: 'number', min: 3, max: monthsFromFirstAdministrationDate, step: 1 }} /> mesi fa.
           </Grid>
           {
             area === 'ITA'
