@@ -393,8 +393,8 @@ function App () {
 
   // Compute remaining days and administrations for next milestone
   useEffect(() => {
-    setNextMilestoneRemainingDays((new Date(nextMilestone.endDate) - new Date()) / (1000 * 60 * 60 * 24))
-    setNextMilestoneRemainingAdministrations((doses * nextMilestone.total) - administrations)
+    setNextMilestoneRemainingDays((new Date(nextMilestone?.endDate) - new Date()) / (1000 * 60 * 60 * 24))
+    setNextMilestoneRemainingAdministrations((doses * nextMilestone?.total) - administrations)
   }, [doses, nextMilestone, administrations])
 
   // Compute requested average rate of administrations to reach next milestone
@@ -440,12 +440,12 @@ function App () {
                   nextMilestoneTargetAvgAdministrationsPerDay < avgAdministrationsLastDays
                     ? (
                       <Grid item className='mainText'>
-                        Il ritmo attuale è in linea con il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em>.
+                        Il ritmo attuale è in linea con il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone?.total)}</em> persone ({nextMilestone?.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone?.endDate))}</em>.
                       </Grid>
                       )
                     : (
                       <Grid item className='mainText'>
-                        Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone.total)}</em> persone ({nextMilestone.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone.endDate))}</em> (fonte: <a href={nextMilestone?.source?.url} target='_blank' rel='noreferrer'>{nextMilestone?.source?.name}</a>).
+                        Il ritmo attuale dovrebbe aumentare del <em>{fmtPerc((nextMilestoneTargetAvgAdministrationsPerDay - avgAdministrationsLastDays) / nextMilestoneTargetAvgAdministrationsPerDay)}</em> per raggiungere il prossimo obiettivo di vaccinare <em>{fmtInt(nextMilestone?.total)}</em> persone ({nextMilestone?.people?.map(p => p.type).join(', ')}) entro <em>{fmtMonthYear(new Date(nextMilestone?.endDate))}</em> (fonte: <a href={nextMilestone?.source?.url} target='_blank' rel='noreferrer'>{nextMilestone?.source?.name}</a>).
                       </Grid>
                       )
                 )
