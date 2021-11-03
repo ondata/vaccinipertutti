@@ -435,7 +435,7 @@ function App () {
             Di queste però <em>{fmtInt(oldVaccinatedPeople)}</em> persone ({formatNumberArticle(oldVaccinatedPeople / vaccinatedPeople * 100)}<em>{fmtPerc(oldVaccinatedPeople / vaccinatedPeople)}</em>) sono state vaccinate più di <TextField value={protectionDuration} onChange={e => { setProtectionDuration(+e.target.value) }} onBlur={e => handleInputValue(setProtectionDuration, +e.target.value, 3, monthsFromFirstAdministrationDate)} inputProps={{ type: 'number', min: 3, max: monthsFromFirstAdministrationDate, step: 1 }} /> mesi fa.
           </Grid>
           {
-            area === 'ITA'
+            area === 'ITA' && nextMilestone
               ? (
                   nextMilestoneTargetAvgAdministrationsPerDay < avgAdministrationsLastDays
                     ? (
