@@ -6,7 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "d3-array": "^3.0.2",
+    "d3-array": "^3.1.1",
     "d3-format": "^3.0.1",
     "d3-time-format": "^4.0.0",
     "dayjs": "^1.10.7",
@@ -17,7 +17,7 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "use-query-params": "^1.2.3",
-    "web-vitals": "^2.1.0"
+    "web-vitals": "^2.1.2"
   },
   "scripts": {
     "start": "PUBLIC_URL=/vaccinipertutti-data/ react-scripts start",
@@ -46,10 +46,10 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "gh-pages": "^3.2.3",
-    "standard": "^16.0.3"
+    "standard": "^16.0.4"
   }
 }
