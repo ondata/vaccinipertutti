@@ -6,6 +6,10 @@ Si tratta di un progetto dell'associazione [onData APS](https://ondata.it) nell'
 
 [![alt text](https://github.com/ondata/vaccinipertutti/blob/main/public/card.png?raw=true)](https://ondata.github.io/vaccinipertutti/)
 
+> Nota bene: non sono prese in considerazioni le dosi booster.
+
+> AGGIORNAMENTO: con il raggiungimento dell'obiettivo di copertura vaccinale al 31 gennaio 2022 (4 mesi dopo il termine previsto dal [piano vaccinale](https://www.governo.it/sites/governo.it/files/210313_Piano_Vaccinale_marzo_2021.pdf) del 13 marzo 2021) è cambiato il valore di default dell'obiettivo di copertura vaccinale dall'80% al 90% al 30 giugno 2022.
+
 > AGGIORNAMENTO: con la pubblicazione del [nuovo piano vaccinale](https://www.governo.it/sites/governo.it/files/210313_Piano_Vaccinale_marzo_2021.pdf) (13 marzo 2021) è cambiato il valore di default dell'obiettivo di copertura vaccinale dal 70% all'80% (pag. 9).
 
 > AGGIORNAMENTO: con la pubblicazione del [nuovo piano vaccinale](https://www.governo.it/sites/governo.it/files/210313_Piano_Vaccinale_marzo_2021.pdf) (13 marzo 2021) sono cambiati gli obiettivi nazionali intermedi (pag. 20), vedi anche [issue #23](https://github.com/ondata/vaccinipertutti/issues/23).

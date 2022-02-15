@@ -75,7 +75,7 @@ function App () {
   // Population per area
   const [populationPerArea, setPopulationPerArea] = useState(6e7)
   // Population fraction to be vaccinated (final goal)
-  const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.8))
+  const [populationFraction, setPopulationFraction] = useQueryParam('populationFraction', withDefault(NumberParam, 0.9))
 
   // All available area
   const [areas, setAreas] = useState([])
@@ -118,7 +118,7 @@ function App () {
   // Average rate of vaccinations in last days
   const [avgVaccinatedPeopleLastDays, setAvgVaccinatedPeopleLastDays] = useState(0)
   // Selected final goal month
-  const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 8))
+  const [targetMonth, setTargetMonth] = useQueryParam('targetMonth', withDefault(NumberParam, 5))
   // Selected final goal year
   const [targetYear, setTargetYear] = useQueryParam('targetYear', withDefault(NumberParam, (new Date()).getFullYear()))
   // Selected final goal date
@@ -432,7 +432,6 @@ function App () {
           </Grid>
           <Grid item className='mainText'>
             Attualmente le persone vaccinate sono <em>{fmtInt(vaccinatedPeople)}</em> ({!!vaccinatedPeople1 && <><em>{fmtInt(vaccinatedPeople2)}</em> con doppia dose e <em>{fmtInt(vaccinatedPeople1)}</em> monodose, </>}una media di <em>{fmtInt(avgVaccinatedPeopleLastDays)}</em> al giorno), pari {formatNumberArticleA(vaccinatedPeople / populationPerArea * 100)}<em>{fmtPerc(vaccinatedPeople / populationPerArea)}</em> della popolazione complessiva e {formatNumberArticleA(vaccinatedPeople / (populationFraction * populationPerArea) * 100)}<em>{fmtPerc(vaccinatedPeople / (populationFraction * populationPerArea))}</em> dell'obiettivo di copertura vaccinale.
-            Di queste però <em>{fmtInt(oldVaccinatedPeople)}</em> persone ({formatNumberArticle(oldVaccinatedPeople / vaccinatedPeople * 100)}<em>{fmtPerc(oldVaccinatedPeople / vaccinatedPeople)}</em>) sono state vaccinate più di <TextField value={protectionDuration} onChange={e => { setProtectionDuration(+e.target.value) }} onBlur={e => handleInputValue(setProtectionDuration, +e.target.value, 3, monthsFromFirstAdministrationDate)} inputProps={{ type: 'number', min: 3, max: monthsFromFirstAdministrationDate, step: 1 }} /> mesi fa.
           </Grid>
           {
             area === 'ITA' && nextMilestone
