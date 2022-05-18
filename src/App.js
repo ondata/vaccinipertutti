@@ -207,29 +207,29 @@ function App () {
         .then(res => res.data)
         .then(data => {
           setDeliveredAdministrations(sum(data, d => d.numero_dosi))
-          setDeliveredAdministrations1(sum(filter(data, d => singleAdministrationVaccines.includes(d.fornitore)), d => d.numero_dosi))
-          // setDeliveredAdministrations2(sum(filter(data, d => !singleAdministrationVaccines.includes(d.fornitore)), d => d.numero_dosi))
+          setDeliveredAdministrations1(sum(filter(data, d => singleAdministrationVaccines.includes(d.fornitore ?? d.forn)), d => d.numero_dosi))
+          // setDeliveredAdministrations2(sum(filter(data, d => !singleAdministrationVaccines.includes(d.fornitore ?? d.forn)), d => d.numero_dosi))
         }),
       window.fetch('../vaccinipertutti-data/somministrazioni-vaccini-latest.json')
         .then(res => res.json())
         .then(res => res.data)
         .then(data => data.filter(d => d.area !== 'ITA'))
-        .then(data => data.sort((a, b) => descending(a.data_somministrazione, b.data_somministrazione)))
+        .then(data => data.sort((a, b) => descending(a.data_somministrazione ?? a.data, b.data_somministrazione ?? b.data)))
         .then(data => {
           setIndexedData({
             ITA: Array
-              .from(group(data, d => d.data_somministrazione).values())
+              .from(group(data, d => d.data_somministrazione ?? d.data).values())
               .map(d => d.reduce(
                 (o, v) => ({
                   area: 'ITA',
                   nome_area: 'Italia',
-                  data_somministrazione: v.data_somministrazione,
-                  totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose + (v.pregressa_infezione ?? 0))),
-                  prima_dose: (o.prima_dose ?? 0) + v.prima_dose + (v.pregressa_infezione ?? 0),
-                  seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + (v.pregressa_infezione ?? 0),
-                  vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                  vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + (v.pregressa_infezione ?? 0) + v.seconda_dose
+                  data_somministrazione: v.data_somministrazione ?? v.data,
+                  totale: (o.totale ?? 0) + (v.totale ?? ((v.prima_dose ?? v.d1) + (v.seconda_dose ?? v.d2) + (v.pregressa_infezione ?? v.dpi ?? 0))),
+                  prima_dose: (o.prima_dose ?? 0) + (v.prima_dose ?? v.d1) + (v.pregressa_infezione ?? v.dpi ?? 0),
+                  seconda_dose: (o.seconda_dose ?? 0) + (v.seconda_dose ?? v.d2),
+                  vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore ?? v.forn) ? (v.prima_dose ?? v.d1) : 0) + (v.pregressa_infezione ?? v.dpi ?? 0),
+                  vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + (v.seconda_dose ?? v.d2),
+                  vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore ?? v.forn) ? (v.prima_dose ?? v.d1) : 0) + (v.pregressa_infezione ?? v.dpi ?? 0) + (v.seconda_dose ?? v.d2)
                 }),
                 {})
               ),
@@ -263,18 +263,18 @@ function App () {
               ? indexedData[area]
               : (
                   Array
-                    .from(group(indexedData[area], d => d.data_somministrazione).values())
+                    .from(group(indexedData[area], d => d.data_somministrazione ?? d.data).values())
                     .map(d => d.reduce(
                       (o, v) => ({
                         area: v.area,
-                        nome_area: v.nome_area,
-                        data_somministrazione: v.data_somministrazione,
-                        totale: (o.totale ?? 0) + (v.totale || (v.prima_dose + v.seconda_dose + (v.pregressa_infezione ?? 0))),
-                        prima_dose: (o.prima_dose ?? 0) + v.prima_dose + (v.pregressa_infezione ?? 0),
-                        seconda_dose: (o.seconda_dose ?? 0) + v.seconda_dose,
-                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + (v.pregressa_infezione ?? 0),
-                        vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + v.seconda_dose,
-                        vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore) ? v.prima_dose : 0) + (v.pregressa_infezione ?? 0) + v.seconda_dose
+                        nome_area: v.nome_area ?? v.reg,
+                        data_somministrazione: v.data_somministrazione ?? v.data,
+                        totale: (o.totale ?? 0) + (v.totale ?? ((v.prima_dose ?? v.d1) + (v.seconda_dose ?? v.d2) + (v.pregressa_infezione ?? v.dpi ?? 0))),
+                        prima_dose: (o.prima_dose ?? 0) + (v.prima_dose ?? v.d1) + (v.pregressa_infezione ?? v.dpi ?? 0),
+                        seconda_dose: (o.seconda_dose ?? 0) + (v.seconda_dose ?? v.d2),
+                        vaccinati_monodose: (o.vaccinati_monodose ?? 0) + (singleAdministrationVaccines.includes(v.fornitore ?? v.forn) ? (v.prima_dose ?? v.d1) : 0) + (v.pregressa_infezione ?? v.dpi ?? 0),
+                        vaccinati_doppiadose: (o.vaccinati_doppiadose ?? 0) + (v.seconda_dose ?? v.d2),
+                        vaccinati: (o.vaccinati ?? 0) + (singleAdministrationVaccines.includes(v.fornitore ?? v.forn) ? (v.prima_dose ?? v.d1) : 0) + (v.pregressa_infezione ?? v.dpi ?? 0) + (v.seconda_dose ?? v.d2)
                       }),
                       {})
                     )
@@ -305,7 +305,7 @@ function App () {
       rollups(
         dataPerArea,
         v => sum(v, d => d.totale),
-        d => fmtISODate(new Date(d.data_somministrazione))
+        d => fmtISODate(new Date(d.data_somministrazione ?? d.data))
       )
     )
 
@@ -314,7 +314,7 @@ function App () {
       rollups(
         dataPerArea,
         v => sum(v, d => d.vaccinati),
-        d => fmtISODate(new Date(d.data_somministrazione))
+        d => fmtISODate(new Date(d.data_somministrazione ?? d.data))
       )
     )
 
@@ -344,7 +344,7 @@ function App () {
     const oldVaccinationDate = dayjs().subtract(protectionDuration, 'month')
     setOldVaccinatedPeople(
       sum(
-        filter(dataPerArea, d => dayjs(d.data_somministrazione).isBefore(oldVaccinationDate)),
+        filter(dataPerArea, d => dayjs(d.data_somministrazione ?? d.data).isBefore(oldVaccinationDate)),
         d => d.vaccinati
       )
     )
